@@ -16,11 +16,11 @@
 	--enable-pthreads --disable-w32threads --disable-ass-internal \
 	--disable-ass --disable-rpath \
 	\
-	--enable-gif --enable-png --enable-mng --enable-jpeg \
+	--disable-gif --disable-png --disable-mng --disable-jpeg \
 	\
 	--disable-vidix --disable-vidix-pcidb --disable-dhahelper \
 	--disable-svgalib_helper --disable-gl --disable-matrixview \
-	--disable-dga2 --disable-dga1 --enable-vesa --disable-svga \
+	--disable-dga2 --disable-dga1 --disable-vesa --disable-svga \
 	--disable-sdl --disable-kva --disable-aa --disable-caca \
 	--disable-ggi --disable-ggiwmh --disable-direct3d --disable-directx \
 	--disable-dxr2 --disable-dxr3 --disable-ivtv --disable-v4l2 --disable-dvb \

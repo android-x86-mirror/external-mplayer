@@ -31,7 +31,7 @@
 
 
 
-#define CONFIGURATION "--disable-mencoder --enable-mplayer --disable-gui --disable-gtk1 --disable-termcap --disable-termios --disable-iconv --disable-langinfo --disable-lirc --disable-lircc --disable-joystick --disable-apple-remote --disable-apple-ir --disable-vm --disable-xf86keysym --disable-radio --disable-radio-capture --disable-radio-v4l2 --disable-radio-bsdbt848 --disable-tv --disable-tv-v4l1 --disable-tv-v4l2 --disable-tv-bsdbt848 --disable-pvr --disable-rtc --disable-network --disable-winsock2_h --disable-smb --disable-live --disable-nemesi --disable-librtmp --disable-vcd --disable-dvdnav --disable-dvdread --disable-dvdread-internal --disable-libdvdcss-internal --disable-cdparanoia --disable-cddb --disable-bitmap-font --disable-freetype --disable-fontconfig --disable-unrarexec --disable-menu --disable-sortsub --disable-fribidi --disable-maemo --disable-macosx-finder --disable-macosx-bundle --enable-inet6 --disable-gethostbyname2 --disable-ftp --disable-vstream --enable-pthreads --disable-w32threads --disable-ass-internal --disable-ass --disable-rpath --enable-gif --enable-png --enable-mng --enable-jpeg --disable-vidix --disable-vidix-pcidb --disable-dhahelper --disable-svgalib_helper --disable-gl --disable-matrixview --disable-dga2 --disable-dga1 --enable-vesa --disable-svga --disable-sdl --disable-kva --disable-aa --disable-caca --disable-ggi --disable-ggiwmh --disable-direct3d --disable-directx --disable-dxr2 --disable-dxr3 --disable-ivtv --disable-v4l2 --disable-dvb --disable-mga --disable-xmga --disable-xv --disable-xvmc --disable-vdpau --disable-vm --disable-xinerama --disable-x11 --disable-xshape --disable-xss --enable-fbdev --disable-mlib --disable-3dfx --disable-wii --enable-directfb --disable-zr --disable-bl --disable-tdfxvid --disable-xvr100 --disable-tga --disable-pnm --disable-md5sum --disable-yuv4mpeg --disable-corevideo --disable-quartz --enable-alsa --disable-ossaudio --disable-arts --disable-esd --disable-pulse --disable-jack --disable-openal --disable-nas --disable-sgiaudio --disable-sunaudio --disable-kai --disable-dart --disable-win32waveout --disable-coreaudio --enable-select --disable-runtime-cpudetection --enable-cross-compile --enable-mmx --disable-mmxext --disable-3dnow --disable-3dnowext --enable-sse --enable-sse2 --enable-ssse3 --disable-shm --disable-altivec --disable-armv5te --disable-armv6 --disable-armv6t2 --disable-armvfp --disable-neon --disable-iwmmxt --enable-fastmemcpy --disable-hardcoded-tables --disable-debug --disable-profile --disable-sighandler --disable-crash-debug --disable-dynamic-plugins"
+#define CONFIGURATION "--disable-mencoder --enable-mplayer --disable-gui --disable-gtk1 --disable-termcap --disable-termios --disable-iconv --disable-langinfo --disable-lirc --disable-lircc --disable-joystick --disable-apple-remote --disable-apple-ir --disable-vm --disable-xf86keysym --disable-radio --disable-radio-capture --disable-radio-v4l2 --disable-radio-bsdbt848 --disable-tv --disable-tv-v4l1 --disable-tv-v4l2 --disable-tv-bsdbt848 --disable-pvr --disable-rtc --disable-network --disable-winsock2_h --disable-smb --disable-live --disable-nemesi --disable-librtmp --disable-vcd --disable-dvdnav --disable-dvdread --disable-dvdread-internal --disable-libdvdcss-internal --disable-cdparanoia --disable-cddb --disable-bitmap-font --disable-freetype --disable-fontconfig --disable-unrarexec --disable-menu --disable-sortsub --disable-fribidi --disable-maemo --disable-macosx-finder --disable-macosx-bundle --enable-inet6 --disable-gethostbyname2 --disable-ftp --disable-vstream --enable-pthreads --disable-w32threads --disable-ass-internal --disable-ass --disable-rpath --disable-gif --disable-png --disable-mng --disable-jpeg --disable-vidix --disable-vidix-pcidb --disable-dhahelper --disable-svgalib_helper --disable-gl --disable-matrixview --disable-dga2 --disable-dga1 --disable-vesa --disable-svga --disable-sdl --disable-kva --disable-aa --disable-caca --disable-ggi --disable-ggiwmh --disable-direct3d --disable-directx --disable-dxr2 --disable-dxr3 --disable-ivtv --disable-v4l2 --disable-dvb --disable-mga --disable-xmga --disable-xv --disable-xvmc --disable-vdpau --disable-vm --disable-xinerama --disable-x11 --disable-xshape --disable-xss --enable-fbdev --disable-mlib --disable-3dfx --disable-wii --enable-directfb --disable-zr --disable-bl --disable-tdfxvid --disable-xvr100 --disable-tga --disable-pnm --disable-md5sum --disable-yuv4mpeg --disable-corevideo --disable-quartz --enable-alsa --disable-ossaudio --disable-arts --disable-esd --disable-pulse --disable-jack --disable-openal --disable-nas --disable-sgiaudio --disable-sunaudio --disable-kai --disable-dart --disable-win32waveout --disable-coreaudio --enable-select --disable-runtime-cpudetection --enable-cross-compile --enable-mmx --disable-mmxext --disable-3dnow --disable-3dnowext --enable-sse --enable-sse2 --enable-ssse3 --disable-shm --disable-altivec --disable-armv5te --disable-armv6 --disable-armv6t2 --disable-armvfp --disable-neon --disable-iwmmxt --enable-fastmemcpy --disable-hardcoded-tables --disable-debug --disable-profile --disable-sighandler --disable-crash-debug --disable-dynamic-plugins"
 
 #define MPLAYER_DATADIR "/usr/local/share/mplayer"
 #define MPLAYER_CONFDIR "/usr/local/etc/mplayer"
@@ -64,7 +64,7 @@
 
 /* system headers */
 #define HAVE_ALLOCA_H 1
-#undef HAVE_ALSA_ASOUNDLIB_H
+#define HAVE_ALSA_ASOUNDLIB_H 1
 #define HAVE_ALTIVEC_H 0
 #define HAVE_MALLOC_H 1
 #define HAVE_SYS_MMAN_H 1
@@ -230,7 +230,7 @@
 #define CONFIG_OGGVORBIS 1
 #undef CONFIG_X264
 #undef CONFIG_XVID4
-#define CONFIG_ZLIB 0
+#define CONFIG_ZLIB 1
 
 #undef CONFIG_LIBNUT
 
@@ -254,8 +254,8 @@
 
 
 /* Audio output drivers */
-#undef CONFIG_ALSA
-#undef CONFIG_ALSA1X
+#define CONFIG_ALSA 1
+#define CONFIG_ALSA1X 1
 #undef CONFIG_ALSA5
 #undef CONFIG_ALSA9
 
@@ -353,21 +353,21 @@
 #define CONFIG_FBDEV 1
 #undef CONFIG_GGI
 #undef CONFIG_GGIWMH
-#define CONFIG_GIF 1
+#undef CONFIG_GIF
 #undef CONFIG_GIF_4
-#define CONFIG_GIF_TVT_HACK 1
+
 #undef CONFIG_GL
 #undef CONFIG_GL_WIN32
 #undef CONFIG_GL_X11
 #undef CONFIG_GL_SDL
 #undef CONFIG_MATRIXVIEW
 #undef CONFIG_IVTV
-#define CONFIG_JPEG 1
+#undef CONFIG_JPEG
 
 #undef CONFIG_MD5SUM
 #undef CONFIG_MGA
-#define CONFIG_MNG 1
-#define CONFIG_PNG 1
+#undef CONFIG_MNG
+#undef CONFIG_PNG
 #undef CONFIG_PNM
 
 #undef CONFIG_S3FB
@@ -379,7 +379,7 @@
 #undef CONFIG_TGA
 #undef CONFIG_V4L2_DECODER
 #define CONFIG_VDPAU 0
-#define CONFIG_VESA 1
+#undef CONFIG_VESA
 #undef CONFIG_VIDIX
 #undef CONFIG_VIDIX_DRV_CYBERBLADE
 #undef CONFIG_VIDIX_DRV_IVTV
@@ -549,7 +549,7 @@
 #define CONFIG_DPX_DECODER 1
 #define CONFIG_DSICINVIDEO_DECODER 1
 #define CONFIG_DVVIDEO_DECODER 1
-#define CONFIG_DXA_DECODER 0
+#define CONFIG_DXA_DECODER 1
 #define CONFIG_EACMV_DECODER 1
 #define CONFIG_EAMAD_DECODER 1
 #define CONFIG_EATGQ_DECODER 1
@@ -561,7 +561,7 @@
 #define CONFIG_ESCAPE124_DECODER 1
 #define CONFIG_FFV1_DECODER 1
 #define CONFIG_FFVHUFF_DECODER 1
-#define CONFIG_FLASHSV_DECODER 0
+#define CONFIG_FLASHSV_DECODER 1
 #define CONFIG_FLIC_DECODER 1
 #define CONFIG_FLV_DECODER 1
 #define CONFIG_FOURXM_DECODER 1
@@ -612,7 +612,7 @@
 #define CONFIG_PGM_DECODER 1
 #define CONFIG_PGMYUV_DECODER 1
 #define CONFIG_PICTOR_DECODER 1
-#define CONFIG_PNG_DECODER 0
+#define CONFIG_PNG_DECODER 1
 #define CONFIG_PPM_DECODER 1
 #define CONFIG_PTX_DECODER 1
 #define CONFIG_QDRAW_DECODER 1
@@ -643,7 +643,7 @@
 #define CONFIG_TMV_DECODER 1
 #define CONFIG_TRUEMOTION1_DECODER 1
 #define CONFIG_TRUEMOTION2_DECODER 1
-#define CONFIG_TSCC_DECODER 0
+#define CONFIG_TSCC_DECODER 1
 #define CONFIG_TXD_DECODER 1
 #define CONFIG_ULTI_DECODER 1
 #define CONFIG_V210_DECODER 1
@@ -669,8 +669,8 @@
 #define CONFIG_XAN_WC3_DECODER 1
 #define CONFIG_XL_DECODER 1
 #define CONFIG_YOP_DECODER 1
-#define CONFIG_ZLIB_DECODER 0
-#define CONFIG_ZMBV_DECODER 0
+#define CONFIG_ZLIB_DECODER 1
+#define CONFIG_ZMBV_DECODER 1
 #define CONFIG_AAC_DECODER 1
 #define CONFIG_AC3_DECODER 1
 #define CONFIG_ALAC_DECODER 1
@@ -821,7 +821,7 @@
 #define CONFIG_PCX_ENCODER 0
 #define CONFIG_PGM_ENCODER 0
 #define CONFIG_PGMYUV_ENCODER 0
-#define CONFIG_PNG_ENCODER 0
+#define CONFIG_PNG_ENCODER 1
 #define CONFIG_PPM_ENCODER 0
 #define CONFIG_QTRLE_ENCODER 0
 #define CONFIG_RAWVIDEO_ENCODER 0

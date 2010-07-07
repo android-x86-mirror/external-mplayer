@@ -191,6 +191,8 @@ no_utf8:
 }
 
 inline static void vo_update_text_osd(mp_osd_obj_t* obj,int dxs,int dys){
+	return ;
+
 	const char *cp=vo_osd_text;
 	int x=20;
 	int h=0;
@@ -300,6 +302,8 @@ static void tt_draw_alpha_buf(mp_osd_obj_t* obj, int x0,int y0, int w,int h, uns
 }
 inline static void vo_update_text_teletext(mp_osd_obj_t *obj, int dxs, int dys)
 {
+	return;
+
     int h=0,w=0,i,j,font,flashon;
     int wm,hm;
     int color;
@@ -529,6 +533,8 @@ int vo_osd_progbar_value=100;   // 0..256
 
 inline static void vo_update_text_progbar(mp_osd_obj_t* obj,int dxs,int dys){
 
+	return;
+
     obj->flags|=OSDFLAG_CHANGED|OSDFLAG_VISIBLE;
 
     if(vo_osd_progbar_type<0 || !vo_font){
@@ -676,6 +682,8 @@ inline static void vo_update_text_sub(mp_osd_obj_t* obj,int dxs,int dys){
    int xmin=dxs,xmax=0;
    int h,lasth;
    int xtblc, utblc;
+
+   return ;
 
    obj->flags|=OSDFLAG_CHANGED|OSDFLAG_VISIBLE;
 

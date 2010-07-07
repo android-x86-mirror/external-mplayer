@@ -1,4 +1,4 @@
-configuration: --disable-mencoder --enable-mplayer --disable-gui --disable-gtk1 --disable-termcap --disable-termios --disable-iconv --disable-langinfo --disable-lirc --disable-lircc --disable-joystick --disable-apple-remote --disable-apple-ir --disable-vm --disable-xf86keysym --disable-radio --disable-radio-capture --disable-radio-v4l2 --disable-radio-bsdbt848 --disable-tv --disable-tv-v4l1 --disable-tv-v4l2 --disable-tv-bsdbt848 --disable-pvr --disable-rtc --disable-network --disable-winsock2_h --disable-smb --disable-live --disable-nemesi --disable-librtmp --disable-vcd --disable-dvdnav --disable-dvdread --disable-dvdread-internal --disable-libdvdcss-internal --disable-cdparanoia --disable-cddb --disable-bitmap-font --disable-freetype --disable-fontconfig --disable-unrarexec --disable-menu --disable-sortsub --disable-fribidi --disable-maemo --disable-macosx-finder --disable-macosx-bundle --enable-inet6 --disable-gethostbyname2 --disable-ftp --disable-vstream --enable-pthreads --disable-w32threads --disable-ass-internal --disable-ass --disable-rpath --enable-gif --enable-png --enable-mng --enable-jpeg --disable-vidix --disable-vidix-pcidb --disable-dhahelper --disable-svgalib_helper --disable-gl --disable-matrixview --disable-dga2 --disable-dga1 --enable-vesa --disable-svga --disable-sdl --disable-kva --disable-aa --disable-caca --disable-ggi --disable-ggiwmh --disable-direct3d --disable-directx --disable-dxr2 --disable-dxr3 --disable-ivtv --disable-v4l2 --disable-dvb --disable-mga --disable-xmga --disable-xv --disable-xvmc --disable-vdpau --disable-vm --disable-xinerama --disable-x11 --disable-xshape --disable-xss --enable-fbdev --disable-mlib --disable-3dfx --disable-wii --enable-directfb --disable-zr --disable-bl --disable-tdfxvid --disable-xvr100 --disable-tga --disable-pnm --disable-md5sum --disable-yuv4mpeg --disable-corevideo --disable-quartz --enable-alsa --disable-ossaudio --disable-arts --disable-esd --disable-pulse --disable-jack --disable-openal --disable-nas --disable-sgiaudio --disable-sunaudio --disable-kai --disable-dart --disable-win32waveout --disable-coreaudio --enable-select --disable-runtime-cpudetection --enable-cross-compile --enable-mmx --disable-mmxext --disable-3dnow --disable-3dnowext --enable-sse --enable-sse2 --enable-ssse3 --disable-shm --disable-altivec --disable-armv5te --disable-armv6 --disable-armv6t2 --disable-armvfp --disable-neon --disable-iwmmxt --enable-fastmemcpy --disable-hardcoded-tables --disable-debug --disable-profile --disable-sighandler --disable-crash-debug --disable-dynamic-plugins
+configuration: --disable-mencoder --enable-mplayer --disable-gui --disable-gtk1 --disable-termcap --disable-termios --disable-iconv --disable-langinfo --disable-lirc --disable-lircc --disable-joystick --disable-apple-remote --disable-apple-ir --disable-vm --disable-xf86keysym --disable-radio --disable-radio-capture --disable-radio-v4l2 --disable-radio-bsdbt848 --disable-tv --disable-tv-v4l1 --disable-tv-v4l2 --disable-tv-bsdbt848 --disable-pvr --disable-rtc --disable-network --disable-winsock2_h --disable-smb --disable-live --disable-nemesi --disable-librtmp --disable-vcd --disable-dvdnav --disable-dvdread --disable-dvdread-internal --disable-libdvdcss-internal --disable-cdparanoia --disable-cddb --disable-bitmap-font --disable-freetype --disable-fontconfig --disable-unrarexec --disable-menu --disable-sortsub --disable-fribidi --disable-maemo --disable-macosx-finder --disable-macosx-bundle --enable-inet6 --disable-gethostbyname2 --disable-ftp --disable-vstream --enable-pthreads --disable-w32threads --disable-ass-internal --disable-ass --disable-rpath --disable-gif --disable-png --disable-mng --disable-jpeg --disable-vidix --disable-vidix-pcidb --disable-dhahelper --disable-svgalib_helper --disable-gl --disable-matrixview --disable-dga2 --disable-dga1 --disable-vesa --disable-svga --disable-sdl --disable-kva --disable-aa --disable-caca --disable-ggi --disable-ggiwmh --disable-direct3d --disable-directx --disable-dxr2 --disable-dxr3 --disable-ivtv --disable-v4l2 --disable-dvb --disable-mga --disable-xmga --disable-xv --disable-xvmc --disable-vdpau --disable-vm --disable-xinerama --disable-x11 --disable-xshape --disable-xss --enable-fbdev --disable-mlib --disable-3dfx --disable-wii --enable-directfb --disable-zr --disable-bl --disable-tdfxvid --disable-xvr100 --disable-tga --disable-pnm --disable-md5sum --disable-yuv4mpeg --disable-corevideo --disable-quartz --enable-alsa --disable-ossaudio --disable-arts --disable-esd --disable-pulse --disable-jack --disable-openal --disable-nas --disable-sgiaudio --disable-sunaudio --disable-kai --disable-dart --disable-win32waveout --disable-coreaudio --enable-select --disable-runtime-cpudetection --enable-cross-compile --enable-mmx --disable-mmxext --disable-3dnow --disable-3dnowext --enable-sse --enable-sse2 --enable-ssse3 --disable-shm --disable-altivec --disable-armv5te --disable-armv6 --disable-armv6t2 --disable-armvfp --disable-neon --disable-iwmmxt --enable-fastmemcpy --disable-hardcoded-tables --disable-debug --disable-profile --disable-sighandler --disable-crash-debug --disable-dynamic-plugins
 
 ============ Checking for cc version ============
 Result is: 4.4.3 
@@ -10,9 +10,9 @@ int main(void) {
     return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c  -I.      -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: error: size of array 'test' is negative
+cc /tmp/mplayer-configure--27343/tmp.c  -I.      -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: error: size of array 'test' is negative
 
 
 ============ Checking for host cc ============
@@ -41,9 +41,9 @@ int main(void) {
   __asm__ volatile ("cmovb %%eax,%%ebx":::"memory"); return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c  -I.      -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:5: warning: passing argument 2 of 'signal' from incompatible pointer type
+cc /tmp/mplayer-configure--27343/tmp.c  -I.      -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:5: warning: passing argument 2 of 'signal' from incompatible pointer type
 /usr/include/signal.h:101: note: expected '__sighandler_t' but argument is of type 'void (*)(void)'
 
 
@@ -58,7 +58,7 @@ Result is: yes
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c  -I.      -o /tmp/mplayer-configure--19193/tmp -march=native
+cc /tmp/mplayer-configure--27343/tmp.c  -I.      -o /tmp/mplayer-configure--27343/tmp -march=native
 
 
 Result is: native 
@@ -70,7 +70,7 @@ short ascii_name[] = { (('M'<<8)|'P'),(('l'<<8)|'a'),(('y'<<8)|'e'),(('r'<<8)|'B
                        (('i'<<8)|'g'),(('E'<<8)|'n'),(('d'<<8)|'i'),(('a'<<8)|'n'),0};
 int main(void) { return (int)ascii_name; }
 
-cc /tmp/mplayer-configure--19193/tmp.c  -I.      -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c  -I.      -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: little-endian 
@@ -80,7 +80,7 @@ Result is: little-endian
 
 int ff_extern;
 
-cc /tmp/mplayer-configure--19193/tmp.c  -I.      -o /tmp/mplayer-configure--19193/tmp -c
+cc /tmp/mplayer-configure--27343/tmp.c  -I.      -o /tmp/mplayer-configure--27343/tmp -c
 
 
 Result is:  
@@ -90,7 +90,7 @@ Result is:
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c  -I.      -o /tmp/mplayer-configure--19193/tmp -pipe -I.
+cc /tmp/mplayer-configure--27343/tmp.c  -I.      -o /tmp/mplayer-configure--27343/tmp -pipe -I.
 
 
 Result is: yes 
@@ -103,55 +103,55 @@ Result is: yes
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -std=gnu99
+cc /tmp/mplayer-configure--27343/tmp.c -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -std=gnu99
 
 
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -Wdeclaration-after-statement
+cc /tmp/mplayer-configure--27343/tmp.c -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -Wdeclaration-after-statement
 
 
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -Wno-pointer-sign
+cc /tmp/mplayer-configure--27343/tmp.c -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -Wno-pointer-sign
 
 
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -Wdisabled-optimization
+cc /tmp/mplayer-configure--27343/tmp.c -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -Wdisabled-optimization
 
 
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -Wundef
+cc /tmp/mplayer-configure--27343/tmp.c -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -Wundef
 
 
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -Wmissing-prototypes
+cc /tmp/mplayer-configure--27343/tmp.c -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -Wmissing-prototypes
 
 
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -Wstrict-prototypes
+cc /tmp/mplayer-configure--27343/tmp.c -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -Wstrict-prototypes
 
 
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -mno-omit-leaf-frame-pointer
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -mno-omit-leaf-frame-pointer
 
 
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -MD -MP
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -MD -MP
 
 
 ============ Checking for assembler (as ) ============
@@ -162,9 +162,9 @@ Result is: ok
 
 int main(void) { __asm__ (".align 3"); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: Assembler messages:
-/tmp/mplayer-configure--19193/tmp.c:1: Error: alignment not a power of 2
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: Assembler messages:
+/tmp/mplayer-configure--27343/tmp.c:1: Error: alignment not a power of 2
 
 
 Result is: no 
@@ -181,7 +181,7 @@ int main(void) {
     return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -202,7 +202,7 @@ int main(void) {
     return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -217,8 +217,8 @@ int main(void) {
     return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c:3:2: error: #error PIC not enabled
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c:3:2: error: #error PIC not enabled
 
 
 Result is: no 
@@ -228,7 +228,7 @@ Result is: no
 
 pabsw xmm0, xmm0
 
-yasm -f elf -o /tmp/mplayer-configure--19193/tmp /tmp/mplayer-configure--19193/tmp.S 
+yasm -f elf -o /tmp/mplayer-configure--27343/tmp /tmp/mplayer-configure--27343/tmp.S 
 ./configure: 2725: yasm: not found
 
 
@@ -247,7 +247,7 @@ Result is: 2.6.32-23-generic, ok
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -lposix
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -lposix
 /usr/bin/ld: cannot find -lposix
 collect2: ld returned 1 exit status
 
@@ -259,7 +259,7 @@ Result is: no
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -lm
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -lm
 
 
 Result is: yes 
@@ -285,7 +285,7 @@ Result is: no
 
 void foo(char * restrict p); int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: restrict 
@@ -299,8 +299,8 @@ int foo(int a) {
 }
 int main(void) { return foo(10) && foo(0); }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c:1: warning: no previous prototype for 'foo'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c:1: warning: no previous prototype for 'foo'
 
 
 Result is: yes 
@@ -311,11 +311,11 @@ Result is: yes
 #include <kstat.h>
 int main(void) { (void) kstat_open(); (void) kstat_close(0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -lkstat
-/tmp/mplayer-configure--19193/tmp.c:1:19: error: kstat.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'kstat_open'
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'kstat_close'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -lkstat
+/tmp/mplayer-configure--27343/tmp.c:1:19: error: kstat.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'kstat_open'
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'kstat_close'
 
 
 Result is: no 
@@ -326,7 +326,7 @@ Result is: no
 #include <time.h>
 int main(void) { (void) nanosleep(0, 0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -lposix4
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -lposix4
 /usr/bin/ld: cannot find -lposix4
 collect2: ld returned 1 exit status
 
@@ -339,9 +339,9 @@ Result is: no
 #include <math.h>
 int main(void) { long (*foo)(float); foo = exp2; (void)(*foo)(0.0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -D_ISOC99_SOURCE -lm
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: assignment from incompatible pointer type
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -D_ISOC99_SOURCE -lm
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: assignment from incompatible pointer type
 
 
 Result is: yes 
@@ -352,9 +352,9 @@ Result is: yes
 #include <math.h>
 int main(void) { long (*foo)(float); foo = exp2f; (void)(*foo)(0.0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -D_ISOC99_SOURCE -lm
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: assignment from incompatible pointer type
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -D_ISOC99_SOURCE -lm
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: assignment from incompatible pointer type
 
 
 Result is: yes 
@@ -365,9 +365,9 @@ Result is: yes
 #include <math.h>
 int main(void) { long (*foo)(float); foo = llrint; (void)(*foo)(0.0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -D_ISOC99_SOURCE -lm
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: assignment from incompatible pointer type
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -D_ISOC99_SOURCE -lm
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: assignment from incompatible pointer type
 
 
 Result is: yes 
@@ -378,9 +378,9 @@ Result is: yes
 #include <math.h>
 int main(void) { long (*foo)(float); foo = llrintf; (void)(*foo)(0.0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -D_ISOC99_SOURCE -lm
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: assignment from incompatible pointer type
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -D_ISOC99_SOURCE -lm
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: assignment from incompatible pointer type
 
 
 Result is: yes 
@@ -391,9 +391,9 @@ Result is: yes
 #include <math.h>
 int main(void) { long (*foo)(float); foo = log2; (void)(*foo)(0.0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -D_ISOC99_SOURCE -lm
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: assignment from incompatible pointer type
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -D_ISOC99_SOURCE -lm
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: assignment from incompatible pointer type
 
 
 Result is: yes 
@@ -404,9 +404,9 @@ Result is: yes
 #include <math.h>
 int main(void) { long (*foo)(float); foo = log2f; (void)(*foo)(0.0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -D_ISOC99_SOURCE -lm
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: assignment from incompatible pointer type
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -D_ISOC99_SOURCE -lm
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: assignment from incompatible pointer type
 
 
 Result is: yes 
@@ -417,9 +417,9 @@ Result is: yes
 #include <math.h>
 int main(void) { long (*foo)(float); foo = lrint; (void)(*foo)(0.0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -D_ISOC99_SOURCE -lm
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: assignment from incompatible pointer type
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -D_ISOC99_SOURCE -lm
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: assignment from incompatible pointer type
 
 
 Result is: yes 
@@ -430,7 +430,7 @@ Result is: yes
 #include <math.h>
 int main(void) { long (*foo)(float); foo = lrintf; (void)(*foo)(0.0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -D_ISOC99_SOURCE -lm
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -D_ISOC99_SOURCE -lm
 
 
 Result is: yes 
@@ -441,9 +441,9 @@ Result is: yes
 #include <math.h>
 int main(void) { long (*foo)(float); foo = round; (void)(*foo)(0.0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -D_ISOC99_SOURCE -lm
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: assignment from incompatible pointer type
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -D_ISOC99_SOURCE -lm
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: assignment from incompatible pointer type
 
 
 Result is: yes 
@@ -454,9 +454,9 @@ Result is: yes
 #include <math.h>
 int main(void) { long (*foo)(float); foo = roundf; (void)(*foo)(0.0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -D_ISOC99_SOURCE -lm
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: assignment from incompatible pointer type
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -D_ISOC99_SOURCE -lm
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: assignment from incompatible pointer type
 
 
 Result is: yes 
@@ -467,9 +467,9 @@ Result is: yes
 #include <math.h>
 int main(void) { long (*foo)(float); foo = truncf; (void)(*foo)(0.0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -D_ISOC99_SOURCE -lm
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: assignment from incompatible pointer type
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -D_ISOC99_SOURCE -lm
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: assignment from incompatible pointer type
 
 
 Result is: yes 
@@ -480,9 +480,9 @@ Result is: yes
 #include <stdlib.h>
 int main(void) { char a;  mkstemp(&a); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: ignoring return value of 'mkstemp', declared with attribute warn_unused_result
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: ignoring return value of 'mkstemp', declared with attribute warn_unused_result
 
 
 Result is: yes 
@@ -493,7 +493,7 @@ Result is: yes
 #include <time.h>
 int main(void) { (void) nanosleep(0, 0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -505,7 +505,7 @@ Result is: yes
 #include <sys/socket.h>
 int main(void) { (void) gethostbyname(0); (void) socket(AF_INET, SOCK_STREAM, 0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -523,9 +523,9 @@ Result is: yes
 #endif
 int main(void) { struct addrinfo ai; return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -DHAVE_WINSOCK2_H=0
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:9: warning: unused variable 'ai'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -DHAVE_WINSOCK2_H=0
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:9: warning: unused variable 'ai'
 
 
 Result is: yes 
@@ -542,7 +542,7 @@ Result is: yes
 #endif
 int main(void) { (void) getaddrinfo(0, 0, 0, 0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -DHAVE_WINSOCK2_H=0
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -DHAVE_WINSOCK2_H=0
 
 
 Result is: yes 
@@ -557,9 +557,9 @@ Result is: yes
 #endif
 int main(void) { struct sockaddr_storage sas; return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -DHAVE_WINSOCK2_H=0
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: warning: unused variable 'sas'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -DHAVE_WINSOCK2_H=0
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: warning: unused variable 'sas'
 
 
 Result is: yes 
@@ -570,9 +570,9 @@ Result is: yes
 #include <netinet/in.h>
 int main(void) { struct ipv6_mreq mreq6; return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: unused variable 'mreq6'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: unused variable 'mreq6'
 
 
 Result is: yes 
@@ -583,9 +583,9 @@ Result is: yes
 #include <netinet/in.h>
 int main(void) { struct sockaddr_in6 addr; return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: unused variable 'addr'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: unused variable 'addr'
 
 
 Result is: yes 
@@ -601,10 +601,10 @@ Result is: yes
 #endif
 int main(void) { const void *p = &((struct sockaddr *)0)->sa_len; return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -DHAVE_WINSOCK2_H=0
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:7: error: 'struct sockaddr' has no member named 'sa_len'
-/tmp/mplayer-configure--19193/tmp.c:7: warning: unused variable 'p'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -DHAVE_WINSOCK2_H=0
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:7: error: 'struct sockaddr' has no member named 'sa_len'
+/tmp/mplayer-configure--27343/tmp.c:7: warning: unused variable 'p'
 
 
 Result is: no 
@@ -615,7 +615,7 @@ Result is: no
 #include <arpa/inet.h>
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -628,7 +628,7 @@ Result is: yes
 #include <arpa/inet.h>
 int main(void) { (void) inet_pton(0, 0, 0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -641,7 +641,7 @@ Result is: yes
 #include <arpa/inet.h>
 int main(void) { (void) inet_aton(0, 0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -652,7 +652,7 @@ Result is: yes
 #include <sys/socket.h>
 int main(void) { socklen_t v = 0; return v; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -663,10 +663,10 @@ Result is: yes
 #include <winsock2.h>
 int main(void) { closesocket(~0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c:1:22: error: winsock2.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'closesocket'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c:1:22: error: winsock2.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'closesocket'
 
 
 Result is: no 
@@ -689,7 +689,7 @@ Result is: no
 #include <inttypes.h>
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -702,7 +702,7 @@ int main(void) {
 volatile int_fast16_t v= 0;
 return v; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -713,7 +713,7 @@ Result is: yes
 #include <malloc.h>
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -724,9 +724,9 @@ Result is: yes
 #include <malloc.h>
 int main(void) { (void) memalign(64, sizeof(char)); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: ignoring return value of 'memalign', declared with attribute warn_unused_result
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: ignoring return value of 'memalign', declared with attribute warn_unused_result
 
 
 Result is: yes 
@@ -738,10 +738,10 @@ Result is: yes
 #include <stdlib.h>
 int main(void) { posix_memalign(NULL, 0, 0); }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: warning: null argument where non-null required (argument 1)
-/tmp/mplayer-configure--19193/tmp.c:3: warning: ignoring return value of 'posix_memalign', declared with attribute warn_unused_result
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: warning: null argument where non-null required (argument 1)
+/tmp/mplayer-configure--27343/tmp.c:3: warning: ignoring return value of 'posix_memalign', declared with attribute warn_unused_result
 
 
 Result is: yes 
@@ -752,14 +752,14 @@ Result is: yes
 #include <alloca.h>
 int main(void) { (void) alloca(0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 
 #include <alloca.h>
 int main(void) { (void) alloca(0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -779,7 +779,7 @@ Result is: no
 #include <sys/mman.h>
 int main(void) { (void) mmap(0, 0, 0, 0, 0, 0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -790,9 +790,9 @@ Result is: yes
 #include <sys/mman.h>
 int main(void) { void *p = MAP_FAILED; return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: warning: unused variable 'p'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: warning: unused variable 'p'
 
 
 ============ Checking for dynamic loader ============
@@ -801,10 +801,10 @@ cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes 
 #include <dlfcn.h>
 int main(void) { dlopen("", 0); dlclose(NULL); dlsym(NULL, ""); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: warning: null argument where non-null required (argument 1)
-/tmp/ccKYaBKd.o: In function `main':
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: warning: null argument where non-null required (argument 1)
+/tmp/ccFB1A4n.o: In function `main':
 tmp.c:(.text+0x19): undefined reference to `dlopen'
 tmp.c:(.text+0x25): undefined reference to `dlclose'
 tmp.c:(.text+0x39): undefined reference to `dlsym'
@@ -816,9 +816,9 @@ collect2: ld returned 1 exit status
 #include <dlfcn.h>
 int main(void) { dlopen("", 0); dlclose(NULL); dlsym(NULL, ""); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--19193/tmp -ldl
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: warning: null argument where non-null required (argument 1)
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.    -ffast-math   -o /tmp/mplayer-configure--27343/tmp -ldl
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: warning: null argument where non-null required (argument 1)
 
 
 Result is: yes 
@@ -849,7 +849,7 @@ Result is: no
 #include <sys/soundcard.h>
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes (sys/soundcard.h)
@@ -860,8 +860,8 @@ Result is: yes (sys/soundcard.h)
 #include <sys/dvdio.h>
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c:1:23: error: sys/dvdio.h: No such file or directory
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c:1:23: error: sys/dvdio.h: No such file or directory
 
 
 Result is: no 
@@ -872,8 +872,8 @@ Result is: no
 #include <sys/cdio.h>
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c:1:22: error: sys/cdio.h: No such file or directory
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c:1:22: error: sys/cdio.h: No such file or directory
 
 
 Result is: no 
@@ -884,7 +884,7 @@ Result is: no
 #include <linux/cdrom.h>
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -895,8 +895,8 @@ Result is: yes
 #include <dvd.h>
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c:1:17: error: dvd.h: No such file or directory
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c:1:17: error: dvd.h: No such file or directory
 
 
 Result is: no 
@@ -919,7 +919,7 @@ Result is: no
 #include <string.h>
 int main(void) { char *s = "Hello, world!"; (void) strsep(&s, ","); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -932,9 +932,9 @@ Result is: yes
 #include <stdio.h>
 int main(void) { va_list ap; vsscanf("foo", "bar", ap); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:4: warning: 'ap' is used uninitialized in this function
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:4: warning: 'ap' is used uninitialized in this function
 
 
 Result is: yes 
@@ -946,10 +946,10 @@ Result is: yes
 #include <unistd.h>
 int main(void) { swab(0, 0, 0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: warning: null argument where non-null required (argument 1)
-/tmp/mplayer-configure--19193/tmp.c:3: warning: null argument where non-null required (argument 2)
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: warning: null argument where non-null required (argument 1)
+/tmp/mplayer-configure--27343/tmp.c:3: warning: null argument where non-null required (argument 2)
 
 
 Result is: yes 
@@ -965,7 +965,7 @@ Result is: yes
 #include <unistd.h>
 int main(void) {int nfds = 1; fd_set readfds; struct timeval timeout; select(nfds,&readfds,NULL,NULL,&timeout); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -980,7 +980,7 @@ Result is: yes
 #include <sys/time.h>
 int main(void) {struct timeval tv; struct timezone tz; gettimeofday(&tv, &tz); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -992,7 +992,7 @@ Result is: yes
 #include <glob.h>
 int main(void) { glob_t gg; glob("filename",0,NULL,&gg); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -1003,7 +1003,7 @@ Result is: yes
 #include <stdlib.h>
 int main(void) { setenv("","",0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -1014,10 +1014,10 @@ Result is: yes
 #include <io.h>
 int main(void) { setmode(0, 0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c:1:16: error: io.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'setmode'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c:1:16: error: io.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'setmode'
 
 
 Result is: no 
@@ -1032,7 +1032,7 @@ int main(void) {
   return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--19193/tmp 
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp 
 
 
 Result is: yes 
@@ -1171,15 +1171,15 @@ Result is: no
 ##########################################
 
 ============ Checking for PNG support ============
-Result is: yes 
+Result is: no 
 ##########################################
 
 ============ Checking for MNG support ============
-Result is: yes 
+Result is: no 
 ##########################################
 
 ============ Checking for JPEG support ============
-Result is: yes 
+Result is: no 
 ##########################################
 
 ============ Checking for OpenJPEG (JPEG2000) support ============
@@ -1188,15 +1188,15 @@ Result is: yes
 #include <openjpeg.h>
 int main(void) { opj_dparameters_t dec_params; opj_set_default_decoder_parameters(&dec_params); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg   -o /tmp/mplayer-configure--19193/tmp -lopenjpeg -lm
-/tmp/mplayer-configure--19193/tmp.c:2:22: error: openjpeg.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: error: 'opj_dparameters_t' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:3: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:3: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:3: error: expected ';' before 'dec_params'
-/tmp/mplayer-configure--19193/tmp.c:3: warning: implicit declaration of function 'opj_set_default_decoder_parameters'
-/tmp/mplayer-configure--19193/tmp.c:3: error: 'dec_params' undeclared (first use in this function)
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp -lopenjpeg -lm
+/tmp/mplayer-configure--27343/tmp.c:2:22: error: openjpeg.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: error: 'opj_dparameters_t' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:3: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:3: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:3: error: expected ';' before 'dec_params'
+/tmp/mplayer-configure--27343/tmp.c:3: warning: implicit declaration of function 'opj_set_default_decoder_parameters'
+/tmp/mplayer-configure--27343/tmp.c:3: error: 'dec_params' undeclared (first use in this function)
 
 
 Result is: no 
@@ -1207,83 +1207,11 @@ Result is: no
 ##########################################
 
 ============ Checking for GIF support ============
-
-#include <gif_lib.h>
-int main(void) { QuantizeBuffer(0, 0, 0, 0, 0, 0, 0, 0); return 0; }
-
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg   -o /tmp/mplayer-configure--19193/tmp -lungif
-/tmp/mplayer-configure--19193/tmp.c:1:21: error: gif_lib.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'QuantizeBuffer'
-
-
-
-#include <gif_lib.h>
-int main(void) { QuantizeBuffer(0, 0, 0, 0, 0, 0, 0, 0); return 0; }
-
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg   -o /tmp/mplayer-configure--19193/tmp -lgif
-/tmp/mplayer-configure--19193/tmp.c:1:21: error: gif_lib.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'QuantizeBuffer'
-
-
-
-#include <signal.h>
-#include <gif_lib.h>
-void catch(void) { exit(1); }
-int main(void) {
-  signal(SIGSEGV, catch);  // catch segfault
-  printf("EGifPutExtensionFirst is at address %p\n", EGifPutExtensionFirst);
-  EGifSetGifVersion("89a");   // this will segfault a buggy gif lib.
-  return 0;
-}
-
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif   -o /tmp/mplayer-configure--19193/tmp -lgif
-/tmp/mplayer-configure--19193/tmp.c:2:21: error: gif_lib.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:3: warning: no previous prototype for 'catch'
-/tmp/mplayer-configure--19193/tmp.c: In function 'catch':
-/tmp/mplayer-configure--19193/tmp.c:3: warning: implicit declaration of function 'exit'
-/tmp/mplayer-configure--19193/tmp.c:3: warning: incompatible implicit declaration of built-in function 'exit'
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:5: warning: passing argument 2 of 'signal' from incompatible pointer type
-/usr/include/signal.h:101: note: expected '__sighandler_t' but argument is of type 'void (*)(void)'
-/tmp/mplayer-configure--19193/tmp.c:6: warning: implicit declaration of function 'printf'
-/tmp/mplayer-configure--19193/tmp.c:6: warning: incompatible implicit declaration of built-in function 'printf'
-/tmp/mplayer-configure--19193/tmp.c:6: error: 'EGifPutExtensionFirst' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:6: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:6: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:7: warning: implicit declaration of function 'EGifSetGifVersion'
-
-
-Result is: yes (old version, some encoding functions disabled)
-##########################################
-
-============ Checking for broken giflib workaround ============
-
-#include <gif_lib.h>
-int main(void) {
-  GifFileType gif;
-  printf("UserData is at address %p\n", gif.UserData);
-  return 0;
-}
-
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif   -o /tmp/mplayer-configure--19193/tmp -lgif
-/tmp/mplayer-configure--19193/tmp.c:1:21: error: gif_lib.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: error: 'GifFileType' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:3: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:3: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:3: error: expected ';' before 'gif'
-/tmp/mplayer-configure--19193/tmp.c:4: warning: implicit declaration of function 'printf'
-/tmp/mplayer-configure--19193/tmp.c:4: warning: incompatible implicit declaration of built-in function 'printf'
-/tmp/mplayer-configure--19193/tmp.c:4: error: 'gif' undeclared (first use in this function)
-
-
-Result is: enabled 
+Result is: no 
 ##########################################
 
 ============ Checking for VESA support ============
-Result is: yes 
+Result is: no 
 ##########################################
 
 ============ Checking for SDL ============
@@ -1351,10 +1279,10 @@ Result is: no
 #endif
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lasound -ldl
-In file included from /tmp/mplayer-configure--19193/tmp.c:1:
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp -lasound -ldl
+In file included from /tmp/mplayer-configure--27343/tmp.c:1:
 /usr/include/sys/asoundlib.h:1:2: warning: #warning This header is deprecated, use <alsa/asoundlib.h> instead.
-/tmp/mplayer-configure--19193/tmp.c:3:2: error: #error "alsa version != 0.5.x"
+/tmp/mplayer-configure--27343/tmp.c:3:2: error: #error "alsa version != 0.5.x"
 
 
 
@@ -1364,10 +1292,10 @@ In file included from /tmp/mplayer-configure--19193/tmp.c:1:
 #endif
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lasound -ldl
-In file included from /tmp/mplayer-configure--19193/tmp.c:1:
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp -lasound -ldl
+In file included from /tmp/mplayer-configure--27343/tmp.c:1:
 /usr/include/sys/asoundlib.h:1:2: warning: #warning This header is deprecated, use <alsa/asoundlib.h> instead.
-/tmp/mplayer-configure--19193/tmp.c:3:2: error: #error "alsa version != 0.9.x"
+/tmp/mplayer-configure--27343/tmp.c:3:2: error: #error "alsa version != 0.9.x"
 
 
 
@@ -1377,8 +1305,8 @@ In file included from /tmp/mplayer-configure--19193/tmp.c:1:
 #endif
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lasound -ldl
-/tmp/mplayer-configure--19193/tmp.c:3:2: error: #error "alsa version != 0.9.x"
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp -lasound -ldl
+/tmp/mplayer-configure--27343/tmp.c:3:2: error: #error "alsa version != 0.9.x"
 
 
 
@@ -1388,11 +1316,9 @@ cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes 
 #endif
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lasound -ldl
-In file included from /tmp/mplayer-configure--19193/tmp.c:1:
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp -lasound -ldl
+In file included from /tmp/mplayer-configure--27343/tmp.c:1:
 /usr/include/sys/asoundlib.h:1:2: warning: #warning This header is deprecated, use <alsa/asoundlib.h> instead.
-/usr/bin/ld: cannot find -lgif
-collect2: ld returned 1 exit status
 
 
 
@@ -1402,12 +1328,10 @@ collect2: ld returned 1 exit status
 #endif
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lasound -ldl
-/usr/bin/ld: cannot find -lgif
-collect2: ld returned 1 exit status
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math   -o /tmp/mplayer-configure--27343/tmp -lasound -ldl
 
 
-Result is: no 
+Result is: yes (using alsa 1.0.x and alsa/asoundlib.h)
 ##########################################
 
 ============ Checking for Sun audio ============
@@ -1442,15 +1366,15 @@ int main(void) {
     return test == (void *)1;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lcdio_cdda -lcdio -lcdio_paranoia -lm
-/tmp/mplayer-configure--19193/tmp.c:2:26: error: cdio/version.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:3:23: error: cdio/cdda.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:4:27: error: cdio/paranoia.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: error: 'cdda_verbose_set' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:6: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:6: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:7: error: 'CDIO_VERSION' undeclared (first use in this function)
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl    -o /tmp/mplayer-configure--27343/tmp -lcdio_cdda -lcdio -lcdio_paranoia -lm
+/tmp/mplayer-configure--27343/tmp.c:2:26: error: cdio/version.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:3:23: error: cdio/cdda.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:4:27: error: cdio/paranoia.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: error: 'cdda_verbose_set' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:6: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:6: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:7: error: 'CDIO_VERSION' undeclared (first use in this function)
 
 
 
@@ -1464,15 +1388,15 @@ int main(void) {
     return test == (void *)1;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lcdio_cdda -lcdio -lcdio_paranoia -lwinmm -lm
-/tmp/mplayer-configure--19193/tmp.c:2:26: error: cdio/version.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:3:23: error: cdio/cdda.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:4:27: error: cdio/paranoia.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: error: 'cdda_verbose_set' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:6: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:6: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:7: error: 'CDIO_VERSION' undeclared (first use in this function)
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl    -o /tmp/mplayer-configure--27343/tmp -lcdio_cdda -lcdio -lcdio_paranoia -lwinmm -lm
+/tmp/mplayer-configure--27343/tmp.c:2:26: error: cdio/version.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:3:23: error: cdio/cdda.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:4:27: error: cdio/paranoia.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: error: 'cdda_verbose_set' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:6: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:6: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:7: error: 'CDIO_VERSION' undeclared (first use in this function)
 
 
 Result is: no 
@@ -1509,11 +1433,11 @@ int main(void) {
     return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lenca -lm
-/tmp/mplayer-configure--19193/tmp.c:2:18: error: enca.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: warning: implicit declaration of function 'enca_get_languages'
-/tmp/mplayer-configure--19193/tmp.c:6: warning: assignment makes pointer from integer without a cast
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl    -o /tmp/mplayer-configure--27343/tmp -lenca -lm
+/tmp/mplayer-configure--27343/tmp.c:2:18: error: enca.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: warning: implicit declaration of function 'enca_get_languages'
+/tmp/mplayer-configure--27343/tmp.c:6: warning: assignment makes pointer from integer without a cast
 
 
 Result is: no 
@@ -1524,12 +1448,10 @@ Result is: no
 #include <zlib.h>
 int main(void) { (void) inflate(0, Z_NO_FLUSH); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lz
-/usr/bin/ld: cannot find -lgif
-collect2: ld returned 1 exit status
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl    -o /tmp/mplayer-configure--27343/tmp -lz
 
 
-Result is: no 
+Result is: yes 
 ##########################################
 
 ============ Checking for bzlib ============
@@ -1537,10 +1459,10 @@ Result is: no
 #include <bzlib.h>
 int main(void) { BZ2_bzlibVersion(); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lbz2
-/tmp/mplayer-configure--19193/tmp.c:1:19: error: bzlib.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'BZ2_bzlibVersion'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lbz2
+/tmp/mplayer-configure--27343/tmp.c:1:19: error: bzlib.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'BZ2_bzlibVersion'
 
 
 Result is: no 
@@ -1555,10 +1477,10 @@ Result is: no
 #include <lzo/lzo1x.h>
 int main(void) { lzo_init(); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -llzo2
-/tmp/mplayer-configure--19193/tmp.c:1:23: error: lzo/lzo1x.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'lzo_init'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -llzo2
+/tmp/mplayer-configure--27343/tmp.c:1:23: error: lzo/lzo1x.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'lzo_init'
 
 
 Result is: no 
@@ -1569,8 +1491,8 @@ Result is: no
 #include <mad.h>
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lmad
-/tmp/mplayer-configure--19193/tmp.c:1:17: error: mad.h: No such file or directory
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lmad
+/tmp/mplayer-configure--27343/tmp.c:1:17: error: mad.h: No such file or directory
 
 
 Result is: no 
@@ -1581,10 +1503,10 @@ Result is: no
 #include <twolame.h>
 int main(void) { twolame_init(); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -ltwolame -lm
-/tmp/mplayer-configure--19193/tmp.c:1:21: error: twolame.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'twolame_init'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -ltwolame -lm
+/tmp/mplayer-configure--27343/tmp.c:1:21: error: twolame.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'twolame_init'
 
 
 Result is: no 
@@ -1595,10 +1517,10 @@ Result is: no
 #include <toolame.h>
 int main(void) { toolame_init(); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -ltoolame -lm
-/tmp/mplayer-configure--19193/tmp.c:1:21: error: toolame.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'toolame_init'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -ltoolame -lm
+/tmp/mplayer-configure--27343/tmp.c:1:21: error: toolame.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'toolame_init'
 
 
 Result is: no 
@@ -1613,16 +1535,16 @@ Result is: yes (internal Tremor)
 #include <speex/speex.h>
 int main(void) { SpeexBits bits; void *dec; speex_decode_int(dec, &bits, dec); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lspeex -lm
-/tmp/mplayer-configure--19193/tmp.c:1:25: error: speex/speex.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: error: 'SpeexBits' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:2: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:2: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:2: error: expected ';' before 'bits'
-/tmp/mplayer-configure--19193/tmp.c:2: warning: ISO C90 forbids mixed declarations and code
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'speex_decode_int'
-/tmp/mplayer-configure--19193/tmp.c:2: error: 'bits' undeclared (first use in this function)
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lspeex -lm
+/tmp/mplayer-configure--27343/tmp.c:1:25: error: speex/speex.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: error: 'SpeexBits' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:2: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:2: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:2: error: expected ';' before 'bits'
+/tmp/mplayer-configure--27343/tmp.c:2: warning: ISO C90 forbids mixed declarations and code
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'speex_decode_int'
+/tmp/mplayer-configure--27343/tmp.c:2: error: 'bits' undeclared (first use in this function)
 
 
 Result is: no 
@@ -1633,10 +1555,10 @@ Result is: no
 #include <gsm/gsm.h>
 int main(void) { gsm_create(); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lgsm
-/tmp/mplayer-configure--19193/tmp.c:1:21: error: gsm/gsm.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'gsm_create'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lgsm
+/tmp/mplayer-configure--27343/tmp.c:1:21: error: gsm/gsm.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'gsm_create'
 
 
 Result is: no 
@@ -1675,35 +1597,35 @@ int main(void) {
   return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c:1:27: error: theora/theora.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: error: 'ogg_packet' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:6: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:6: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:6: error: expected ';' before 'op'
-/tmp/mplayer-configure--19193/tmp.c:7: error: 'theora_comment' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:7: error: expected ';' before 'tc'
-/tmp/mplayer-configure--19193/tmp.c:8: error: 'theora_info' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:8: error: expected ';' before 'inf'
-/tmp/mplayer-configure--19193/tmp.c:9: error: 'theora_state' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:9: error: expected ';' before 'st'
-/tmp/mplayer-configure--19193/tmp.c:10: error: 'yuv_buffer' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:10: error: expected ';' before 'yuv'
-/tmp/mplayer-configure--19193/tmp.c:11: warning: ISO C90 forbids mixed declarations and code
-/tmp/mplayer-configure--19193/tmp.c:14: warning: implicit declaration of function 'theora_info_init'
-/tmp/mplayer-configure--19193/tmp.c:14: error: 'inf' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:15: warning: implicit declaration of function 'theora_comment_init'
-/tmp/mplayer-configure--19193/tmp.c:15: error: 'tc' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:21: error: 'op' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:22: warning: implicit declaration of function 'theora_decode_header'
-/tmp/mplayer-configure--19193/tmp.c:23: warning: implicit declaration of function 'theora_decode_init'
-/tmp/mplayer-configure--19193/tmp.c:23: error: 'st' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:24: warning: implicit declaration of function 'theora_granule_time'
-/tmp/mplayer-configure--19193/tmp.c:25: warning: implicit declaration of function 'theora_decode_packetin'
-/tmp/mplayer-configure--19193/tmp.c:26: warning: implicit declaration of function 'theora_decode_YUVout'
-/tmp/mplayer-configure--19193/tmp.c:26: error: 'yuv' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:27: warning: implicit declaration of function 'theora_clear'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c:1:27: error: theora/theora.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: error: 'ogg_packet' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:6: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:6: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:6: error: expected ';' before 'op'
+/tmp/mplayer-configure--27343/tmp.c:7: error: 'theora_comment' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:7: error: expected ';' before 'tc'
+/tmp/mplayer-configure--27343/tmp.c:8: error: 'theora_info' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:8: error: expected ';' before 'inf'
+/tmp/mplayer-configure--27343/tmp.c:9: error: 'theora_state' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:9: error: expected ';' before 'st'
+/tmp/mplayer-configure--27343/tmp.c:10: error: 'yuv_buffer' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:10: error: expected ';' before 'yuv'
+/tmp/mplayer-configure--27343/tmp.c:11: warning: ISO C90 forbids mixed declarations and code
+/tmp/mplayer-configure--27343/tmp.c:14: warning: implicit declaration of function 'theora_info_init'
+/tmp/mplayer-configure--27343/tmp.c:14: error: 'inf' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:15: warning: implicit declaration of function 'theora_comment_init'
+/tmp/mplayer-configure--27343/tmp.c:15: error: 'tc' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:21: error: 'op' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:22: warning: implicit declaration of function 'theora_decode_header'
+/tmp/mplayer-configure--27343/tmp.c:23: warning: implicit declaration of function 'theora_decode_init'
+/tmp/mplayer-configure--27343/tmp.c:23: error: 'st' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:24: warning: implicit declaration of function 'theora_granule_time'
+/tmp/mplayer-configure--27343/tmp.c:25: warning: implicit declaration of function 'theora_decode_packetin'
+/tmp/mplayer-configure--27343/tmp.c:26: warning: implicit declaration of function 'theora_decode_YUVout'
+/tmp/mplayer-configure--27343/tmp.c:26: error: 'yuv' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:27: warning: implicit declaration of function 'theora_clear'
 
 
 
@@ -1738,35 +1660,35 @@ int main(void) {
   return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp tremor/bitwise.c
-/tmp/mplayer-configure--19193/tmp.c:1:27: error: theora/theora.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: error: 'ogg_packet' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:6: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:6: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:6: error: expected ';' before 'op'
-/tmp/mplayer-configure--19193/tmp.c:7: error: 'theora_comment' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:7: error: expected ';' before 'tc'
-/tmp/mplayer-configure--19193/tmp.c:8: error: 'theora_info' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:8: error: expected ';' before 'inf'
-/tmp/mplayer-configure--19193/tmp.c:9: error: 'theora_state' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:9: error: expected ';' before 'st'
-/tmp/mplayer-configure--19193/tmp.c:10: error: 'yuv_buffer' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:10: error: expected ';' before 'yuv'
-/tmp/mplayer-configure--19193/tmp.c:11: warning: ISO C90 forbids mixed declarations and code
-/tmp/mplayer-configure--19193/tmp.c:14: warning: implicit declaration of function 'theora_info_init'
-/tmp/mplayer-configure--19193/tmp.c:14: error: 'inf' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:15: warning: implicit declaration of function 'theora_comment_init'
-/tmp/mplayer-configure--19193/tmp.c:15: error: 'tc' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:21: error: 'op' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:22: warning: implicit declaration of function 'theora_decode_header'
-/tmp/mplayer-configure--19193/tmp.c:23: warning: implicit declaration of function 'theora_decode_init'
-/tmp/mplayer-configure--19193/tmp.c:23: error: 'st' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:24: warning: implicit declaration of function 'theora_granule_time'
-/tmp/mplayer-configure--19193/tmp.c:25: warning: implicit declaration of function 'theora_decode_packetin'
-/tmp/mplayer-configure--19193/tmp.c:26: warning: implicit declaration of function 'theora_decode_YUVout'
-/tmp/mplayer-configure--19193/tmp.c:26: error: 'yuv' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:27: warning: implicit declaration of function 'theora_clear'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp tremor/bitwise.c
+/tmp/mplayer-configure--27343/tmp.c:1:27: error: theora/theora.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: error: 'ogg_packet' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:6: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:6: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:6: error: expected ';' before 'op'
+/tmp/mplayer-configure--27343/tmp.c:7: error: 'theora_comment' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:7: error: expected ';' before 'tc'
+/tmp/mplayer-configure--27343/tmp.c:8: error: 'theora_info' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:8: error: expected ';' before 'inf'
+/tmp/mplayer-configure--27343/tmp.c:9: error: 'theora_state' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:9: error: expected ';' before 'st'
+/tmp/mplayer-configure--27343/tmp.c:10: error: 'yuv_buffer' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:10: error: expected ';' before 'yuv'
+/tmp/mplayer-configure--27343/tmp.c:11: warning: ISO C90 forbids mixed declarations and code
+/tmp/mplayer-configure--27343/tmp.c:14: warning: implicit declaration of function 'theora_info_init'
+/tmp/mplayer-configure--27343/tmp.c:14: error: 'inf' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:15: warning: implicit declaration of function 'theora_comment_init'
+/tmp/mplayer-configure--27343/tmp.c:15: error: 'tc' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:21: error: 'op' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:22: warning: implicit declaration of function 'theora_decode_header'
+/tmp/mplayer-configure--27343/tmp.c:23: warning: implicit declaration of function 'theora_decode_init'
+/tmp/mplayer-configure--27343/tmp.c:23: error: 'st' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:24: warning: implicit declaration of function 'theora_granule_time'
+/tmp/mplayer-configure--27343/tmp.c:25: warning: implicit declaration of function 'theora_decode_packetin'
+/tmp/mplayer-configure--27343/tmp.c:26: warning: implicit declaration of function 'theora_decode_YUVout'
+/tmp/mplayer-configure--27343/tmp.c:26: error: 'yuv' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:27: warning: implicit declaration of function 'theora_clear'
 
 
 Result is: no 
@@ -1781,10 +1703,10 @@ Result is: yes
 #include <mpg123.h>
 int main(void){ mpg123_init(); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lmpg123
-/tmp/mplayer-configure--19193/tmp.c:1:20: error: mpg123.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'mpg123_init'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lmpg123
+/tmp/mplayer-configure--27343/tmp.c:1:20: error: mpg123.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'mpg123_init'
 
 
 Result is: no 
@@ -1796,14 +1718,14 @@ Result is: no
 #include <a52dec/a52.h>
 int main(void) { a52_state_t *testHand; testHand=a52_init(0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -la52
-/tmp/mplayer-configure--19193/tmp.c:2:24: error: a52dec/a52.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: error: 'a52_state_t' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:3: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:3: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:3: error: 'testHand' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:3: warning: implicit declaration of function 'a52_init'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -la52
+/tmp/mplayer-configure--27343/tmp.c:2:24: error: a52dec/a52.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: error: 'a52_state_t' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:3: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:3: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:3: error: 'testHand' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:3: warning: implicit declaration of function 'a52_init'
 
 
 Result is: no 
@@ -1819,10 +1741,10 @@ Result is: yes (internal)
 #include <dts.h>
 int main(void) { dts_init(0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -ldca -lm
-/tmp/mplayer-configure--19193/tmp.c:2:17: error: dts.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: warning: implicit declaration of function 'dts_init'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -ldca -lm
+/tmp/mplayer-configure--27343/tmp.c:2:17: error: dts.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: warning: implicit declaration of function 'dts_init'
 
 
 
@@ -1830,10 +1752,10 @@ cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes 
 #include <dts.h>
 int main(void) { dts_init(0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -ldts -lm
-/tmp/mplayer-configure--19193/tmp.c:2:17: error: dts.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: warning: implicit declaration of function 'dts_init'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -ldts -lm
+/tmp/mplayer-configure--27343/tmp.c:2:17: error: dts.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: warning: implicit declaration of function 'dts_init'
 
 
 Result is: no 
@@ -1851,19 +1773,19 @@ int main(void) {
   return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lmpcdec -lm
-/tmp/mplayer-configure--19193/tmp.c:2:27: error: mpcdec/mpcdec.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:4: error: 'mpc_streaminfo' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:4: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:4: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:4: error: expected ';' before 'info'
-/tmp/mplayer-configure--19193/tmp.c:5: error: 'mpc_decoder' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:5: error: expected ';' before 'decoder'
-/tmp/mplayer-configure--19193/tmp.c:6: warning: implicit declaration of function 'mpc_decoder_set_streaminfo'
-/tmp/mplayer-configure--19193/tmp.c:6: error: 'decoder' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:6: error: 'info' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:7: warning: implicit declaration of function 'mpc_decoder_decode_frame'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lmpcdec -lm
+/tmp/mplayer-configure--27343/tmp.c:2:27: error: mpcdec/mpcdec.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:4: error: 'mpc_streaminfo' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:4: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:4: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:4: error: expected ';' before 'info'
+/tmp/mplayer-configure--27343/tmp.c:5: error: 'mpc_decoder' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:5: error: expected ';' before 'decoder'
+/tmp/mplayer-configure--27343/tmp.c:6: warning: implicit declaration of function 'mpc_decoder_set_streaminfo'
+/tmp/mplayer-configure--27343/tmp.c:6: error: 'decoder' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:6: error: 'info' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:7: warning: implicit declaration of function 'mpc_decoder_decode_frame'
 
 
 Result is: no 
@@ -1875,10 +1797,10 @@ Result is: no
 #include <faac.h>
 int main(void) { unsigned long x, y; faacEncOpen(48000, 2, &x, &y); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lfaac -lm
-/tmp/mplayer-configure--19193/tmp.c:2:18: error: faac.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: warning: implicit declaration of function 'faacEncOpen'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lfaac -lm
+/tmp/mplayer-configure--27343/tmp.c:2:18: error: faac.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: warning: implicit declaration of function 'faacEncOpen'
 
 
 
@@ -1886,10 +1808,10 @@ cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes 
 #include <faac.h>
 int main(void) { unsigned long x, y; faacEncOpen(48000, 2, &x, &y); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lfaac -lmp4v2 -lstdc++ -lm
-/tmp/mplayer-configure--19193/tmp.c:2:18: error: faac.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: warning: implicit declaration of function 'faacEncOpen'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lfaac -lmp4v2 -lstdc++ -lm
+/tmp/mplayer-configure--27343/tmp.c:2:18: error: faac.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: warning: implicit declaration of function 'faacEncOpen'
 
 
 Result is: no (in libavcodec: no)
@@ -1907,14 +1829,14 @@ const LADSPA_Descriptor *ld = NULL;
 return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp 
-/tmp/mplayer-configure--19193/tmp.c:1:20: error: ladspa.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
-/tmp/mplayer-configure--19193/tmp.c:3: error: 'ld' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:3: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:3: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:3: error: 'NULL' undeclared (first use in this function)
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp 
+/tmp/mplayer-configure--27343/tmp.c:1:20: error: ladspa.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/tmp/mplayer-configure--27343/tmp.c:3: error: 'ld' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:3: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:3: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:3: error: 'NULL' undeclared (first use in this function)
 
 
 Result is: no 
@@ -1933,18 +1855,18 @@ int main(void) {
     return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lm -lbs2b
-/tmp/mplayer-configure--19193/tmp.c:1:18: error: bs2b.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:2:5: warning: "BS2B_VERSION_MAJOR" is not defined
-/tmp/mplayer-configure--19193/tmp.c:3:2: error: #error Please use libbs2b >= 3.0.0, older versions are not supported.
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: error: 't_bs2bdp' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:6: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:6: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:6: error: expected ';' before 'filter'
-/tmp/mplayer-configure--19193/tmp.c:7: error: 'filter' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:7: warning: implicit declaration of function 'bs2b_open'
-/tmp/mplayer-configure--19193/tmp.c:8: warning: implicit declaration of function 'bs2b_close'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lm -lbs2b
+/tmp/mplayer-configure--27343/tmp.c:1:18: error: bs2b.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:2:5: warning: "BS2B_VERSION_MAJOR" is not defined
+/tmp/mplayer-configure--27343/tmp.c:3:2: error: #error Please use libbs2b >= 3.0.0, older versions are not supported.
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: error: 't_bs2bdp' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:6: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:6: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:6: error: expected ';' before 'filter'
+/tmp/mplayer-configure--27343/tmp.c:7: error: 'filter' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:7: warning: implicit declaration of function 'bs2b_open'
+/tmp/mplayer-configure--27343/tmp.c:8: warning: implicit declaration of function 'bs2b_close'
 
 
 
@@ -1959,18 +1881,18 @@ int main(void) {
     return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -I/usr/include/bs2b -lm -lbs2b
-/tmp/mplayer-configure--19193/tmp.c:1:18: error: bs2b.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:2:5: warning: "BS2B_VERSION_MAJOR" is not defined
-/tmp/mplayer-configure--19193/tmp.c:3:2: error: #error Please use libbs2b >= 3.0.0, older versions are not supported.
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: error: 't_bs2bdp' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:6: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:6: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:6: error: expected ';' before 'filter'
-/tmp/mplayer-configure--19193/tmp.c:7: error: 'filter' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:7: warning: implicit declaration of function 'bs2b_open'
-/tmp/mplayer-configure--19193/tmp.c:8: warning: implicit declaration of function 'bs2b_close'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -I/usr/include/bs2b -lm -lbs2b
+/tmp/mplayer-configure--27343/tmp.c:1:18: error: bs2b.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:2:5: warning: "BS2B_VERSION_MAJOR" is not defined
+/tmp/mplayer-configure--27343/tmp.c:3:2: error: #error Please use libbs2b >= 3.0.0, older versions are not supported.
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: error: 't_bs2bdp' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:6: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:6: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:6: error: expected ';' before 'filter'
+/tmp/mplayer-configure--27343/tmp.c:7: error: 'filter' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:7: warning: implicit declaration of function 'bs2b_open'
+/tmp/mplayer-configure--27343/tmp.c:8: warning: implicit declaration of function 'bs2b_close'
 
 
 
@@ -1985,18 +1907,18 @@ int main(void) {
     return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -I/usr/local/include -lm -lbs2b
-/tmp/mplayer-configure--19193/tmp.c:1:18: error: bs2b.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:2:5: warning: "BS2B_VERSION_MAJOR" is not defined
-/tmp/mplayer-configure--19193/tmp.c:3:2: error: #error Please use libbs2b >= 3.0.0, older versions are not supported.
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: error: 't_bs2bdp' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:6: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:6: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:6: error: expected ';' before 'filter'
-/tmp/mplayer-configure--19193/tmp.c:7: error: 'filter' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:7: warning: implicit declaration of function 'bs2b_open'
-/tmp/mplayer-configure--19193/tmp.c:8: warning: implicit declaration of function 'bs2b_close'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -I/usr/local/include -lm -lbs2b
+/tmp/mplayer-configure--27343/tmp.c:1:18: error: bs2b.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:2:5: warning: "BS2B_VERSION_MAJOR" is not defined
+/tmp/mplayer-configure--27343/tmp.c:3:2: error: #error Please use libbs2b >= 3.0.0, older versions are not supported.
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: error: 't_bs2bdp' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:6: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:6: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:6: error: expected ';' before 'filter'
+/tmp/mplayer-configure--27343/tmp.c:7: error: 'filter' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:7: warning: implicit declaration of function 'bs2b_open'
+/tmp/mplayer-configure--27343/tmp.c:8: warning: implicit declaration of function 'bs2b_close'
 
 
 
@@ -2011,18 +1933,18 @@ int main(void) {
     return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -I/usr/local/include/bs2b -lm -lbs2b
-/tmp/mplayer-configure--19193/tmp.c:1:18: error: bs2b.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:2:5: warning: "BS2B_VERSION_MAJOR" is not defined
-/tmp/mplayer-configure--19193/tmp.c:3:2: error: #error Please use libbs2b >= 3.0.0, older versions are not supported.
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: error: 't_bs2bdp' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:6: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:6: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:6: error: expected ';' before 'filter'
-/tmp/mplayer-configure--19193/tmp.c:7: error: 'filter' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:7: warning: implicit declaration of function 'bs2b_open'
-/tmp/mplayer-configure--19193/tmp.c:8: warning: implicit declaration of function 'bs2b_close'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -I/usr/local/include/bs2b -lm -lbs2b
+/tmp/mplayer-configure--27343/tmp.c:1:18: error: bs2b.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:2:5: warning: "BS2B_VERSION_MAJOR" is not defined
+/tmp/mplayer-configure--27343/tmp.c:3:2: error: #error Please use libbs2b >= 3.0.0, older versions are not supported.
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: error: 't_bs2bdp' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:6: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:6: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:6: error: expected ';' before 'filter'
+/tmp/mplayer-configure--27343/tmp.c:7: error: 'filter' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:7: warning: implicit declaration of function 'bs2b_open'
+/tmp/mplayer-configure--27343/tmp.c:8: warning: implicit declaration of function 'bs2b_close'
 
 
 Result is: no 
@@ -2089,10 +2011,10 @@ Result is: no
 #include <opencore-amrnb/interf_dec.h>
 int main(void) { Decoder_Interface_init(); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lopencore-amrnb
-/tmp/mplayer-configure--19193/tmp.c:1:39: error: opencore-amrnb/interf_dec.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'Decoder_Interface_init'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lopencore-amrnb
+/tmp/mplayer-configure--27343/tmp.c:1:39: error: opencore-amrnb/interf_dec.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'Decoder_Interface_init'
 
 
 Result is: no 
@@ -2103,10 +2025,10 @@ Result is: no
 #include <opencore-amrwb/dec_if.h>
 int main(void) { D_IF_init(); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lopencore-amrwb
-/tmp/mplayer-configure--19193/tmp.c:1:35: error: opencore-amrwb/dec_if.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'D_IF_init'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lopencore-amrwb
+/tmp/mplayer-configure--27343/tmp.c:1:35: error: opencore-amrwb/dec_if.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'D_IF_init'
 
 
 Result is: no 
@@ -2117,14 +2039,14 @@ Result is: no
 #include <libdv/dv.h>
 int main(void) { dv_encoder_t* enc=dv_encoder_new(1,1,1); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -ldv -lm
-/tmp/mplayer-configure--19193/tmp.c:1:22: error: libdv/dv.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: error: 'dv_encoder_t' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:2: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:2: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:2: error: 'enc' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'dv_encoder_new'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -ldv -lm
+/tmp/mplayer-configure--27343/tmp.c:1:22: error: libdv/dv.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: error: 'dv_encoder_t' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:2: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:2: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:2: error: 'enc' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'dv_encoder_new'
 
 
 Result is: no 
@@ -2135,20 +2057,20 @@ Result is: no
 #include <xvid.h>
 int main(void) { xvid_global(0, 0, 0, 0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lxvidcore -lm
-/tmp/mplayer-configure--19193/tmp.c:1:18: error: xvid.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'xvid_global'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lxvidcore -lm
+/tmp/mplayer-configure--27343/tmp.c:1:18: error: xvid.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'xvid_global'
 
 
 
 #include <xvid.h>
 int main(void) { xvid_global(0, 0, 0, 0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lxvidcore -lm
-/tmp/mplayer-configure--19193/tmp.c:1:18: error: xvid.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:2: warning: implicit declaration of function 'xvid_global'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lxvidcore -lm
+/tmp/mplayer-configure--27343/tmp.c:1:18: error: xvid.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:2: warning: implicit declaration of function 'xvid_global'
 
 
 Result is: no 
@@ -2167,12 +2089,12 @@ Result is: no
 #endif
 int main(void) { x264_encoder_open((void*)0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lx264
-/tmp/mplayer-configure--19193/tmp.c:2:18: error: x264.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:3:5: warning: "X264_BUILD" is not defined
-/tmp/mplayer-configure--19193/tmp.c:4:2: error: #error We do not support old versions of x264. Get the latest from git.
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: warning: implicit declaration of function 'x264_encoder_open'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lx264
+/tmp/mplayer-configure--27343/tmp.c:2:18: error: x264.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:3:5: warning: "X264_BUILD" is not defined
+/tmp/mplayer-configure--27343/tmp.c:4:2: error: #error We do not support old versions of x264. Get the latest from git.
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: warning: implicit declaration of function 'x264_encoder_open'
 
 
 
@@ -2183,12 +2105,12 @@ cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes 
 #endif
 int main(void) { x264_encoder_open((void*)0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lx264 -lm
-/tmp/mplayer-configure--19193/tmp.c:2:18: error: x264.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:3:5: warning: "X264_BUILD" is not defined
-/tmp/mplayer-configure--19193/tmp.c:4:2: error: #error We do not support old versions of x264. Get the latest from git.
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:6: warning: implicit declaration of function 'x264_encoder_open'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lx264 -lm
+/tmp/mplayer-configure--27343/tmp.c:2:18: error: x264.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:3:5: warning: "X264_BUILD" is not defined
+/tmp/mplayer-configure--27343/tmp.c:4:2: error: #error We do not support old versions of x264. Get the latest from git.
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:6: warning: implicit declaration of function 'x264_encoder_open'
 
 
 Result is: no (in libavcodec: no)
@@ -2215,18 +2137,18 @@ int main(void) {
   return 0;
 }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lvpx
-/tmp/mplayer-configure--19193/tmp.c:1:29: error: vpx/vpx_encoder.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:2:29: error: vpx/vpx_decoder.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:3:23: error: vpx/vp8dx.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:4:23: error: vpx/vp8cx.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:7: warning: implicit declaration of function 'vpx_codec_dec_init'
-/tmp/mplayer-configure--19193/tmp.c:7: error: 'NULL' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:7: error: (Each undeclared identifier is reported only once
-/tmp/mplayer-configure--19193/tmp.c:7: error: for each function it appears in.)
-/tmp/mplayer-configure--19193/tmp.c:7: error: 'vpx_codec_vp8_dx_algo' undeclared (first use in this function)
-/tmp/mplayer-configure--19193/tmp.c:8: warning: implicit declaration of function 'vpx_codec_enc_init'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lvpx
+/tmp/mplayer-configure--27343/tmp.c:1:29: error: vpx/vpx_encoder.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:2:29: error: vpx/vpx_decoder.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:3:23: error: vpx/vp8dx.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:4:23: error: vpx/vp8cx.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:7: warning: implicit declaration of function 'vpx_codec_dec_init'
+/tmp/mplayer-configure--27343/tmp.c:7: error: 'NULL' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:7: error: (Each undeclared identifier is reported only once
+/tmp/mplayer-configure--27343/tmp.c:7: error: for each function it appears in.)
+/tmp/mplayer-configure--27343/tmp.c:7: error: 'vpx_codec_vp8_dx_algo' undeclared (first use in this function)
+/tmp/mplayer-configure--27343/tmp.c:8: warning: implicit declaration of function 'vpx_codec_enc_init'
 
 
 Result is: no 
@@ -2238,11 +2160,11 @@ Result is: no
 nut_context_tt * nut;
 int main(void) { (void)nut_error(0); return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -lnut
-/tmp/mplayer-configure--19193/tmp.c:1:20: error: libnut.h: No such file or directory
-/tmp/mplayer-configure--19193/tmp.c:2: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
-/tmp/mplayer-configure--19193/tmp.c: In function 'main':
-/tmp/mplayer-configure--19193/tmp.c:3: warning: implicit declaration of function 'nut_error'
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -lnut
+/tmp/mplayer-configure--27343/tmp.c:1:20: error: libnut.h: No such file or directory
+/tmp/mplayer-configure--27343/tmp.c:2: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+/tmp/mplayer-configure--27343/tmp.c: In function 'main':
+/tmp/mplayer-configure--27343/tmp.c:3: warning: implicit declaration of function 'nut_error'
 
 
 Result is: no 
@@ -2325,19 +2247,17 @@ Result is: no
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -Wl,-z,noexecstack
-/usr/bin/ld: cannot find -lgif
-collect2: ld returned 1 exit status
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -Wl,-z,noexecstack
 
 
-Result is: no 
+Result is: yes 
 ##########################################
 
 ============ Checking for linker support for --nxcompat --no-seh --dynamicbase ============
 
 int main(void) { return 0; }
 
-cc /tmp/mplayer-configure--19193/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT   -ffast-math -lpng -lz -lmng -lz -ljpeg -lgif  -lvbe -llrmi  -o /tmp/mplayer-configure--19193/tmp -Wl,--nxcompat -Wl,--no-seh -Wl,--dynamicbase
+cc /tmp/mplayer-configure--27343/tmp.c -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -I.  -D_REENTRANT  -Wl,-z,noexecstack  -ffast-math -lasound -ldl  -lz   -o /tmp/mplayer-configure--27343/tmp -Wl,--nxcompat -Wl,--no-seh -Wl,--dynamicbase
 /usr/bin/ld: unrecognized option '--nxcompat'
 /usr/bin/ld: use the --help option for usage information
 collect2: ld returned 1 exit status
