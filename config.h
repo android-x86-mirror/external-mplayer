@@ -73,7 +73,7 @@
 #undef HAVE_SYS_ASOUNDLIB_H
 #define HAVE_SYS_SOUNDCARD_H 1
 #define HAVE_SYS_SYSINFO_H 1
-#undef HAVE_TERMIOS_H
+#define HAVE_TERMIOS_H	1
 #undef HAVE_SYS_TERMIOS_H
 #define HAVE_WINSOCK2_H 0
 
@@ -81,7 +81,7 @@
 /* system functions */
 #undef HAVE_GETHOSTBYNAME2
 #define HAVE_GETTIMEOFDAY 1
-#define HAVE_GLOB 1
+#undef HAVE_GLOB
 #undef HAVE_LANGINFO
 #define HAVE_LRINTF 1
 
@@ -97,7 +97,7 @@
 
 
 #undef HAVE_TERMCAP
-#undef HAVE_TERMIOS
+#define HAVE_TERMIOS
 #define HAVE_VSSCANF 1
 
 
