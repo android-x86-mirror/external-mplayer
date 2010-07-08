@@ -124,7 +124,7 @@
 /* configurable options */
 #define MSG_CHARSET "UTF-8"
 #undef CONFIG_CRASH_DEBUG
-#undef MP_DEBUG
+#define MP_DEBUG 1
 #undef CONFIG_DYNAMIC_PLUGINS
 #define CONFIG_FASTMEMCPY 1
 #undef CONFIG_MENU
@@ -167,9 +167,9 @@
 #define HAVE_SSE 1
 #define HAVE_SSE2 1
 #define HAVE_SSSE3 1
-#define HAVE_FAST_CMOV 1
-#define HAVE_CMOV 1
-#define HAVE_FAST_CLZ 1
+#undef HAVE_FAST_CMOV
+#define  HAVE_CMOV 0
+#undef HAVE_FAST_CLZ
 #define HAVE_PLD 0
 #define HAVE_ARMV5TE 0
 #define HAVE_ARMV6 0
@@ -218,7 +218,7 @@
 
 
 
-#define CONFIG_MP3LIB 1
+#undef CONFIG_MP3LIB
 #undef CONFIG_MPG123
 #undef CONFIG_MUSEPACK
 #undef CONFIG_SPEEX
@@ -236,11 +236,11 @@
 
 
 /* binary codecs */
-#define CONFIG_QTX_CODECS 1
+#undef CONFIG_QTX_CODECS
 #undef CONFIG_QTX_CODECS_WIN32
 #define CONFIG_REALCODECS 1
-#define  WIN32_LOADER 1
-#define CONFIG_WIN32DLL 1
+#undef  WIN32_LOADER
+#undef CONFIG_WIN32DLL
 #define CONFIG_XANIM 1
 #undef CONFIG_XMMS
 #define BINARY_CODECS_PATH "/usr/local/lib/codecs"
@@ -504,7 +504,8 @@
 #define CONFIG_RDFT 1
 
 /* Use these registers in FFmpeg x86 inline asm. No proper detection yet. */
-#define HAVE_EBX_AVAILABLE 1
+#define HAVE_EBX_AVAILABLE 0
+#define CONFIG_PIC	1
 #ifndef MP_DEBUG
 #define HAVE_EBP_AVAILABLE 1
 #else
@@ -612,7 +613,7 @@
 #define CONFIG_PGM_DECODER 1
 #define CONFIG_PGMYUV_DECODER 1
 #define CONFIG_PICTOR_DECODER 1
-#define CONFIG_PNG_DECODER 1
+#define CONFIG_PNG_DECODER 0
 #define CONFIG_PPM_DECODER 1
 #define CONFIG_PTX_DECODER 1
 #define CONFIG_QDRAW_DECODER 1
@@ -633,8 +634,8 @@
 #define CONFIG_SNOW_DECODER 1
 #define CONFIG_SP5X_DECODER 1
 #define CONFIG_SUNRAST_DECODER 1
-#define CONFIG_SVQ1_DECODER 1
-#define CONFIG_SVQ3_DECODER 1
+#define CONFIG_SVQ1_DECODER 0
+#define CONFIG_SVQ3_DECODER 0
 #define CONFIG_TARGA_DECODER 1
 #define CONFIG_THEORA_DECODER 1
 #define CONFIG_THP_DECODER 1
@@ -821,7 +822,7 @@
 #define CONFIG_PCX_ENCODER 0
 #define CONFIG_PGM_ENCODER 0
 #define CONFIG_PGMYUV_ENCODER 0
-#define CONFIG_PNG_ENCODER 1
+#define CONFIG_PNG_ENCODER 0
 #define CONFIG_PPM_ENCODER 0
 #define CONFIG_QTRLE_ENCODER 0
 #define CONFIG_RAWVIDEO_ENCODER 0

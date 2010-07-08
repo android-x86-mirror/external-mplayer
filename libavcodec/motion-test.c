@@ -145,6 +145,11 @@ int main(int argc, char **argv)
     printf("ffmpeg motion test\n");
 
     ctx = avcodec_alloc_context();
+	/*
+	if (!ctx) {
+		printf("alloc failed \n");
+		return 0;
+	}
     ctx->dsp_mask = FF_MM_FORCE;
     dsputil_init(&cctx, ctx);
     for (c = 0; c < flags_size; c++) {
@@ -161,6 +166,7 @@ int main(int argc, char **argv)
             test_motion("mmx_xy2", mmxctx.pix_abs[x][3], cctx.pix_abs[x][3]);
         }
     }
+	*/
     av_free(ctx);
 
     return 0;

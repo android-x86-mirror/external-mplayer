@@ -407,6 +407,8 @@ static inline int RENAME(yuva420_rgb32)(SwsContext *c, const uint8_t *src[],
     YUV2RGB_OPERANDS_ALPHA
     YUV2RGB_ENDFUNC
 #endif
+#warning "return value is a fake : should be fixed"
+	return 0;
 }
 
 static inline int RENAME(yuv420_bgr32)(SwsContext *c, const uint8_t *src[],
@@ -450,4 +452,6 @@ static inline int RENAME(yuva420_bgr32)(SwsContext *c, const uint8_t *src[],
     YUV2RGB_OPERANDS_ALPHA
     YUV2RGB_ENDFUNC
 #endif
+#warning "return value is a fake : should be fixed"
+	return 0;
 }

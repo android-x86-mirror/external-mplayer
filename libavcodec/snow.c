@@ -4015,6 +4015,8 @@ int main(void){
     s.spatial_decomposition_count=6;
     s.spatial_decomposition_type=1;
 
+	printf("before av_lfg_init\n");
+
     av_lfg_init(&prng, 1);
 
     printf("testing 5/3 DWT\n");

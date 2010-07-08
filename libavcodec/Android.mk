@@ -652,13 +652,43 @@ AVCODEC_FILES-$(HAVE_MMX)                       += x86/cpuid.c                  
 AVCODEC_FILES-$(HAVE_MMX) += $(MMX-OBJS-yes)
 AVCODEC_FILES := $(sort $(AVCODEC_FILES-yes))
 
-include $(CLEAR_VARS)
-FFCFLAGS += -fno-PIC  -include $(LOCAL_PATH)/../config.h \
+FFCFLAGS += -include $(LOCAL_PATH)/../config.h \
 			-DHAVE_AV_CONFIG_H
+
+include $(CLEAR_VARS)
 LOCAL_MODULE = libavcodec
 LOCAL_CFLAGS = $(FFCFLAGS)
 LOCAL_SRC_FILES = $(AVCODEC_FILES)
-LOCAL_C_INCLUDES = $(LOCAL_PATH)/.. $(LOCAL_PATH)/x86
+LOCAL_C_INCLUDES = $(LOCAL_PATH) $(LOCAL_PATH)/.. \
+				   $(LOCAL_PATH)/x86 external/zlib
 LOCAL_SHARED_LIBRARIES = libz
-LOCAL_STATIC_LIBRARIES = libavutil
+LOCAL_STATIC_LIBRARIES = libavutil 
 include $(BUILD_STATIC_LIBRARY)
+include $(CLEAR_VARS)
+LOCAL_MODULE = libavcodec_snow
+LOCAL_MODULE_TAGS := debug
+LOCAL_CFLAGS = $(FFCFLAGS) -DTEST
+LOCAL_SRC_FILES = snow.c
+LOCAL_C_INCLUDES = $(LOCAL_PATH)/.. $(LOCAL_PATH)/x86
+LOCAL_STATIC_LIBRARIES = libz
+LOCAL_STATIC_LIBRARIES = libavcodec libavutil 
+include $(BUILD_EXECUTABLE)
+include $(CLEAR_VARS)
+LOCAL_MODULE = libavcodec_cpuid
+LOCAL_CFLAGS = $(FFCFLAGS)  -DTEST
+LOCAL_MODULE_TAGS := debug
+LOCAL_SRC_FILES = x86/cpuid.c
+LOCAL_C_INCLUDES = $(LOCAL_PATH)/.. $(LOCAL_PATH)/x86
+LOCAL_STATIC_LIBRARIES = libz
+LOCAL_STATIC_LIBRARIES = libavcodec 
+include $(BUILD_EXECUTABLE)
+include $(CLEAR_VARS)
+LOCAL_MODULE = libavcodec_motion
+LOCAL_CFLAGS = $(FFCFLAGS)  -DTEST
+LOCAL_SRC_FILES = motion-test.c
+LOCAL_MODULE_TAGS := debug
+LOCAL_C_INCLUDES = $(LOCAL_PATH)/..
+LOCAL_STATIC_LIBRARIES = libz
+LOCAL_STATIC_LIBRARIES = libavcodec libavutil  
+include $(BUILD_EXECUTABLE)
+

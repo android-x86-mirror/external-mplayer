@@ -682,7 +682,7 @@ FFMPEGPARTS = libavformat \
 			  libavcodec \
 			  libavutil
 
-FFCFLAGS += -fno-PIC -include $(LOCAL_PATH)/config.h
+FFCFLAGS += -include $(LOCAL_PATH)/config.h
 include $(CLEAR_VARS)
 LOCAL_MODULE = libfaad2
 LOCAL_CFLAGS =  -D_GNU_SOURCE -DHAVE_CONFIG_H
@@ -695,6 +695,6 @@ LOCAL_MODULE = mplayer
 LOCAL_CFLAGS = $(FFCFLAGS) -D_POSIX_C_SOURCE
 LOCAL_SRC_FILES = $(SRCS_COMMON) $(SRCS_MPLAYER)
 LOCAL_C_INCLUDES = $(LOCAL_PATH) external/alsa-lib/include
-LOCAL_SHARED_LIBRARIES := libasound libz
-LOCAL_STATIC_LIBRARIES := libfaad2 $(FFMPEGPARTS)
+LOCAL_SHARED_LIBRARIES := libz libasound
+LOCAL_STATIC_LIBRARIES := libfaad2 $(FFMPEGPARTS) 
 include $(BUILD_EXECUTABLE)

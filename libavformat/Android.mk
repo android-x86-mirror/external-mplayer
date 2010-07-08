@@ -290,14 +290,21 @@ AVFORMAT_FILES-$(CONFIG_JACK_INDEV)                += timefilter.c
 
 AVFORMAT_FILES := $(sort $(AVFORMAT_FILES-yes))
 
-include $(CLEAR_VARS)
-FFCFLAGS += -fno-PIC  -include $(LOCAL_PATH)/../config.h \
+FFCFLAGS += -include $(LOCAL_PATH)/../config.h \
 			-DHAVE_AV_CONFIG_H
+
+include $(CLEAR_VARS)
 LOCAL_MODULE = libavformat
 LOCAL_CFLAGS = $(FFCFLAGS)
 LOCAL_SRC_FILES = $(AVFORMAT_FILES)
 LOCAL_C_INCLUDES = $(LOCAL_PATH)/..
 LOCAL_STATIC_LIBRARIES = libavutil 
 include $(BUILD_STATIC_LIBRARY)
-
-
+include $(CLEAR_VARS)
+LOCAL_MODULE = libavformat_timefilter
+LOCAL_CFLAGS = $(FFCFLAGS) -DTEST
+LOCAL_SRC_FILES = timefilter.c
+LOCAL_MODULE_TAGS := debug
+LOCAL_C_INCLUDES = $(LOCAL_PATH)/..
+LOCAL_STATIC_LIBRARIES = libavformat libavutil 
+include $(BUILD_EXECUTABLE)

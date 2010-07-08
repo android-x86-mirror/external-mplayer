@@ -12,13 +12,13 @@ SWSCALE_FILES-$(HAVE_MMX)           +=  x86/yuv2rgb_mmx.c
 SWSCALE_FILES-$(HAVE_VIS)           +=  sparc/yuv2rgb_vis.c
 
 include $(CLEAR_VARS)
-FFCFLAGS += -fno-PIC  -include $(LOCAL_PATH)/../config.h \
-			-DHAVE_AV_CONFIG_H
+FFCFLAGS +=  -include $(LOCAL_PATH)/../config.h \
+			-DHAVE_AV_CONFIG_H -DPIC
 LOCAL_MODULE = libswscale
 LOCAL_CFLAGS = $(FFCFLAGS)
 LOCAL_SRC_FILES = $(SWSCALE_FILES-yes)
 LOCAL_C_INCLUDES = $(LOCAL_PATH)/..
-LOCAL_STATIC_LIBRARIES = libavutil
+LOCAL_STATIC_LIBRARIES = libavutil 
 include $(BUILD_STATIC_LIBRARY)
 
 

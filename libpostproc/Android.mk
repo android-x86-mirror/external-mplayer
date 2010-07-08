@@ -4,7 +4,7 @@ include  $(LOCAL_PATH)/../preconfig_x86_mmx_sse.mak
 POSTPROC_FILES-yes := postprocess.c
 
 include $(CLEAR_VARS)
-FFCFLAGS += -fno-PIC -include $(LOCAL_PATH)/../config.h \
+FFCFLAGS += -include $(LOCAL_PATH)/../config.h \
 			-DHAVE_AV_CONFIG_H
 LOCAL_MODULE = libpostproc
 LOCAL_CFLAGS = $(FFCFLAGS)
