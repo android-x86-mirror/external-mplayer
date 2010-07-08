@@ -125,7 +125,7 @@ void Setup_FS_Segment(void)
 }
 
 /* we don't need this - use modify_ldt instead */
-#if 0
+#ifdef ANDROID
 #ifdef __linux__
 /* XXX: why is this routine from libc redefined here? */
 /* NOTE: the redefined version ignores the count param, count is hardcoded as 16 */
@@ -158,7 +158,7 @@ static int LDT_Modify( int func, struct modify_ldt_ldt_s *ptr,
     return -1;
 }
 #endif
-#endif
+#endif /* Android */
 
 #if defined(__NetBSD__) || defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__DragonFly__) || defined(__APPLE__)
 static void LDT_EntryToBytes( unsigned long *buffer, const struct modify_ldt_ldt_s *content )
@@ -211,8 +211,11 @@ ldt_fs_t* Setup_LDT_Keeper(void)
     array.contents=MODIFY_LDT_CONTENTS_DATA;
     array.limit_in_pages=0;
 #ifdef __linux__
-    //ret=LDT_Modify(0x1, &array, sizeof(struct modify_ldt_ldt_s));
+#ifdef ANDROID
+    ret=LDT_Modify(0x1, &array, sizeof(struct modify_ldt_ldt_s));
+#else
     ret=modify_ldt(0x1, &array, sizeof(struct modify_ldt_ldt_s));
+#endif /* ANDROID */
     if(ret<0)
     {
 	perror("install_fs");

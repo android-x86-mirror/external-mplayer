@@ -47,7 +47,7 @@
 #include "vf.h"
 #include "libvo/fastmemcpy.h"
 
-#include "libavutil/internal.h"
+#include "libavutil/avutil_internal.h"
 #include "libavutil/intreadwrite.h"
 #include "libavutil/mem.h"
 #include "libavcodec/avcodec.h"

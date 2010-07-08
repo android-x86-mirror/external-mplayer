@@ -1,4 +1,17 @@
+
 LOCAL_PATH := $(call my-dir)
+SAVED_LOCAL_PATH := $(LOCAL_PATH)
+
+include $(LOCAL_PATH)/libavutil/Android.mk
+LOCAL_PATH := $(SAVED_LOCAL_PATH)
+include $(LOCAL_PATH)/libavcodec/Android.mk
+LOCAL_PATH := $(SAVED_LOCAL_PATH)
+include $(LOCAL_PATH)/libavformat/Android.mk
+LOCAL_PATH := $(SAVED_LOCAL_PATH)
+include $(LOCAL_PATH)/libswscale/Android.mk
+LOCAL_PATH := $(SAVED_LOCAL_PATH)
+include $(LOCAL_PATH)/libpostproc/Android.mk
+LOCAL_PATH := $(SAVED_LOCAL_PATH)
 
 include $(LOCAL_PATH)/preconfig_x86_mmx_sse.mak
 
@@ -503,27 +516,27 @@ SRCS_COMMON = asxparser.c \
 
 SRCS_MPLAYER-$(3DFX)         += libvo/vo_3dfx.c
 SRCS_MPLAYER-$(AA)           += libvo/vo_aa.c
-SRCS_LIBAO2-$(ALSA1X)       += libao2/ao_alsa.c
-SRCS_LIBAO2-$(ALSA5)        += libao2/ao_alsa5.c
-SRCS_LIBAO2-$(ALSA9)        += libao2/ao_alsa.c
-SRCS_LIBAO2-$(ARTS)         += libao2/ao_arts.c
-SRCS_LIBAO2-$(COREAUDIO)    += libao2/ao_coreaudio.c
-SRCS_LIBAO2-$(DART)         += libao2/ao_dart.c
-SRCS_LIBAO2-$(DIRECTX)      += libao2/ao_dsound.c libvo/vo_directx.c
-SRCS_LIBAO2-$(DXR2)         += libao2/ao_dxr2.c libvo/vo_dxr2.c
-SRCS_LIBAO2-$(ESD)          += libao2/ao_esd.c
-SRCS_LIBAO2-$(WIN32WAVEOUT)  += libao2/ao_win32.c
-SRCS_LIBAO2-$(IVTV)         += libao2/ao_ivtv.c libvo/vo_ivtv.c
-SRCS_LIBAO2-$(JACK)         += libao2/ao_jack.c
-SRCS_LIBAO2-$(KAI)          += libao2/ao_kai.c
-SRCS_LIBAO2-$(NAS)           += libao2/ao_nas.c
-SRCS_LIBAO2-$(OPENAL)        += libao2/ao_openal.c
-SRCS_LIBAO2-$(OSS)           += libao2/ao_oss.c
-SRCS_LIBAO2-$(PULSE)         += libao2/ao_pulse.c
-SRCS_LIBAO2-$(SDL)           += libao2/ao_sdl.c libvo/vo_sdl.c libvo/sdl_common.c
-SRCS_LIBAO2-$(SGIAUDIO)      += libao2/ao_sgi.c
-SRCS_LIBAO2-$(SUNAUDIO)      += libao2/ao_sun.c
-SRCS_LIBAO2-$(V4L2)          += libao2/ao_v4l2.c
+SRCS_MPLAYER-$(ALSA1X)       += libao2/ao_alsa.c
+SRCS_MPLAYER-$(ALSA5)        += libao2/ao_alsa5.c
+SRCS_MPLAYER-$(ALSA9)        += libao2/ao_alsa.c
+SRCS_MPLAYER-$(ARTS)         += libao2/ao_arts.c
+SRCS_MPLAYER-$(COREAUDIO)    += libao2/ao_coreaudio.c
+SRCS_MPLAYER-$(DART)         += libao2/ao_dart.c
+SRCS_MPLAYER-$(DIRECTX)      += libao2/ao_dsound.c libvo/vo_directx.c
+SRCS_MPLAYER-$(DXR2)         += libao2/ao_dxr2.c libvo/vo_dxr2.c
+SRCS_MPLAYER-$(ESD)          += libao2/ao_esd.c
+SRCS_MPLAYER-$(WIN32WAVEOUT)  += libao2/ao_win32.c
+SRCS_MPLAYER-$(IVTV)         += libao2/ao_ivtv.c libvo/vo_ivtv.c
+SRCS_MPLAYER-$(JACK)         += libao2/ao_jack.c
+SRCS_MPLAYER-$(KAI)          += libao2/ao_kai.c
+SRCS_MPLAYER-$(NAS)           += libao2/ao_nas.c
+SRCS_MPLAYER-$(OPENAL)        += libao2/ao_openal.c
+SRCS_MPLAYER-$(OSS)           += libao2/ao_oss.c
+SRCS_MPLAYER-$(PULSE)         += libao2/ao_pulse.c
+SRCS_MPLAYER-$(SDL)           += libao2/ao_sdl.c libvo/vo_sdl.c libvo/sdl_common.c
+SRCS_MPLAYER-$(SGIAUDIO)      += libao2/ao_sgi.c
+SRCS_MPLAYER-$(SUNAUDIO)      += libao2/ao_sun.c
+SRCS_MPLAYER-$(V4L2)          += libao2/ao_v4l2.c
 SRCS_MPLAYER-$(APPLE_IR)     += input/appleir.c
 SRCS_MPLAYER-$(APPLE_REMOTE) += input/ar.c
 SRCS_MPLAYER-$(BL)           += libvo/vo_bl.c
@@ -663,123 +676,25 @@ SRCS_MPLAYER = command.c \
                libvo/vo_null.c \
                $(SRCS_MPLAYER-yes)
 
-FFMPEGPARTS = libavutil \
-			  libavcodec \
-              libavformat \
+FFMPEGPARTS = libavformat \
               libpostproc \
               libswscale \
+			  libavcodec \
+			  libavutil
 
-FFCFLAGS += -fno-PIC
-include $(CLEAR_VARS)
-LOCAL_MODULE = libao2
-LOCAL_CFLAGS =  -D_POSIX_C_SOURCE -DHAVE_CONFIG_H
-LOCAL_SRC_FILES = $(SRCS_LIBAO2-yes))
-LOCAL_C_INCLUDES = 
-LOCAL_SHARED_LIBRARIES := asound
-include $(BUILD_STATIC_LIBRARY)
+FFCFLAGS += -fno-PIC -include $(LOCAL_PATH)/config.h
 include $(CLEAR_VARS)
 LOCAL_MODULE = libfaad2
 LOCAL_CFLAGS =  -D_GNU_SOURCE -DHAVE_CONFIG_H
-LOCAL_SRC_FILES = $(SRCS_FAAD-yes))
+LOCAL_SRC_FILES = $(SRCS_FAAD-yes)
 LOCAL_C_INCLUDES = $(LOCAL_PATH)/libfaad2
-include $(BUILD_STATIC_LIBRARY)
-include $(CLEAR_VARS)
-LOCAL_MODULE = libavformat
-LOCAL_CFLAGS = $(FFCFLAGS)
-LOCAL_SRC_FILES = $(AVFORMAT_FILES)
-LOCAL_C_INCLUDES = 
-include $(BUILD_STATIC_LIBRARY)
-include $(CLEAR_VARS)
-LOCAL_MODULE = libavcodec
-LOCAL_CFLAGS = $(FFCFLAGS)
-LOCAL_SRC_FILES = $(AVCODEC_FILES)
-LOCAL_C_INCLUDES = 
-include $(BUILD_STATIC_LIBRARY)
-include $(CLEAR_VARS)
-LOCAL_MODULE = libavutil
-LOCAL_CFLAGS = $(FFCFLAGS)
-LOCAL_SRC_FILES = $(AVUTIL_FILES)
-LOCAL_C_INCLUDES = 
-include $(BUILD_STATIC_LIBRARY)
-include $(CLEAR_VARS)
-LOCAL_MODULE = libpostproc
-LOCAL_CFLAGS = $(FFCFLAGS)
-LOCAL_SRC_FILES = $(POSTPROC_FILES)
-LOCAL_C_INCLUDES = 
-include $(BUILD_STATIC_LIBRARY)
-include $(CLEAR_VARS)
-LOCAL_MODULE = libswscale
-LOCAL_CFLAGS = $(FFCFLAGS)
-LOCAL_SRC_FILES = $(SWSCALE_FILES)
-LOCAL_C_INCLUDES = 
 include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE = mplayer
-LOCAL_CFLAGS = $(FFCFLAGS)
+LOCAL_CFLAGS = $(FFCFLAGS) -D_POSIX_C_SOURCE
 LOCAL_SRC_FILES = $(SRCS_COMMON) $(SRCS_MPLAYER)
-LOCAL_C_INCLUDES = external/alsa-lib/include
-LOCAL_STATIC_LIBRARIES := $(FFMPEGPARTS) libao2 libfaad2
+LOCAL_C_INCLUDES = $(LOCAL_PATH) external/alsa-lib/include
+LOCAL_SHARED_LIBRARIES := libasound libz
+LOCAL_STATIC_LIBRARIES := libfaad2 $(FFMPEGPARTS)
 include $(BUILD_EXECUTABLE)
-
-DIRS =  . \
-        gui \
-        gui/mplayer \
-        gui/mplayer/gtk \
-        gui/skin \
-        gui/wm \
-        gui/win32 \
-        input \
-        libaf \
-        libao2 \
-        libass \
-        libavcodec \
-        libavcodec/alpha \
-        libavcodec/arm \
-        libavcodec/bfin \
-        libavcodec/mlib \
-        libavcodec/ppc \
-        libavcodec/sh4 \
-        libavcodec/sparc \
-        libavcodec/x86 \
-        libavformat \
-        libavutil \
-        libavutil/arm \
-        libavutil/bfin \
-        libavutil/ppc \
-        libavutil/sh4 \
-        libavutil/tomi \
-        libavutil/x86 \
-        libdvdcss \
-        libdvdnav \
-        libdvdnav/vm \
-        libdvdread4 \
-        libfaad2 \
-        libmenu \
-        libmpcodecs \
-        libmpcodecs/native \
-        libmpdemux \
-        libmpeg2 \
-        libpostproc \
-        libswscale \
-        libswscale/bfin \
-        libswscale/mlib \
-        libswscale/ppc \
-        libswscale/sparc \
-        libswscale/x86 \
-        libvo \
-        loader \
-        loader/dshow \
-        loader/dmo \
-        loader/wine \
-        mp3lib \
-        osdep \
-        stream \
-        stream/freesdp \
-        stream/librtsp \
-        stream/realrtsp \
-        tremor \
-        TOOLS \
-        vidix \
-
-

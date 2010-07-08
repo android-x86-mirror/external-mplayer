@@ -23,7 +23,7 @@
 #include "libvo/fastmemcpy.h"
 
 #include "libavutil/common.h"
-#include "libavutil/internal.h"
+#include "libavutil/avutil_internal.h"
 
 #undef fprintf
 #undef printf

@@ -30,7 +30,7 @@
 #include "timer.h"
 
 const char timer_name[] =
-#ifdef HAVE_NANOSLEEP
+#if HAVE_NANOSLEEP
     "nanosleep()";
 #else
     "usleep()";
@@ -38,7 +38,7 @@ const char timer_name[] =
 
 int usec_sleep(int usec_delay)
 {
-#ifdef HAVE_NANOSLEEP
+#if HAVE_NANOSLEEP
     struct timespec ts;
     ts.tv_sec  =  usec_delay / 1000000;
     ts.tv_nsec = (usec_delay % 1000000) * 1000;

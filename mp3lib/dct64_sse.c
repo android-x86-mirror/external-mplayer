@@ -6,7 +6,7 @@
  */
 
 #include "libavutil/mem.h"
-#include "libavutil/internal.h"
+#include "libavutil/avutil_internal.h"
 #include "mpg123.h"
 
 extern float __attribute__((aligned(16))) costab_mmx[];

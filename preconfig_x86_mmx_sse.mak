@@ -34,7 +34,7 @@ NEED_MMAP         =
 NEED_SETENV       = no
 NEED_SHMEM        = yes
 NEED_STRSEP       = no
-NEED_SWAB         = no
+NEED_SWAB         = yes
 NEED_VSSCANF      = no
 
 # features

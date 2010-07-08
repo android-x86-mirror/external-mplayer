@@ -48,6 +48,7 @@
 #include <sys/termios.h>
 #endif
 #endif
+#include <asm/termios.h>
 
 #if defined(HAVE_LANGINFO) && defined(CONFIG_ICONV)
 #include <locale.h>
