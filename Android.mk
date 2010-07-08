@@ -674,7 +674,7 @@ SRCS_MPLAYER = command.c \
                libvo/video_out.c \
                libvo/vo_mpegpes.c \
                libvo/vo_null.c \
-               $(SRCS_MPLAYER-yes)
+               $(sort $(SRCS_MPLAYER-yes))
 
 FFMPEGPARTS = libavformat \
               libpostproc \

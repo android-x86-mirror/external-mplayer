@@ -4,9 +4,9 @@ FFCFLAGS   = -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimiz
 FFASFLAGS  = $(CFLAGS)
 FFCXXFLAGS =  -Wstrict-prototypes -Wmissing-prototypes -Wundef -Wdisabled-optimization -Wno-pointer-sign -Wdeclaration-after-statement -std=gnu99 -Wall -Wno-switch -Wpointer-arith -Wredundant-decls -O4 -march=native -mtune=native -pipe -ffast-math -fomit-frame-pointer -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -I.  -D_REENTRANT 
 
-CFLAGS_NO_OMIT_LEAF_FRAME_POINTER = -mno-omit-leaf-frame-pointer
+#CFLAGS_NO_OMIT_LEAF_FRAME_POINTER = -mno-omit-leaf-frame-pointer
 
-EXTRALIBS          = -Wl,-z,noexecstack  -ffast-math -lasound -ldl  -lz  -ldl -rdynamic  -lm 
+#EXTRALIBS          = -Wl,-z,noexecstack  -ffast-math -lasound -ldl  -lz  -ldl -rdynamic  -lm 
 
 GETCH = getch2.c
 TIMER = timer-linux.c
@@ -114,7 +114,7 @@ LIBTHEORA = no
 LIRC = no
 LIVE555 = no
 MACOSX_FINDER = no
-MD5SUM = no
+LOCAL_MD5SUM = no
 MGA = no
 MNG = no
 MP3LAME = auto
@@ -238,7 +238,7 @@ CONFIG_RDFT    = yes
 
 
 CONFIG_MPEGAUDIO_HP = yes
-!CONFIG_LIBRTMP = yes
+#CONFIG_LIBRTMP = yes
 CONFIG_LIBRTMP  = no
 
 CONFIG_BZLIB    = no

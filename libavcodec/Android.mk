@@ -650,16 +650,15 @@ AVCODEC_FILES-$(HAVE_MMX)                       += x86/cpuid.c                  
                                           x86/simple_idct_mmx.c         \
 
 AVCODEC_FILES-$(HAVE_MMX) += $(MMX-OBJS-yes)
+AVCODEC_FILES := $(sort $(AVCODEC_FILES-yes))
 
 include $(CLEAR_VARS)
 FFCFLAGS += -fno-PIC  -include $(LOCAL_PATH)/../config.h \
 			-DHAVE_AV_CONFIG_H
 LOCAL_MODULE = libavcodec
 LOCAL_CFLAGS = $(FFCFLAGS)
-LOCAL_SRC_FILES = $(AVCODEC_FILES-yes)
+LOCAL_SRC_FILES = $(AVCODEC_FILES)
 LOCAL_C_INCLUDES = $(LOCAL_PATH)/.. $(LOCAL_PATH)/x86
-LOCAL_STATIC_LIBRARIES = libavutil libz
+LOCAL_SHARED_LIBRARIES = libz
+LOCAL_STATIC_LIBRARIES = libavutil
 include $(BUILD_STATIC_LIBRARY)
-
-
-
