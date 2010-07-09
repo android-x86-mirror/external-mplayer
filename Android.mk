@@ -678,6 +678,9 @@ SRCS_MPLAYER = command.c \
 SRCS_MPLAYER_EXE = $(SRCS_MPLAYER) \
 				   mplayer.c
 
+SRCS_MPLAYER_LIB = $(SRCS_MPLAYER) \
+				   mplayer_lib.c
+
 FFMPEGPARTS = libavformat \
               libpostproc \
               libswscale \
@@ -705,8 +708,8 @@ include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE = libmplayer
-LOCAL_CFLAGS = $(FFCXXFLAGS) -D_POSIX_C_SOURCE
-LOCAL_SRC_FILES = $(SRCS_COMMON) $(SRCS_MPLAYER)
+LOCAL_CFLAGS = $(FFCXXFLAGS) -D_POSIX_C_SOURCE -DDISABLE_MAIN
+LOCAL_SRC_FILES = $(SRCS_COMMON) $(SRCS_MPLAYER_LIB) 
 LOCAL_C_INCLUDES = $(LOCAL_PATH) external/alsa-lib/include
 LOCAL_SHARED_LIBRARIES := libz libasound libc 
 LOCAL_STATIC_LIBRARIES := libfaad2 $(FFMPEGPARTS) 

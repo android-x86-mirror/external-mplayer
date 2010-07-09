@@ -16,6 +16,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+#include "mplayer_lib.h"
 #include "MPlayer.h"
 
 
@@ -250,8 +251,12 @@ namespace android {
 		int temp;
 		int count = 0;
 		bool audioStarted = false;
+		struct mplayer_context mp_context;
+		int argc = 5;
+		char* argv[] = {"-vo", "null", "-ao", "null", "-slave"};
 
 		LOGE("render started\n");
+		mplayer_init(&mp_context, argc, argv);
 		
 		mAudioBuffer = new char[AUDIOBUFFER_SIZE];
 
@@ -284,6 +289,7 @@ namespace android {
 				if (!mRender) continue;
 
 				count ++;
+#if 0
 				if (count > 60) {
 					if (mLoop || mAndroidLoop) {
 						/* start loop again here */
@@ -303,6 +309,7 @@ namespace android {
 						}
 					}
 				}
+#endif
 			}
 			if (count == 0) {
 				LOGE ("error in decode");
