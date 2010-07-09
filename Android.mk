@@ -661,7 +661,6 @@ SRCS_MPLAYER = command.c \
                m_property.c \
                mixer.c \
                mp_fifo.c \
-               mplayer.c \
                parser-mpcmd.c \
                input/input.c \
                libao2/ao_mpegpes.c \
@@ -676,6 +675,9 @@ SRCS_MPLAYER = command.c \
                libvo/vo_null.c \
                $(sort $(SRCS_MPLAYER-yes))
 
+SRCS_MPLAYER_EXE = $(SRCS_MPLAYER) \
+				   mplayer.c
+
 FFMPEGPARTS = libavformat \
               libpostproc \
               libswscale \
@@ -683,6 +685,7 @@ FFMPEGPARTS = libavformat \
 			  libavutil
 
 FFCFLAGS += -include $(LOCAL_PATH)/config.h -DPROFILE -DANAYSIS
+FFCXXFLAGS += -include $(LOCAL_PATH)/config.h -DPROFILE -DANAYSIS
 
 include $(CLEAR_VARS)
 LOCAL_MODULE = libfaad2
@@ -694,8 +697,26 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE = mplayer
 LOCAL_CFLAGS = $(FFCFLAGS) -D_POSIX_C_SOURCE
-LOCAL_SRC_FILES = $(SRCS_COMMON) $(SRCS_MPLAYER)
+LOCAL_SRC_FILES = $(SRCS_COMMON) $(SRCS_MPLAYER_EXE)
 LOCAL_C_INCLUDES = $(LOCAL_PATH) external/alsa-lib/include
 LOCAL_SHARED_LIBRARIES := libz libasound libc
 LOCAL_STATIC_LIBRARIES := libfaad2 $(FFMPEGPARTS) 
 include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE = libmplayer
+LOCAL_CFLAGS = $(FFCXXFLAGS) -D_POSIX_C_SOURCE
+LOCAL_SRC_FILES = $(SRCS_COMMON) $(SRCS_MPLAYER)
+LOCAL_C_INCLUDES = $(LOCAL_PATH) external/alsa-lib/include
+LOCAL_SHARED_LIBRARIES := libz libasound libc 
+LOCAL_STATIC_LIBRARIES := libfaad2 $(FFMPEGPARTS) 
+include $(BUILD_STATIC_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE = libandroidmplayer
+LOCAL_CFLAGS = 
+LOCAL_SRC_FILES = MPlayer.cpp
+LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
+	libmedia libui libandroid_runtime liblog
+LOCAL_STATIC_LIBRARIES := libmplayer
+include $(BUILD_SHARED_LIBRARY)
