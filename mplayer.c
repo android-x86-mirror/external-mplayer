@@ -3524,6 +3524,7 @@ mpctx->sh_audio=mpctx->d_audio->sh;
 mpctx->sh_video=mpctx->d_video->sh;
 
 if(mpctx->sh_video){
+	mp_msg(MSGT_CPLAYER,MSGL_FATAL,"before video_read_properties\n");
 
   current_module="video_read_properties";
   if(!video_read_properties(mpctx->sh_video)) {
@@ -3569,8 +3570,10 @@ if(!mpctx->sh_video && !mpctx->sh_audio){
     goto goto_next_file; // exit_player(MSGTR_Exit_error);
 }
 
+	mp_msg(MSGT_CPLAYER,MSGL_FATAL,"before demux_info_print\n");
 /* display clip info */
 demux_info_print(mpctx->demuxer);
+	mp_msg(MSGT_CPLAYER,MSGL_FATAL,"after demux_info_print\n");
 
 //================== Read SUBTITLES (DVD & TEXT) ==========================
 if(vo_spudec==NULL &&
@@ -3621,7 +3624,9 @@ if (mpctx->global_sub_size) {
 
   print_file_properties(mpctx, filename);
 
+	mp_msg(MSGT_CPLAYER,MSGL_FATAL,"before goto main\n");
 if(!mpctx->sh_video) goto main; // audio-only
+	mp_msg(MSGT_CPLAYER,MSGL_FATAL,"after goto main\n");
 
 if(!reinit_video_chain()) {
   if(!mpctx->sh_video){

@@ -104,7 +104,7 @@
 /* system-specific features */
 #define ASMALIGN(ZEROBITS) ".align 1<<" #ZEROBITS "\n\t"
 #define HAVE_BUILTIN_EXPECT 1
-#define HAVE_LIBDL 1
+#undef HAVE_LIBDL
 #define HAVE_DOS_PATHS 0
 #define EXTERN_ASM 
 #define EXTERN_PREFIX ""
@@ -206,8 +206,8 @@
 
 /* codec libraries */
 #undef CONFIG_FAAC
-#define CONFIG_FAAD 1
-#define CONFIG_FAAD_INTERNAL 1
+#undef CONFIG_FAAD
+#undef CONFIG_FAAD_INTERNAL
 #undef CONFIG_LIBA52
 #undef CONFIG_LIBDCA
 #undef CONFIG_LIBDV095
@@ -446,8 +446,8 @@
 #define HAVE_LLRINTF 1
 #define HAVE_LOCAL_ALIGNED_8 1
 #define HAVE_LOCAL_ALIGNED_16 1
-#define HAVE_LOG2 1
-#define HAVE_LOG2F 1
+#define HAVE_LOG2 0
+#define HAVE_LOG2F 0
 #define HAVE_LRINT 1
 #define CONFIG_MEMALIGN_HACK 0
 #define CONFIG_MLIB 0

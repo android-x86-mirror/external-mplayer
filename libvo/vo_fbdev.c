@@ -827,6 +827,8 @@ static int config(uint32_t width, uint32_t height, uint32_t d_width,
         fb_tty_fd = -1;
     }
 
+    mp_msg(MSGT_VO, MSGL_INFO, "change to best fitting mode is disabled for Android\n");
+	/*
     if (ioctl(fb_dev_fd, FBIOPUT_VSCREENINFO, &fb_vinfo))
         // Intel drivers fail if we request a transparency channel
         fb_vinfo.transp.length = fb_vinfo.transp.offset = 0;
@@ -837,6 +839,10 @@ static int config(uint32_t width, uint32_t height, uint32_t d_width,
         }
         return 1;
     }
+	*/
+
+	/* get the screeninfo for safety */
+	ioctl (fb_dev_fd, FBIOPUT_VSCREENINFO, &fb_vinfo);
 
     fb_pixel_size = fb_vinfo.bits_per_pixel / 8;
     fb_bpp = fb_vinfo.bits_per_pixel;
@@ -896,6 +902,8 @@ static int config(uint32_t width, uint32_t height, uint32_t d_width,
         break;
     case FB_VISUAL_DIRECTCOLOR:
         mp_msg(MSGT_VO, MSGL_V, "creating cmap for directcolor\n");
+        mp_msg(MSGT_VO, MSGL_INFO, "setting cmap is disabled for Android\n");
+		/*
         if (ioctl(fb_dev_fd, FBIOGETCMAP, &fb_oldcmap)) {
             mp_msg(MSGT_VO, MSGL_ERR, "can't get cmap: %s\n",
                     strerror(errno));
@@ -913,6 +921,7 @@ static int config(uint32_t width, uint32_t height, uint32_t d_width,
         free(cmap->green);
         free(cmap->blue);
         free(cmap);
+		*/
         break;
     default:
         mp_msg(MSGT_VO, MSGL_ERR, "visual: %d not yet supported\n",
