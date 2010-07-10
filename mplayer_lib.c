@@ -2145,11 +2145,9 @@ static int fill_audio_out_buffers(char *buffer, int buffer_size, int *output_siz
 		// handle audio-only case:
 		// this is where mplayer sleeps during audio-only playback
 		// to avoid 100% CPU use
-#if 0
 		sleep_time = (ao_data.outburst - bytes_to_write) * 1000 / ao_data.bps;
 		if (sleep_time < 10) sleep_time = 10; // limit to 100 wakeups per second
 		usec_sleep(sleep_time * 1000);
-#endif
 	}
 
 	while (bytes_to_write) {
@@ -3899,7 +3897,6 @@ int mplayer_decode_video (struct mplayer_context *con, char *buffer)
 
 		frame_time_remaining = sleep_until_update(&mpctx->time_frame, &aq_sleep_time);
 	}
-#if 0
 	//====================== FLIP PAGE (VIDEO BLT): =========================
 
 	if (!edl_needs_reset) {
@@ -3913,7 +3910,6 @@ int mplayer_decode_video (struct mplayer_context *con, char *buffer)
 			vout_time_usage += (GetTimer() - t2) * 0.000001;
 		}
 	}
-#endif
 	con->aq_sleep_time = aq_sleep_time;
 	con->blit_frame = blit_frame;
 	con->frame_time_remaining = frame_time_remaining;

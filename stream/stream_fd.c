@@ -90,20 +90,9 @@ static int open_f(stream_t *stream,int mode, void* opts, int* file_format) {
 	  return STREAM_UNSUPPORTED;
 
   len=lseek(f,0,SEEK_END); lseek(f,0,SEEK_SET);
-#ifdef __MINGW32__
-  if(f==0 || len == -1) {
-#else
-  if(len == -1) {
-#endif
-    if(mode == STREAM_READ) stream->seek = seek_forward;
-    stream->type = STREAMTYPE_STREAM; // Must be move to STREAMTYPE_FILE
-    stream->flags |= MP_STREAM_SEEK_FW;
-  } else if(len >= 0) {
-    stream->seek = seek;
-    stream->end_pos = len;
-    stream->type = STREAMTYPE_FILE;
-  }
-
+  stream->seek = seek;
+  stream->end_pos = len;
+  stream->type = STREAMTYPE_FILE;
   mp_msg(MSGT_OPEN,MSGL_V,"[file] File size is %"PRId64" bytes\n", (int64_t)len);
 
   stream->fd = f;
