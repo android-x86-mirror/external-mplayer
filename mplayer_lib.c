@@ -3834,7 +3834,7 @@ int mplayer_decode_audio (struct mplayer_context *con, char *buffer,
 	return ret;
 } /* end of decode_audio */
 
-int mplayer_decode_video (struct mplayer_context *con)
+int mplayer_decode_video (struct mplayer_context *con, char *buffer)
 {
 	float aq_sleep_time = 0;
 	int blit_frame;
@@ -3898,22 +3898,36 @@ int mplayer_decode_video (struct mplayer_context *con)
 		}
 
 		frame_time_remaining = sleep_until_update(&mpctx->time_frame, &aq_sleep_time);
-
+	}
 #if 0
-		//====================== FLIP PAGE (VIDEO BLT): =========================
+	//====================== FLIP PAGE (VIDEO BLT): =========================
 
-		if (!edl_needs_reset) {
-			current_module="flip_page";
-			if (!frame_time_remaining && blit_frame) {
-				unsigned int t2=GetTimer();
+	if (!edl_needs_reset) {
+		current_module="flip_page";
+		if (!frame_time_remaining && blit_frame) {
+			unsigned int t2=GetTimer();
 
-				if(vo_config_count) mpctx->video_out->flip_page();
-				mpctx->num_buffered_frames--;
+			if(vo_config_count) mpctx->video_out->flip_page();
+			mpctx->num_buffered_frames--;
 
-				vout_time_usage += (GetTimer() - t2) * 0.000001;
-			}
+			vout_time_usage += (GetTimer() - t2) * 0.000001;
 		}
+	}
 #endif
+	con->aq_sleep_time = aq_sleep_time;
+	con->blit_frame = blit_frame;
+	con->frame_time_remaining = frame_time_remaining;
+goto_next_file:  // don't jump here after ao/vo/getch initialization!
+	return 0;
+} /* end of mplayer_video_decode */
+
+int mplayer_after_decode (struct mplayer_context * con)
+{
+	float aq_sleep_time = con->aq_sleep_time;
+	int blit_frame = con->blit_frame;
+	int frame_time_remaining = con->frame_time_remaining;
+
+	if (mpctx->sh_video) {
 		//====================== A-V TIMESTAMP CORRECTION: =========================
 
 		adjust_sync_and_print_status(frame_time_remaining, mpctx->time_frame);

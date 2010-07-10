@@ -66,6 +66,7 @@
 #define HAVE_ALLOCA_H 1
 #define HAVE_ALSA_ASOUNDLIB_H 1
 #define HAVE_ALTIVEC_H 0
+#undef HAVE_MALLOC_H
 #define HAVE_MALLOC_H 1
 #define HAVE_SYS_MMAN_H 1
 
@@ -139,6 +140,7 @@
 #define __CPU__ 686
 #undef WORDS_BIGENDIAN
 #define HAVE_BIGENDIAN 0
+#undef ARCH_X86
 #define ARCH_X86 1
 #define ARCH_IA64 0
 #define ARCH_SPARC 0
@@ -453,6 +455,7 @@
 #define CONFIG_MLIB 0
 #define HAVE_MKSTEMP 1
 #define HAVE_POSIX_MEMALIGN 0
+#undef HAVE_PTHREADS
 #define HAVE_PTHREADS	1
 #define HAVE_ROUND 1
 #define HAVE_ROUNDF 1

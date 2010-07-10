@@ -113,7 +113,10 @@ namespace android {
 
 		int argca;
 		char * argva[30] = {"mplayer", "fd", "-vo", "null",
-			"-ao", "pcm_mem", 0};
+			"-ao", "pcm_mem", "-noconsolecontrols", "-nojoystick",
+			"-nolirc", "-nomouseinput", "-slave", "-zoom", 
+			"-fs",
+			0};
 		char url_buffer[100];
 
 		sprintf (url_buffer, "fd://%d", fd);
@@ -373,11 +376,17 @@ namespace android {
 				audioStarted = true;
 			}
 
-			/*
-			   mpresult = mplayer_decode_video(&con);
-			   if (!mpresult) 
-			   break;
-			   */
+			mpresult = mplayer_decode_video(&mMPContext, NULL);
+			if (!mpresult)  {
+				LOGI("mplayer_returned %d", mpresult);
+				break;
+			}
+
+			mpresult = mplayer_after_decode (&mMPContext);
+			if (!mpresult) {
+				LOGI("mplayer_after_decode %d", mpresult);
+				break;
+			}
 		}
 threadExit:
 		mAudioSink.clear();
