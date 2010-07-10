@@ -376,14 +376,17 @@ namespace android {
 				audioStarted = true;
 			}
 
+			//this function will decode video and sleep for video output timing
 			mpresult = mplayer_decode_video(&mMPContext, NULL);
-			if (!mpresult)  {
-				LOGI("mplayer_returned %d", mpresult);
+			if (mpresult)  {
+				LOGI("mplayer_decode_video returned %d", mpresult);
 				break;
 			}
 
+			/* render video */
+
 			mpresult = mplayer_after_decode (&mMPContext);
-			if (!mpresult) {
+			if (mpresult) {
 				LOGI("mplayer_after_decode %d", mpresult);
 				break;
 			}
