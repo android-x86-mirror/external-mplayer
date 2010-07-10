@@ -35,11 +35,13 @@ namespace android {
 	static status_t STATE_INIT = 0;
 	static status_t STATE_ERROR = 1;
 	static status_t STATE_OPEN = 2;
+	static status_t STATE_PREPARED = 3;
 
 	MPlayer::MPlayer() :
 		mAudioBuffer(NULL), mPlayTime(-1), mDuration(-1), mState(STATE_ERROR),
 		mStreamType(AudioSystem::MUSIC), mLoop(false), mAndroidLoop(false),
-		mExit(false), mPaused(false), mRender(false), mRenderTid(-1)
+		mExit(false), mPaused(false), mRender(false), mRenderTid(-1),
+		mMPInitialized(false)
 	{
 		LOGE("constructor\n");
 	}
@@ -70,17 +72,67 @@ namespace android {
 
 	status_t MPlayer::setDataSource(const char* path)
 	{
-		LOGE("setDataSource path=%s\n", path);
-		mState = STATE_OPEN;
-		return NO_ERROR;
+		return setdatasource(path, -1, 0, 0x78ffffLL);
 	}
 
 	status_t MPlayer::setDataSource(int fd, int64_t offset, int64_t length)
 	{
-		LOGE("setDataSource fd%d offset%lld length%lld\n", fd, offset, length);
-		mState = STATE_OPEN;
-		return NO_ERROR;
+		return setdatasource(NULL, fd, offset, length);
 	}
+
+	status_t MPlayer::setdatasource (const char *path, int fd, int64_t offset,
+			int64_t length)
+	{
+		int ret;
+
+		LOGE("setdatasource url%d, fd%d\n", path, fd);
+		LOGE("setdatasource offset%d, length%d\n", offset, length);
+
+		Mutex::Autolock l(mMutex);
+		if (mState == STATE_OPEN) {
+			reset_nosync();
+		}
+
+		struct stat sb;
+		if (path) {
+			ret = stat(path, &sb);
+		} else {
+			ret = fstat(fd, &sb);
+		}
+		if (ret != 0) {
+			mState = STATE_ERROR;
+			close(fd);
+			return ERROR_OPEN_FAILED;
+		}
+		/* todo : need to handle offset and length */
+		if (sb.st_size > (length+offset)) {
+			mLength = length;
+		} else {
+			mLength = sb.st_size - offset;
+		}
+
+		int argca;
+		char * argva[30] = {"mplayer", "fd", "-vo", "null",
+			"-ao", "pcm_mem", 0};
+		char url_buffer[100];
+
+		sprintf (url_buffer, "fd://%d", fd);
+		argva[1] = url_buffer;
+		for (argca=0; argca<30; argca++) {
+			if (argva[argca] == 0)
+				break;
+		}
+		ret = mplayer_init (&mMPContext, argca, argva);
+		if (!ret) { 
+			mMPInitialized = true;
+			mState = STATE_OPEN;
+			return NO_ERROR;
+		} else {
+			mplayer_close (&mMPContext);
+			return ERROR_OPEN_FAILED;
+		}
+	}
+
 
 	status_t MPlayer::prepare()
 	{
@@ -111,6 +163,7 @@ namespace android {
 		}
 		mPaused = false;
 		mRender = true;
+
 		// wake up render thread
 		LOGE("  wakeup render thread\n");
 		mCondition.signal();
@@ -120,6 +173,12 @@ namespace android {
 	status_t MPlayer::stop()
 	{
 		LOGE("stop\n");
+		Mutex::Autolock l(mMutex);
+		if (mState != STATE_OPEN) {
+			return ERROR_NOT_OPEN;
+		}
+		mPaused = true;
+		mRender = false;
 		return NO_ERROR;
 	}
 
@@ -164,7 +223,7 @@ namespace android {
 			return ERROR_NOT_OPEN;
 		}
 		/* todo : get the position */
-		*position = 100;
+		*position = 0;
 		return NO_ERROR;
 	}
 
@@ -204,13 +263,9 @@ namespace android {
 	status_t MPlayer::reset_nosync()
 	{
 		//close file
-		if (mFile != NULL) {
-			if (mFile != NULL) {
-				LOGE("file not closed -_-;");
-				fclose (mFile);
-				mFile = NULL;
-			}
-		}
+		if (mMPInitialized)
+		   	mplayer_close(&mMPContext);
+		mMPInitialized = false;
 		mState = STATE_ERROR;
 
 		mPlayTime = -1;
@@ -231,12 +286,17 @@ namespace android {
 	}
 
 	status_t MPlayer::createOutputTrack() {
-		/*
-		if (mAudioSink->open(vi->rate, vi->channels, AudioSystem::PCM_16_BIT, DEFAULT_AUDIOSINK_BUFFERCOUNT) != NO_ERROR) {
+		uint32_t sampleRate;
+	   	int channelCount;
+		
+		mplayer_get_audio_info(&mMPContext, &sampleRate, &channelCount);
+
+		if (mAudioSink->open(sampleRate, channelCount,
+				   	AudioSystem::PCM_16_BIT,
+				   	DEFAULT_AUDIOSINK_BUFFERCOUNT) != NO_ERROR) {
 			LOGE("mAudioSink open failed");
 			return ERROR_OPEN_FAILED;
 		}
-		*/
 		return NO_ERROR;
 	}
 
@@ -249,14 +309,9 @@ namespace android {
 	int MPlayer::render() {
 		int result = -1;
 		int temp;
-		int count = 0;
 		bool audioStarted = false;
-		struct mplayer_context mp_context;
-		int argc = 5;
-		char* argv[] = {"-vo", "null", "-ao", "null", "-slave"};
-
-		LOGE("render started\n");
-		mplayer_init(&mp_context, argc, argv);
+		int mpresult;
+		int audio_pos;
 		
 		mAudioBuffer = new char[AUDIOBUFFER_SIZE];
 
@@ -268,54 +323,36 @@ namespace android {
 		}
 
 		while (1) {
-			{
-				Mutex::Autolock l(mMutex);
+			int audio_pos;
 
-				// pausing?
-				if (mPaused) {
-					if (mAudioSink->ready()) mAudioSink->pause();
-					mRender = false;
-					audioStarted = false;
-				}
+			Mutex::Autolock l(mMutex);
 
-				//nothing to render?
-				if (!mExit && !mRender) {
-					LOGE("render - signal wait\n");
-					mCondition.wait(mMutex);
-					LOGE("render - signal rx\n");
-				}
-				if (mExit) break;
-
-				if (!mRender) continue;
-
-				count ++;
-#if 0
-				if (count > 60) {
-					if (mLoop || mAndroidLoop) {
-						/* start loop again here */
-					} else {
-						mAudioSink->stop();
-						audioStarted = false;
-						mRender = false;
-						mPaused = true;
-
-						LOGE ("media playback complete");
-						sendEvent(MEDIA_PLAYBACK_COMPLETE);
-
-						mCondition.wait(mMutex);
-						if (mExit) break;
-
-						if (mState == STATE_OPEN) {
-						}
-					}
-				}
-#endif
+			// pausing?
+			if (mPaused) {
+				if (mAudioSink->ready()) mAudioSink->pause();
+				mRender = false;
+				audioStarted = false;
 			}
-			if (count == 0) {
+
+			//nothing to render?
+			if (!mExit && !mRender) {
+				LOGE("render - signal wait\n");
+				mCondition.wait(mMutex);
+				LOGE("render - signal rx\n");
+			}
+			if (mExit) break;
+
+			if (!mRender) continue;
+
+			LOGE("before decode");
+			mpresult = mplayer_decode_audio(&mMPContext, mAudioBuffer,
+					AUDIOBUFFER_SIZE, &audio_pos);
+			if (mpresult) {
 				LOGE ("error in decode");
 				sendEvent(MEDIA_ERROR);
 				break;
 			}
+			LOGE("after decode ret %d", mpresult);
 
 			//create audio output track
 			if (!mAudioSink->ready()) {
@@ -324,7 +361,7 @@ namespace android {
 			}
 
 			//write data to the audio hardware
-			if ((temp = mAudioSink->write(mAudioBuffer, 1000))<0) {
+			if ((temp = mAudioSink->write(mAudioBuffer, audio_pos))<0) {
 				LOGE("Error in writing %d", temp);
 				result = temp;
 				break;
@@ -335,6 +372,12 @@ namespace android {
 				mAudioSink->start();
 				audioStarted = true;
 			}
+
+			/*
+			   mpresult = mplayer_decode_video(&con);
+			   if (!mpresult) 
+			   break;
+			   */
 		}
 threadExit:
 		mAudioSink.clear();

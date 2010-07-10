@@ -54,6 +54,7 @@ extern const ao_functions_t audio_out_ivtv;
 extern const ao_functions_t audio_out_v4l2;
 extern const ao_functions_t audio_out_mpegpes;
 extern const ao_functions_t audio_out_pcm;
+extern const ao_functions_t audio_out_pcm_mem;
 extern const ao_functions_t audio_out_pss;
 
 const ao_functions_t* const audio_out_drivers[] =
@@ -124,6 +125,7 @@ const ao_functions_t* const audio_out_drivers[] =
         &audio_out_null,
 // should not be auto-selected:
         &audio_out_pcm,
+        &audio_out_pcm_mem,
         NULL
 };
 

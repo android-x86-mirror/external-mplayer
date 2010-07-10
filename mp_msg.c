@@ -176,6 +176,7 @@ static void print_msg_module(FILE* stream, int mod)
     fprintf(stream, ": ");
 }
 
+#ifndef ANDROID
 void mp_msg(int mod, int lev, const char *format, ... ){
     va_list va;
     char tmp[MSGSIZE_MAX];
@@ -232,3 +233,4 @@ void mp_msg(int mod, int lev, const char *format, ... ){
         fprintf(stream, "\033[0m");
     fflush(stream);
 }
+#endif

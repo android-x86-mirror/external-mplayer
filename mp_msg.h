@@ -140,14 +140,20 @@ int mp_msg_test(int mod, int lev);
 
 #include "config.h"
 
-#ifdef __GNUC__
+#ifdef ANDROID
+#define LOG_TAG "MP_in"
+#define LOG_NDEBUG 0
+#include "cutils/log.h"
+#define mp_msg(mod,levl, ... ) LOGE( __VA_ARGS__ )
+#define mp_dbg(mod,levl, ... ) LOGE( __VA_ARGS__ )
+#elif defined(__GNUC__)
 void mp_msg(int mod, int lev, const char *format, ... ) __attribute__ ((format (printf, 3, 4)));
 #   ifdef MP_DEBUG
 #      define mp_dbg(mod,lev, args... ) mp_msg(mod, lev, ## args )
 #   else
 #      define mp_dbg(mod,lev, args... ) /* only useful for developers */
 #   endif
-#else // not GNU C
+#else // 
 void mp_msg(int mod, int lev, const char *format, ... );
 #   ifdef MP_DEBUG
 #      define mp_dbg(mod,lev, ... ) mp_msg(mod, lev, __VA_ARGS__)

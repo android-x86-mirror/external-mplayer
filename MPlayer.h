@@ -13,6 +13,8 @@
 #include <media/MediaPlayerInterface.h>
 #include <media/AudioTrack.h>
 
+#include "mplayer_lib.h"
+
 #define ANDROID_LOOP_TAG "ANDROID_LOOP"
 
 namespace android {
@@ -43,13 +45,16 @@ namespace android {
 			virtual status_t    invoke(const Parcel& request, Parcel *reply) {return INVALID_OPERATION;}
 
 		private:
+			struct mplayer_context mMPContext;
 			status_t	reset_nosync();
 			status_t	createOutputTrack();
 			static int	renderThread(void*);
+			status_t	setdatasource(const char *path, int fd, int64_t offset,
+					int64_t length);
 			int			render();
 			Mutex 		mMutex;
 			Condition	mCondition;
-			FILE * 		mFile;
+			bool		mMPInitialized;
 			int64_t 	mOffset;
 			int64_t		mLength;
 			char * 		mAudioBuffer;

@@ -508,6 +508,7 @@ SRCS_COMMON = asxparser.c \
               stream/stream.c \
               stream/stream_cue.c \
               stream/stream_file.c \
+              stream/stream_fd.c \
               stream/stream_mf.c \
               stream/stream_null.c \
               stream/url.c \
@@ -666,6 +667,7 @@ SRCS_MPLAYER = command.c \
                libao2/ao_mpegpes.c \
                libao2/ao_null.c \
                libao2/ao_pcm.c \
+               libao2/ao_pcm_mem.c \
                libao2/audio_out.c \
                libvo/aspect.c \
                libvo/geometry.c \
@@ -687,8 +689,8 @@ FFMPEGPARTS = libavformat \
 			  libavcodec \
 			  libavutil
 
-FFCFLAGS += -include $(LOCAL_PATH)/config.h -DPROFILE -DANAYSIS
-FFCXXFLAGS += -include $(LOCAL_PATH)/config.h -DPROFILE -DANAYSIS
+FFCFLAGS += -include $(LOCAL_PATH)/config.h -DANDROID
+FFCXXFLAGS += -include $(LOCAL_PATH)/config.h -DANDROID
 
 include $(CLEAR_VARS)
 LOCAL_MODULE = libfaad2
@@ -702,7 +704,7 @@ LOCAL_MODULE = mplayer
 LOCAL_CFLAGS = $(FFCFLAGS) -D_POSIX_C_SOURCE
 LOCAL_SRC_FILES = $(SRCS_COMMON) $(SRCS_MPLAYER_EXE)
 LOCAL_C_INCLUDES = $(LOCAL_PATH) external/alsa-lib/include
-LOCAL_SHARED_LIBRARIES := libz libasound libc
+LOCAL_SHARED_LIBRARIES := libz libasound libc libcutils
 LOCAL_STATIC_LIBRARIES := libfaad2 $(FFMPEGPARTS) 
 include $(BUILD_EXECUTABLE)
 
@@ -711,7 +713,7 @@ LOCAL_MODULE = libmplayer
 LOCAL_CFLAGS = $(FFCXXFLAGS) -D_POSIX_C_SOURCE -DDISABLE_MAIN
 LOCAL_SRC_FILES = $(SRCS_COMMON) $(SRCS_MPLAYER_LIB) 
 LOCAL_C_INCLUDES = $(LOCAL_PATH) external/alsa-lib/include
-LOCAL_SHARED_LIBRARIES := libz libasound libc 
+LOCAL_SHARED_LIBRARIES := libz libasound libc libcutils
 LOCAL_STATIC_LIBRARIES := libfaad2 $(FFMPEGPARTS) 
 include $(BUILD_STATIC_LIBRARY)
 
@@ -721,5 +723,5 @@ LOCAL_CFLAGS =
 LOCAL_SRC_FILES = MPlayer.cpp
 LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
 	libmedia libui libandroid_runtime liblog
-LOCAL_STATIC_LIBRARIES := libmplayer
+LOCAL_STATIC_LIBRARIES := libmplayer $(FFMPEGPARTS)
 include $(BUILD_SHARED_LIBRARY)
