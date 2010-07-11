@@ -30,15 +30,15 @@ int main (int argc, char*argv[])
 	while (1) {
 		int audio_pos;
 		mresult = mplayer_decode_audio (&con, audio_buffer, 4096, &audio_pos);
-		printf ("mresult decode_audio %d", mresult);
+		printf ("mresult decode_audio %d\n", mresult);
 		if (mresult) break;
 
 		mresult = mplayer_decode_video(&con, NULL);
-		printf ("mresult decode_video %d", mresult);
+		printf ("mresult decode_video %d\n", mresult);
 		if (mresult) break;
 
 		mresult = mplayer_after_decode(&con);
-		printf ("mresult after_decode %d", mresult);
+		printf ("mresult after_decode %d\n", mresult);
 		if (mresult) break;
 	}
 	mplayer_close(&con);

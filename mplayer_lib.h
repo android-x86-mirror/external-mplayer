@@ -11,8 +11,12 @@ struct mplayer_context {
 	float aq_sleep_time;
 	int blit_frame;
 	int frame_time_remaining;
+	double a_pos;
 };
 
+extern int mplayer_seek (struct mplayer_context * con, int position);
+extern int mplayer_get_pos (struct mplayer_context *con, int*v_pos);
+extern int mplayer_get_duration (struct mplayer_context *con, int*duration);
 extern int mplayer_get_audio_info(struct mplayer_context *con, uint32_t *samp, int*chc);
 extern int mplayer_init (struct mplayer_context *con, int argc, char *argv[]);
 extern int mplayer_decode_audio (struct mplayer_context *con, char * buffer,

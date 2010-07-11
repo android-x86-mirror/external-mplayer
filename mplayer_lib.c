@@ -783,7 +783,9 @@ void exit_player_with_rc(enum exit_reason how, int rc)
   }
   mp_msg(MSGT_CPLAYER,MSGL_DBG2,"max framesize was %d bytes\n",max_framesize);
 
+  /* todo : meaning?
   exit(rc);
+  */
 }
 
 void exit_player(enum exit_reason how)
@@ -1247,6 +1249,24 @@ static void sadd_hhmmssf(char *buf, unsigned *pos, int len, float time) {
   if (hh > 0 || mm > 0)
     saddf(buf, pos, len, "%02d:", mm);
   saddf(buf, pos, len, "%02d.%1d", ss, f1);
+}
+
+int mplayer_get_pos (struct mplayer_context *con, int*v_pos)
+{
+	if (mpctx->sh_video) {
+		*v_pos = (int) mpctx->sh_video->pts;
+	} else if (mpctx->sh_audio) {
+		*v_pos = (int) con->a_pos;
+	}
+	return 0;
+}
+
+int mplayer_get_duration (struct mplayer_context *con, int*duration)
+{
+	if (mpctx->sh_audio) {
+		*duration = (int) (demuxer_get_time_length(mpctx->demuxer) + 0.5f);
+	}
+	return 0;
 }
 
 /**
@@ -2155,7 +2175,6 @@ static int fill_audio_out_buffers(char *buffer, int buffer_size, int *output_siz
 		if (playsize > MAX_OUTBURST)
 			playsize = MAX_OUTBURST;
 		bytes_to_write -= playsize;
-			mp_msg(MSGT_CPLAYER, MSGL_INFO, "byte_to_write %d\n", bytes_to_write);
 
 		// Fill buffer if needed:
 		current_module="decode_audio";
@@ -2173,7 +2192,6 @@ static int fill_audio_out_buffers(char *buffer, int buffer_size, int *output_siz
 			if (audio_eof)
 				playflags |= AOPLAY_FINAL_CHUNK;
 		}
-			mp_msg(MSGT_CPLAYER, MSGL_INFO, "playsize %d\n", playsize);
 		if (!playsize)
 			break;
 
@@ -2608,6 +2626,12 @@ static void edl_update(MPContext *mpctx)
     }
 }
 
+static int seek(MPContext *mpctx, double amount, int style);
+int mplayer_seek (struct mplayer_context * con, int position)
+{
+	seek (mpctx, (double)position, SEEK_ABSOLUTE);
+	return 0;
+}
 
 // style & SEEK_ABSOLUTE == 0 means seek relative to current position, == 1 means absolute
 // style & SEEK_FACTOR == 0 means amount in seconds, == 2 means fraction of file length
@@ -3753,7 +3777,7 @@ main:
 		if(mpctx->loop_times>1) mpctx->loop_times--; else
 			if(mpctx->loop_times==1) mpctx->loop_times = -1;
 
-		mp_msg(MSGT_CPLAYER,MSGL_INFO,MSGTR_StartPlaying);
+		mp_msg(MSGT_CPLAYER,MSGL_INFO,"Ready to play");
 
 		total_time_usage_start=GetTimer();
 		audio_time_usage=0; video_time_usage=0; vout_time_usage=0;
@@ -3784,6 +3808,11 @@ main:
 #endif
 	}
 
+	if (mpctx->sh_audio) {
+	   	con->a_pos = 0.0;
+	} else {
+		con->a_pos = -10.0;
+	}
 goto_init_exit:
 	return opt_exit;
 } /* end of mplayer_init */
@@ -3814,7 +3843,7 @@ int mplayer_decode_audio (struct mplayer_context *con, char *buffer,
 		}
 	}
 
-	/*	okkwon todo : what is this -_-?
+	/* todo : what is this -_-? */
 	if(!mpctx->sh_video) {
 		// handle audio-only case:
 		double a_pos=0;
@@ -3822,12 +3851,12 @@ int mplayer_decode_audio (struct mplayer_context *con, char *buffer,
 		// TODO: handle this better
 		if((!quiet || end_at.type == END_AT_TIME) && mpctx->sh_audio)
 			a_pos = playing_audio_pts(mpctx->sh_audio, mpctx->d_audio, mpctx->audio_out);
+		con->a_pos = a_pos;
 
 		if(end_at.type == END_AT_TIME && end_at.pos < a_pos) {
 			ret = 1;
 		}
 	}
-	*/
 
 	return ret;
 } /* end of decode_audio */
@@ -4200,6 +4229,6 @@ int mplayer_close (struct mplayer_context * con)
 
 	exit_player_with_rc(EXIT_EOF, 0);
 
-	return 1;
+	return 0;
 }
 /* DISABLE_MAIN */

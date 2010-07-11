@@ -119,13 +119,19 @@ namespace android {
 			0};
 		char url_buffer[100];
 
-		sprintf (url_buffer, "fd://%d", fd);
+
+		mfd = dup(fd);
+
+		sprintf (url_buffer, "fd://%d", mfd);
 		argva[1] = url_buffer;
 		for (argca=0; argca<30; argca++) {
 			if (argva[argca] == 0)
 				break;
 		}
 		ret = mplayer_init (&mMPContext, argca, argva);
+		ret = fstat(mfd, &sb);
+		LOGE("okkwon stat result %d", ret);
+
 		if (!ret) { 
 			mMPInitialized = true;
 			mState = STATE_OPEN;
@@ -153,6 +159,11 @@ namespace android {
 			sendEvent (MEDIA_ERROR);
 			return NO_ERROR;
 		}
+		struct stat sb;
+		int ret;
+		ret = fstat(mfd, &sb);
+		LOGE("stat result %d", ret);
+
 		sendEvent (MEDIA_PREPARED);	/* todo : should be moved to main loop */
 		return NO_ERROR;
 	}
@@ -192,7 +203,7 @@ namespace android {
 		if (mState != STATE_OPEN) {
 			return ERROR_NOT_OPEN;
 		}
-		/* todo : populate seek */
+		mplayer_seek (&mMPContext, position);
 		sendEvent(MEDIA_SEEK_COMPLETE);
 		return NO_ERROR;
 	}
@@ -226,7 +237,8 @@ namespace android {
 			return ERROR_NOT_OPEN;
 		}
 		/* todo : get the position */
-		*position = 0;
+		mplayer_get_pos (&mMPContext, position);
+		LOGE("position %d", *position);
 		return NO_ERROR;
 	}
 
@@ -237,8 +249,8 @@ namespace android {
 		if (mState != STATE_OPEN) {
 			return ERROR_NOT_OPEN;
 		}
-		/* todo : need to populate */
-		*duration = 100;
+		mplayer_get_duration (&mMPContext, duration);
+		LOGE("duration %d", *duration);
 		return NO_ERROR;
 	}
 

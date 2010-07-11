@@ -713,18 +713,20 @@ include $(CLEAR_VARS)
 LOCAL_MODULE = libmplayer
 LOCAL_CFLAGS = $(FFCXXFLAGS) -D_POSIX_C_SOURCE -DDISABLE_MAIN
 LOCAL_SRC_FILES = $(SRCS_COMMON) $(SRCS_MPLAYER_LIB) 
-LOCAL_C_INCLUDES = $(LOCAL_PATH) external/alsa-lib/include
+LOCAL_C_INCLUDES = $(LOCAL_PATH) \
+				   external/alsa-lib/include \
+				   external/freetype/include
 LOCAL_SHARED_LIBRARIES := libz libasound libc libcutils
-LOCAL_STATIC_LIBRARIES := libfaad2 $(FFMPEGPARTS) 
+LOCAL_STATIC_LIBRARIES := libfaad2 $(FFMPEGPARTS) libft2
 include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE = libandroidmplayer
 LOCAL_CFLAGS = 
-LOCAL_SRC_FILES = MPlayer.cpp
+LOCAL_SRC_FILES = MPlayer.cpp MPlayerMetadataRetriever.cpp
 LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
 	libmedia libui libandroid_runtime liblog
-LOCAL_STATIC_LIBRARIES := libmplayer $(FFMPEGPARTS)
+LOCAL_STATIC_LIBRARIES := libmplayer $(FFMPEGPARTS) libft2
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
@@ -733,5 +735,5 @@ LOCAL_CFLAGS =
 LOCAL_SRC_FILES = mp.c
 LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
 	libmedia libui libandroid_runtime liblog libandroidmplayer
-include $(BUILD_SHARED_LIBRARY)
+include $(BUILD_EXECUTABLE)
 

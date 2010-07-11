@@ -68,6 +68,7 @@ namespace android {
 			volatile bool mRender;
 			status_t	mState;
 			pid_t		mRenderTid;
+			int 		mfd;
 	};
 };	// namespace android
 

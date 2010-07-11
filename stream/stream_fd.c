@@ -23,6 +23,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <errno.h>
 
 #include "mp_msg.h"
 #include "stream.h"
@@ -32,6 +33,11 @@
 
 static int fill_buffer(stream_t *s, char* buffer, int max_len){
   int r = read(s->fd,buffer,max_len);
+  if (r<=0) {
+    mp_msg(MSGT_STREAM,MSGL_INFO,"fill_buffer failed with fd%d buffer%x max_len%x errno%d\n",
+		   	s->fd, buffer, max_len, errno);
+  }
+
   return (r <= 0) ? -1 : r;
 }
 
@@ -43,6 +49,7 @@ static int write_buffer(stream_t *s, char* buffer, int len) {
 static int seek(stream_t *s,off_t newpos) {
   s->pos = newpos;
   if(lseek(s->fd,s->pos,SEEK_SET)<0) {
+    mp_msg(MSGT_STREAM,MSGL_INFO,"seek failed errno %d\n", errno);
     s->eof=1;
     return 0;
   }
@@ -81,32 +88,40 @@ static int control(stream_t *s, int cmd, void *arg) {
 }
 
 static int open_f(stream_t *stream,int mode, void* opts, int* file_format) {
-  int f;
-  off_t len;
+	int f;
+	off_t len;
 
-  mp_msg(MSGT_OPEN,MSGL_INFO,"filename %s\n", stream->url);
-  sscanf (stream->url, "fd://%d", &f);
-  if (f < 0)
-	  return STREAM_UNSUPPORTED;
+	mp_msg(MSGT_OPEN,MSGL_INFO,"filename %s\n", stream->url);
+	sscanf (stream->url, "fd://%d", &f);
+	if (f < 0)
+		return STREAM_UNSUPPORTED;
 
-  len=lseek(f,0,SEEK_END); lseek(f,0,SEEK_SET);
-  stream->seek = seek;
-  stream->end_pos = len;
-  stream->type = STREAMTYPE_FILE;
-  mp_msg(MSGT_OPEN,MSGL_V,"[file] File size is %"PRId64" bytes\n", (int64_t)len);
+	len=lseek(f,0,SEEK_END); lseek(f,0,SEEK_SET);
+	if(len == -1) {
+		mp_msg(MSGT_OPEN,MSGL_V,"fd type stream");
+		if(mode == STREAM_READ) stream->seek = seek_forward;
+		stream->type = STREAMTYPE_STREAM; // Must be move to STREAMTYPE_FILE
+		stream->flags |= MP_STREAM_SEEK_FW;
+	} else if(len >= 0) {
+		mp_msg(MSGT_OPEN,MSGL_V,"fd type file");
+		stream->seek = seek;
+		stream->end_pos = len;
+		stream->type = STREAMTYPE_FILE;
+	}
+	mp_msg(MSGT_OPEN,MSGL_V,"[file] File size is %"PRId64" bytes\n", (int64_t)len);
 
-  stream->fd = f;
-  stream->fill_buffer = fill_buffer;
-  stream->write_buffer = write_buffer;
-  stream->control = control;
+	stream->fd = f;
+	stream->fill_buffer = fill_buffer;
+	stream->write_buffer = write_buffer;
+	stream->control = control;
 
-  return STREAM_OK;
+	return STREAM_OK;
 }
 
 const stream_info_t stream_info_filefd = {
   "File Descriptor",
   "fd",
-  "Merong",
+  "okkwon <pinebud@gmail.com>",
   "based on the code from file stream (probably Arpi)",
   open_f,
   { "fd", NULL },

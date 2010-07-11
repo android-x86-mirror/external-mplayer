@@ -90,7 +90,6 @@ static void fput32le(uint32_t val, FILE *fp) {
 static int control(int cmd,void *arg){
 	switch (cmd) {
 		case AOCONTROL_SET_DEVICE:
-			mp_msg(MSGT_AO, MSGL_INFO, "set device %x\n", (int)arg);
 			ao_outputbuffer = (char*)arg;
 			ao_data.outburst = ao_pcm_buffersize;
 			ao_data.buffersize = 0;
@@ -98,14 +97,12 @@ static int control(int cmd,void *arg){
 			break;
 		case AOCONTROL_SET_VOLUME:
 			/* set the buffer size -_-; */
-			mp_msg(MSGT_AO, MSGL_INFO, "set buffer size %d\n", (int)arg);
  			ao_pcm_buffersize = (int)arg;
 			ao_data.outburst = ao_pcm_buffersize;
 			ao_data.buffersize = 0;
 			ao_outputpos = 0;
 			break;
 		case AOCONTROL_GET_DEVICE:
-			mp_msg(MSGT_AO, MSGL_INFO, "get pos %d\n", (int)ao_outputpos);
 			*(int*)arg = ao_outputpos;
 			ao_outputpos = 0;
 			break;
