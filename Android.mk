@@ -723,7 +723,7 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE = libandroidmplayer
 LOCAL_CFLAGS = 
-LOCAL_SRC_FILES = MPlayer.cpp MPlayerMetadataRetriever.cpp
+LOCAL_SRC_FILES = MPlayer.cpp MPlayerMetadataRetriever.cpp MPlayerRenderer.cpp
 LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
 	libmedia libui libandroid_runtime liblog
 LOCAL_STATIC_LIBRARIES := libmplayer $(FFMPEGPARTS) libft2

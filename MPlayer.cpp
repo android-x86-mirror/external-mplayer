@@ -142,6 +142,21 @@ namespace android {
 		}
 	}
 
+	status_t MPlayer::setVideoSurface(const sp<ISurface> &surface) {
+		LOGE("setVideoSurface");
+
+		Mutex::Autolock l(mMutex);
+		if (mState != STATE_INIT && mState != STATE_OPEN) {
+			return NO_INIT;
+		}
+		
+		size_t width, height;
+		mplayer_get_video_dimension(&width, &height);
+		mVideoRenderer = new MPlayerRenderer (surface, width, height);
+
+		return NO_ERROR;
+	}
+
 
 	status_t MPlayer::prepare()
 	{
@@ -319,7 +334,7 @@ namespace android {
 		return ((MPlayer*)p)->render();
 	}
 
-#define AUDIOBUFFER_SIZE 4096
+#define AUDIOBUFFER_SIZE (4096*6)
 
 	int MPlayer::render() {
 		int result = -1;
@@ -389,7 +404,7 @@ namespace android {
 			}
 
 			//this function will decode video and sleep for video output timing
-			mpresult = mplayer_decode_video(&mMPContext, NULL);
+			mpresult |= mplayer_decode_video(&mMPContext, NULL);
 			if (mpresult)  {
 				LOGI("mplayer_decode_video returned %d", mpresult);
 				break;
@@ -397,11 +412,49 @@ namespace android {
 
 			/* render video */
 
-			mpresult = mplayer_after_decode (&mMPContext);
+			mpresult |= mplayer_after_decode (&mMPContext);
 			if (mpresult) {
 				LOGI("mplayer_after_decode %d", mpresult);
 				break;
 			}
+
+			if (mpresult) {
+				/* EOF reached -_-? */
+				if (mLoop || mAndroidLoop) {
+					mplayer_seek (&mMPContext, 0);
+					/*
+					mpresult = mplayer_decode_audio(&mMPContext, mAudioBuffer,
+							AUDIOBUFFER_SIZE, &audio_pos);
+							*/
+				} else {
+					int endpos;
+
+					mAudioSink->stop();
+					audioStarted = false;
+					mRender = false;
+					mPaused = true;
+					mplayer_get_pos (&mMPContext, &endpos);
+
+					LOGE("send MEDIA_PLAYBACK_COMPLETE");
+					sendEvent(MEDIA_PLAYBACK_COMPLETE);
+
+					LOGE("playback complete - wait for signal");
+					mCondition.wait(mMutex);
+					LOGE("playback complete - signal rx'd");
+					if (mExit) break;
+
+					if (mState == STATE_OPEN) {
+						int curpos;
+						mplayer_get_pos(&mMPContext, &curpos);
+						if (curpos == endpos) {
+							mplayer_seek (&mMPContext, 0);
+						}
+						mplayer_decode_audio(&mMPContext, mAudioBuffer,
+								AUDIOBUFFER_SIZE, &audio_pos);
+					}
+				}
+			}
+
 		}
 threadExit:
 		mAudioSink.clear();

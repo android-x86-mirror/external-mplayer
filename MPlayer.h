@@ -19,6 +19,8 @@
 
 namespace android {
 
+	class MPlayerRenderer;
+
 	class MPlayer : public MediaPlayerInterface {
 		public:
 			MPlayer ();
@@ -28,7 +30,7 @@ namespace android {
 			virtual status_t    initCheck();
 			virtual status_t    setDataSource(const char* path);
 			virtual status_t    setDataSource(int fd, int64_t offset, int64_t length);
-			virtual status_t    setVideoSurface(const sp<ISurface>& surface) { return UNKNOWN_ERROR; }
+			virtual status_t    setVideoSurface(const sp<ISurface>& surface);
 			virtual status_t    prepare();
 			virtual status_t    prepareAsync();
 			virtual status_t    start();
@@ -69,6 +71,7 @@ namespace android {
 			status_t	mState;
 			pid_t		mRenderTid;
 			int 		mfd;
+			sp<MPlayerRenderer> mVideoRenderer;
 	};
 };	// namespace android
 
