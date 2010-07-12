@@ -38,7 +38,8 @@ namespace android {
 	static status_t STATE_OPEN = 2;
 	static status_t STATE_PREPARED = 3;
 
-	MPlayer::libInUse = false;
+
+	bool MPlayer::libInUse = false;
 
 	MPlayer::MPlayer() :
 		mAudioBuffer(NULL), mPlayTime(-1), mDuration(-1), mState(STATE_ERROR),
@@ -91,6 +92,8 @@ namespace android {
 		LOGE("setdatasource url%d, fd%d\n", path, fd);
 		LOGE("setdatasource offset%d, length%d\n", offset, length);
 
+		if (libInUse) return INVALID_OPERATION;
+
 		Mutex::Autolock l(mMutex);
 		if (mState == STATE_OPEN) {
 			reset_nosync();
@@ -117,8 +120,7 @@ namespace android {
 		int argca;
 		char * argva[30] = {"mplayer", "fd", "-vo", "mem",
 			"-ao", "pcm_mem", "-noconsolecontrols", "-nojoystick",
-			"-nolirc", "-nomouseinput", "-slave", "-zoom", 
-			"-fs",
+			"-nolirc", "-nomouseinput", "-slave", "-zoom", "-fs",
 			0};
 		char url_buffer[100];
 
@@ -131,16 +133,18 @@ namespace android {
 			if (argva[argca] == 0)
 				break;
 		}
+		libInUse = true;
 		ret = mplayer_init (&mMPContext, argca, argva);
 		ret = fstat(mfd, &sb);
-		LOGE("okkwon stat result %d", ret);
+		LOGV("okkwon stat result %d", ret);
 
 		if (!ret) { 
+			libInUse = true;
 			mMPInitialized = true;
 			mState = STATE_OPEN;
-			libInUse = true;
 			return NO_ERROR;
 		} else {
+			libInUse = false;
 			mplayer_close (&mMPContext);
 			return ERROR_OPEN_FAILED;
 		}
@@ -407,7 +411,6 @@ namespace android {
 
 			if (!mRender) continue;
 
-			LOGE("before decode");
 			mpresult = mplayer_decode_audio(&mMPContext, mAudioBuffer,
 					AUDIOBUFFER_SIZE, &audio_pos);
 			if (mpresult) {
@@ -415,7 +418,6 @@ namespace android {
 				sendEvent(MEDIA_ERROR);
 				break;
 			}
-			LOGE("after decode ret %d", mpresult);
 
 			//create audio output track
 			if (!mAudioSink->ready()) {
@@ -443,7 +445,7 @@ namespace android {
 			mpresult |= mplayer_decode_video(&mMPContext, video_buffer, 
 					&decoded_frames);
 			if (mpresult)  {
-				LOGI("mplayer_decode_video returned %d", mpresult);
+				LOGE("mplayer_decode_video returned %d", mpresult);
 				break;
 			}
 
@@ -453,7 +455,7 @@ namespace android {
 
 			mpresult |= mplayer_after_decode (&mMPContext);
 			if (mpresult) {
-				LOGI("mplayer_after_decode %d", mpresult);
+				LOGE("mplayer_after_decode %d", mpresult);
 				break;
 			}
 

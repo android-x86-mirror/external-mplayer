@@ -29,7 +29,7 @@ namespace android {
 		CHECK(mDisplayHeight >0);
 		CHECK(mMemoryHeap->heapID() >= 0);
 
-		LOGE("creator");
+		LOGI("creator");
 
 		ISurface::BufferHeap bufferHeap (
 				mDisplayWidth, mDisplayHeight,
@@ -55,7 +55,7 @@ namespace android {
 		size_t offset = mIndex * mFrameSize;
 		*pbuffer = (char*)mMemoryHeap->getBase() + offset;
 		*size = mFrameSize;
-		LOGE("get buffer result pos%x, size%u", *pbuffer, *size);
+		LOGV("get buffer result pos%x, size%u", *pbuffer, *size);
 		return true;
 	}
 }
