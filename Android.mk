@@ -549,7 +549,7 @@ SRCS_MPLAYER-$(DIRECT3D)     += libvo/vo_direct3d.c libvo/w32_common.c
 SRCS_MPLAYER-$(DIRECTFB)     += libvo/vo_directfb2.c
 SRCS_MPLAYER-$(DXR3)         += libvo/vo_dxr3.c
 SRCS_MPLAYER-$(FBDEV)        += libvo/vo_fbdev.c libvo/vo_fbdev2.c
-SRCS_MPLAYER-yes			+=	libvo/vo_mem.c
+SRCS_MPLAYER-yes			 +=	libvo/vo_mem.c
 SRCS_MPLAYER-$(GGI)          += libvo/vo_ggi.c
 SRCS_MPLAYER-$(GIF)          += libvo/vo_gif89a.c
 SRCS_MPLAYER-$(GL)           += libvo/gl_common.c libvo/vo_gl.c \
@@ -712,7 +712,7 @@ include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE = libmplayer
-LOCAL_CFLAGS = $(FFCXXFLAGS) -D_POSIX_C_SOURCE -DDISABLE_MAIN
+LOCAL_CFLAGS = $(FFCFLAGS) -D_POSIX_C_SOURCE -DDISABLE_MAIN
 LOCAL_SRC_FILES = $(SRCS_COMMON) $(SRCS_MPLAYER_LIB) 
 LOCAL_C_INCLUDES = $(LOCAL_PATH) \
 				   external/alsa-lib/include \

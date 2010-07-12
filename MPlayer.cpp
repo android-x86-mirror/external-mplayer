@@ -38,6 +38,8 @@ namespace android {
 	static status_t STATE_OPEN = 2;
 	static status_t STATE_PREPARED = 3;
 
+	MPlayer::libInUse = false;
+
 	MPlayer::MPlayer() :
 		mAudioBuffer(NULL), mPlayTime(-1), mDuration(-1), mState(STATE_ERROR),
 		mStreamType(AudioSystem::MUSIC), mLoop(false), mAndroidLoop(false),
@@ -136,6 +138,7 @@ namespace android {
 		if (!ret) { 
 			mMPInitialized = true;
 			mState = STATE_OPEN;
+			libInUse = true;
 			return NO_ERROR;
 		} else {
 			mplayer_close (&mMPContext);
@@ -158,6 +161,7 @@ namespace android {
 		int width, height;
 		int ret;
 		ret = mplayer_get_video_size(&mMPContext, &width, &height);
+		LOGE("video size w%d h%d", width, height);
 		if (!ret) 
 			mVideoRenderer = new MPlayerRenderer (mISurface, width, height);
 		else mVideoRenderer = NULL;
@@ -322,6 +326,7 @@ namespace android {
 		   	mplayer_close(&mMPContext);
 		mMPInitialized = false;
 		mState = STATE_ERROR;
+		libInUse = false;
 
 		mPlayTime = -1;
 		mDuration = -1;
@@ -381,6 +386,7 @@ namespace android {
 
 		while (1) {
 			int audio_pos;
+			int decoded_frames;
 
 			Mutex::Autolock l(mMutex);
 
@@ -434,13 +440,14 @@ namespace android {
 				mVideoRenderer->getBuffer (&video_buffer, &video_buffer_size);
 			}
 			//this function will decode video and sleep for video output timing
-			mpresult |= mplayer_decode_video(&mMPContext, video_buffer);
+			mpresult |= mplayer_decode_video(&mMPContext, video_buffer, 
+					&decoded_frames);
 			if (mpresult)  {
 				LOGI("mplayer_decode_video returned %d", mpresult);
 				break;
 			}
 
-			if (mVideoRenderer) {
+			if (mVideoRenderer && decoded_frames) {
 				mVideoRenderer->renderBuffer();
 			}
 

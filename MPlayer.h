@@ -75,6 +75,7 @@ namespace android {
 			int 		mfd;
 			MPlayerRenderer *mVideoRenderer;
 			sp<ISurface> mISurface;
+			static 	bool	libInUse;
 	};
 };	// namespace android
 

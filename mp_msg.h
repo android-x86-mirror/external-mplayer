@@ -145,7 +145,11 @@ int mp_msg_test(int mod, int lev);
 #define LOG_NDEBUG 0
 #include "cutils/log.h"
 #define mp_msg(mod,levl, ... ) LOGE( __VA_ARGS__ )
-#define mp_dbg(mod,levl, ... ) LOGE( __VA_ARGS__ )
+#	ifdef MP_DEBUG
+#		define mp_dbg(mod,levl, ... ) LOGE( __VA_ARGS__ )
+#	else
+#      define mp_dbg(mod,lev, args... ) /* only useful for developers */
+#	endif
 #elif defined(__GNUC__)
 void mp_msg(int mod, int lev, const char *format, ... ) __attribute__ ((format (printf, 3, 4)));
 #   ifdef MP_DEBUG

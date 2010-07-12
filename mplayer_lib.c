@@ -3874,13 +3874,15 @@ int mplayer_decode_audio (struct mplayer_context *con, char *buffer,
 	return ret;
 } /* end of decode_audio */
 
-int mplayer_decode_video (struct mplayer_context *con, char *buffer)
+int mplayer_decode_video (struct mplayer_context *con, char *buffer, 
+		int *decoded_frames)
 {
 	float aq_sleep_time = 0;
 	int blit_frame;
 	int frame_time_remaining;
 	/*========================== PLAY VIDEO ============================*/
 
+	/* for android set the video output buffer */
 	mpctx->video_out->control(VOCTRL_UPDATE_SCREENINFO, buffer);
 
 	if (mpctx->sh_video) {
@@ -3943,6 +3945,7 @@ int mplayer_decode_video (struct mplayer_context *con, char *buffer)
 	}
 	//====================== FLIP PAGE (VIDEO BLT): =========================
 
+	/* // we don't do flip page
 	if (!edl_needs_reset) {
 		current_module="flip_page";
 		if (!frame_time_remaining && blit_frame) {
@@ -3951,12 +3954,23 @@ int mplayer_decode_video (struct mplayer_context *con, char *buffer)
 			if(vo_config_count) mpctx->video_out->flip_page();
 			mpctx->num_buffered_frames--;
 
-			vout_time_usage += (GetTimer() - t2) * 0.000001;
 		}
 	}
+	*/
+
+	*decoded_frames = 0;
+	if (!edl_needs_reset) {
+		if (!frame_time_remaining && blit_frame) {
+			con->t2 = GetTimer();
+			*decoded_frames = mpctx->num_buffered_frames;
+			mpctx->num_buffered_frames--;
+		}
+	}
+
 	con->aq_sleep_time = aq_sleep_time;
 	con->blit_frame = blit_frame;
 	con->frame_time_remaining = frame_time_remaining;
+
 goto_next_file:  // don't jump here after ao/vo/getch initialization!
 	return 0;
 } /* end of mplayer_video_decode */
@@ -3966,6 +3980,8 @@ int mplayer_after_decode (struct mplayer_context * con)
 	float aq_sleep_time = con->aq_sleep_time;
 	int blit_frame = con->blit_frame;
 	int frame_time_remaining = con->frame_time_remaining;
+
+	vout_time_usage += (GetTimer() - con->t2) * 0.000001;
 
 	if (mpctx->sh_video) {
 		//====================== A-V TIMESTAMP CORRECTION: =========================

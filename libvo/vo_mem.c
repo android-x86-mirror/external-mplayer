@@ -45,7 +45,7 @@
 #include "libavutil/common.h"
 
 static const vo_info_t info = {
-    "memory buffer device"
+    "memory buffer device",
     "mem",
     "okkwon <pinebud@gmail.com>",
     "Modified from vo_fbdev code",
@@ -53,7 +53,7 @@ static const vo_info_t info = {
 
 LIBVO_EXTERN(mem)
 
-static int pre_init_err;
+static int pre_init_err = -2;
 static size_t fb_size;
 static uint8_t *frame_buffer;
 static uint8_t *center;
@@ -89,20 +89,18 @@ static int config(uint32_t width, uint32_t height, uint32_t d_width,
         return -1;
     }
 
-    if (pre_init_err)
+    if (pre_init_err) {
+		mp_msg(MSGT_VO, MSGL_ERR, "pre_init_err");
         return 1;
+	}
 
-    if (d_width && (fs || zoom)) {
-        out_width  = d_width;
-        out_height = d_height;
-    } else {
-        out_width  = width;
-        out_height = height;
-    }
-    in_width     = width;
-    in_height    = height;
+	out_width  = width;
+	out_height = height;
+	in_width     = width;
+	in_height    = height;
     pixel_format = format;
 	fb_bpp		= 16;
+	fb_pixel_size = 2;
 
     first_row = (out_height - in_height) / 2;
     last_row  = (out_height + in_height) / 2;
@@ -127,12 +125,15 @@ static int fb_preinit (int reset)
 {
 	static int fb_preinit_done = 0;
 
+	mp_msg(MSGT_VO, MSGL_MSGL_DBG2, "mem fb_preinit %d", reset);
+
 	if (reset) {
 		fb_preinit_done = 0;
 		return 0;
 	}
 
 	vo_dbpp = 16; //??
+
 	fb_preinit_done = 1;
 	return 1;
 }
@@ -140,14 +141,11 @@ static int fb_preinit (int reset)
 static int query_format(uint32_t format)
 {
     if (!fb_preinit(0))
-        return 0;
-    if ((format & IMGFMT_BGR_MASK) == IMGFMT_BGR) {
-        int bpp = format & 0xff;
+		return 0;
 
-        if (bpp == fb_bpp)
-            return VFCAP_ACCEPT_STRIDE | VFCAP_CSP_SUPPORTED | VFCAP_CSP_SUPPORTED_BY_HW;
-    }
-    return 0;
+	if (format == IMGFMT_BGR16)
+		return VFCAP_ACCEPT_STRIDE | VFCAP_CSP_SUPPORTED | VFCAP_CSP_SUPPORTED_BY_HW;
+	return 0;
 }
 
 static void draw_alpha(int x0, int y0, int w, int h, unsigned char *src,
@@ -168,6 +166,8 @@ static int draw_frame(uint8_t *src[])
 static int draw_slice(uint8_t *src[], int stride[], int w, int h, int x, int y)
 {
     uint8_t *d;
+
+	if (!frame_buffer) return 0;
 
     d = center + fb_line_len * y + fb_pixel_size * x;
 
@@ -197,7 +197,7 @@ static void uninit(void)
 
 static int preinit(const char *vo_subdevice)
 {
-    pre_init_err = 0;
+	pre_init_err = 0;
 
     if (!pre_init_err)
         return pre_init_err = fb_preinit(0) ? 0 : -1;
@@ -224,11 +224,16 @@ static uint32_t get_image(mp_image_t *mpi)
 
 static uint32_t set_buffer(uint8_t* buff)
 {
+	int x_offset = 0;
+	int y_offset = 0;
+	
+	mp_dbg(MSGT_VO, MSGL_ERR, "set_buffer");
+	geometry(&x_offset, &y_offset, &out_width, &out_height, out_width, out_height);
 	frame_buffer = buff;
 	center = frame_buffer +
 		( (out_width  - in_width)  / 2 ) * fb_pixel_size +
 		( (out_height - in_height) / 2 ) * fb_line_len +
-		fb_pixel_size + fb_line_len;
+		x_offset*fb_pixel_size + y_offset*fb_line_len;
 
 	return VO_TRUE;
 }

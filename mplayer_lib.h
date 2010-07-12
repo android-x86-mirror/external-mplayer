@@ -12,6 +12,7 @@ struct mplayer_context {
 	int blit_frame;
 	int frame_time_remaining;
 	double a_pos;
+	unsigned int t2;
 };
 
 extern int mplayer_get_video_size(struct mplayer_context * con,
@@ -23,7 +24,8 @@ extern int mplayer_get_audio_info(struct mplayer_context *con, uint32_t *samp, i
 extern int mplayer_init (struct mplayer_context *con, int argc, char *argv[]);
 extern int mplayer_decode_audio (struct mplayer_context *con, char * buffer,
 		int buffer_size, int * read_size);
-extern int mplayer_decode_video (struct mplayer_context * con, char * buffer);
+extern int mplayer_decode_video (struct mplayer_context * con, char * buffer, 
+		int *decoded_frames);
 extern int mplayer_after_decode (struct mplayer_context * con);
 extern int mplayer_close(struct mplayer_context *con);
 

@@ -36,7 +36,6 @@ namespace android {
 				mDisplayWidth, mDisplayHeight,
 				PIXEL_FORMAT_RGB_565,
 				mMemoryHeap);
-	
 
 		status_t err = mISurface->registerBuffers(bufferHeap);
 		CHECK_EQ(err, OK);
@@ -56,7 +55,7 @@ namespace android {
 		size_t offset = mIndex * mFrameSize;
 		*pbuffer = (char*)mMemoryHeap->getBase() + offset;
 		*size = mFrameSize;
-		LOGE("get buffer result pos%x, size%d", *pbuffer, size);
+		LOGE("get buffer result pos%x, size%u", *pbuffer, *size);
 		return true;
 	}
 }

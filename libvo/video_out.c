@@ -113,9 +113,7 @@ extern const vo_functions_t video_out_zr2;
 extern const vo_functions_t video_out_bl;
 extern vo_functions_t video_out_fbdev;
 extern const vo_functions_t video_out_fbdev2;
-#ifdef ANDROID
 extern vo_functions_t video_out_mem;
-#endif
 extern vo_functions_t video_out_svga;
 extern const vo_functions_t video_out_png;
 extern const vo_functions_t video_out_ggi;
@@ -217,9 +215,7 @@ const vo_functions_t* const video_out_drivers[] =
         &video_out_fbdev,
         &video_out_fbdev2,
 #endif
-#ifdef ANDROID
         &video_out_mem,
-#endif
 #ifdef CONFIG_SVGALIB
         &video_out_svga,
 #endif

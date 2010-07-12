@@ -29,11 +29,12 @@ int main (int argc, char*argv[])
 
 	while (1) {
 		int audio_pos;
+		unsigned int decoded_frames;
 		mresult = mplayer_decode_audio (&con, audio_buffer, 4096, &audio_pos);
 		printf ("mresult decode_audio %d\n", mresult);
 		if (mresult) break;
 
-		mresult = mplayer_decode_video(&con, NULL);
+		mresult = mplayer_decode_video(&con, NULL, &decoded_frames);
 		printf ("mresult decode_video %d\n", mresult);
 		if (mresult) break;
 
