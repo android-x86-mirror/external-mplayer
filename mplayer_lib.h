@@ -14,6 +14,8 @@ struct mplayer_context {
 	double a_pos;
 };
 
+extern int mplayer_get_video_size(struct mplayer_context * con,
+		int *width, int *height);
 extern int mplayer_seek (struct mplayer_context * con, int position);
 extern int mplayer_get_pos (struct mplayer_context *con, int*v_pos);
 extern int mplayer_get_duration (struct mplayer_context *con, int*duration);

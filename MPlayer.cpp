@@ -18,7 +18,8 @@
 
 #include "mplayer_lib.h"
 #include "MPlayer.h"
-
+#include "MPlayerRenderer.h"
+#include "MPDebug.h"
 
 #ifdef HAVE_GETTID
 static pid_t myTid() { return gettid(); }
@@ -41,7 +42,7 @@ namespace android {
 		mAudioBuffer(NULL), mPlayTime(-1), mDuration(-1), mState(STATE_ERROR),
 		mStreamType(AudioSystem::MUSIC), mLoop(false), mAndroidLoop(false),
 		mExit(false), mPaused(false), mRender(false), mRenderTid(-1),
-		mMPInitialized(false)
+		mMPInitialized(false), mVideoRenderer(NULL)
 	{
 		LOGE("constructor\n");
 	}
@@ -112,7 +113,7 @@ namespace android {
 		}
 
 		int argca;
-		char * argva[30] = {"mplayer", "fd", "-vo", "null",
+		char * argva[30] = {"mplayer", "fd", "-vo", "mem",
 			"-ao", "pcm_mem", "-noconsolecontrols", "-nojoystick",
 			"-nolirc", "-nomouseinput", "-slave", "-zoom", 
 			"-fs",
@@ -142,17 +143,41 @@ namespace android {
 		}
 	}
 
-	status_t MPlayer::setVideoSurface(const sp<ISurface> &surface) {
+	void MPlayer::depopulateISurface() {
+		if (mVideoRenderer) {
+			delete mVideoRenderer;
+			mVideoRenderer = NULL;
+		}
+	}
+
+	void MPlayer::populateISurface() {
+		if (mState != STATE_OPEN) {
+			return;
+		}
+
+		int width, height;
+		int ret;
+		ret = mplayer_get_video_size(&mMPContext, &width, &height);
+		if (!ret) 
+			mVideoRenderer = new MPlayerRenderer (mISurface, width, height);
+		else mVideoRenderer = NULL;
+	}
+
+	status_t MPlayer::setVideoSurface(const sp<ISurface> &isurface) {
 		LOGE("setVideoSurface");
 
 		Mutex::Autolock l(mMutex);
 		if (mState != STATE_INIT && mState != STATE_OPEN) {
 			return NO_INIT;
 		}
-		
-		size_t width, height;
-		mplayer_get_video_dimension(&width, &height);
-		mVideoRenderer = new MPlayerRenderer (surface, width, height);
+
+		depopulateISurface();
+
+		mISurface = isurface;
+
+		if (mISurface.get() != NULL) {
+			populateISurface();
+		}
 
 		return NO_ERROR;
 	}
@@ -342,6 +367,8 @@ namespace android {
 		bool audioStarted = false;
 		int mpresult;
 		int audio_pos;
+		char * video_buffer;
+		size_t video_buffer_size;
 		
 		mAudioBuffer = new char[AUDIOBUFFER_SIZE];
 
@@ -403,14 +430,19 @@ namespace android {
 				audioStarted = true;
 			}
 
+			if (mVideoRenderer) {
+				mVideoRenderer->getBuffer (&video_buffer, &video_buffer_size);
+			}
 			//this function will decode video and sleep for video output timing
-			mpresult |= mplayer_decode_video(&mMPContext, NULL);
+			mpresult |= mplayer_decode_video(&mMPContext, video_buffer);
 			if (mpresult)  {
 				LOGI("mplayer_decode_video returned %d", mpresult);
 				break;
 			}
 
-			/* render video */
+			if (mVideoRenderer) {
+				mVideoRenderer->renderBuffer();
+			}
 
 			mpresult |= mplayer_after_decode (&mMPContext);
 			if (mpresult) {

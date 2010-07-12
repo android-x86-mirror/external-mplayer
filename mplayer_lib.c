@@ -2689,6 +2689,19 @@ static int seek(MPContext *mpctx, double amount, int style)
     return 0;
 }
 
+int mplayer_get_video_size(struct mplayer_context * con, 
+		int *width, int *height) {
+	if (mpctx->sh_video) {
+		*width = mpctx->sh_video->disp_w;
+		*height = mpctx->sh_video->disp_h;
+		return 0;
+	} else {
+		*width = 0;
+		*height = 0;
+		return -1;
+	}
+}
+
 /* This preprocessor directive is a hack to generate a mplayer-nomain.o object
  * file for some tools to link against. */
 /* DISABLE_MAIN */
@@ -3867,6 +3880,8 @@ int mplayer_decode_video (struct mplayer_context *con, char *buffer)
 	int blit_frame;
 	int frame_time_remaining;
 	/*========================== PLAY VIDEO ============================*/
+
+	mpctx->video_out->control(VOCTRL_UPDATE_SCREENINFO, buffer);
 
 	if (mpctx->sh_video) {
 		vo_pts=mpctx->sh_video->timer*90000.0;

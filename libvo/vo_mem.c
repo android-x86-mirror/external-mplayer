@@ -47,22 +47,23 @@
 static const vo_info_t info = {
     "memory buffer device"
     "mem",
-    "okkwon <pinebud@gmail.com> modified"
-    ""
+    "okkwon <pinebud@gmail.com>",
+    "Modified from vo_fbdev code",
 };
 
-LIBVO_EXTERN(fbdev)
+LIBVO_EXTERN(mem)
 
-static signed int pre_init_err = -2;
-
-static char * buffer = NULL;
-static size_t buffer_size = 0;
+static int pre_init_err;
+static size_t fb_size;
+static uint8_t *frame_buffer;
 static uint8_t *center;
-static int mem_bpp;              // 32: 32  24: 24  16: 16  15: 15
-static int mem_pixel_size;
-static int mem_line_len;
-static int mem_xres;
-static int mem_yres;
+static int fb_pixel_size;       // 32:  4  24:  3  16:  2  15:  2
+static int fb_bpp;              // 32: 32  24: 24  16: 16  15: 15
+static int fb_line_len;
+static void (*draw_alpha_p)(int w, int h, unsigned char *src,
+		                            unsigned char *srca, int stride,
+									                            unsigned char *dst, int dstride);
+
 static int in_width;
 static int in_height;
 static int out_width;
@@ -72,13 +73,16 @@ static int last_row;
 static uint32_t pixel_format;
 static int fs;
 
-
 static int config(uint32_t width, uint32_t height, uint32_t d_width,
                   uint32_t d_height, uint32_t flags, char *title,
                   uint32_t format)
 {
     int zoom = flags & VOFLAG_SWSCALE;
     fs = flags & VOFLAG_FULLSCREEN;
+
+	mp_msg(MSGT_VO, MSGL_INFO, "width%u, height%u, d_width%u, d_height%u, \
+			flags%u, title %s, format %u", width, height, d_width, d_height,
+			flags, title, format);
 
     if (pre_init_err == -2) {
         mp_msg(MSGT_VO, MSGL_ERR, "Internal fatal error: config() was called before preinit()\n");
@@ -98,71 +102,39 @@ static int config(uint32_t width, uint32_t height, uint32_t d_width,
     in_width     = width;
     in_height    = height;
     pixel_format = format;
-
-    mem_pixel_size = fb_vinfo.bits_per_pixel / 8;
-    fb_bpp = fb_vinfo.bits_per_pixel;
-
-    switch (fb_bpp) {
-    case 32:
-        draw_alpha_p = vo_draw_alpha_rgb32;
-        break;
-    case 24:
-        draw_alpha_p = vo_draw_alpha_rgb24;
-        break;
-    case 16:
-        draw_alpha_p = vo_draw_alpha_rgb16;
-        break;
-    case 15:
-        draw_alpha_p = vo_draw_alpha_rgb15;
-        break;
-    case 12:
-        draw_alpha_p = vo_draw_alpha_rgb12;
-        break;
-    default:
-        return 1;
-    }
-
-    fb_xres = fb_vinfo.xres;
-    fb_yres = fb_vinfo.yres;
-
-    if (vm || fs) {
-        out_width  = fb_xres;
-        out_height = fb_yres;
-    }
+	fb_bpp		= 16;
 
     first_row = (out_height - in_height) / 2;
     last_row  = (out_height + in_height) / 2;
-    fb_line_len = fb_finfo.line_length;
+    fb_line_len = out_width * 2; //RGB565 -_-;;
     {
         int x_offset = 0, y_offset = 0;
-        geometry(&x_offset, &y_offset, &out_width, &out_height, fb_xres, fb_yres);
-
-        frame_buffer = mmap(0, fb_size, PROT_READ | PROT_WRITE,
-                            MAP_SHARED, fb_dev_fd, 0);
-        if (frame_buffer == (uint8_t *) -1) {
-            mp_msg(MSGT_VO, MSGL_ERR, "Can't mmap %s: %s\n", fb_dev_name, strerror(errno));
-            return 1;
-        }
-
+        geometry(&x_offset, &y_offset, &out_width, &out_height, out_width, out_height);
         center = frame_buffer +
                  ( (out_width  - in_width)  / 2 ) * fb_pixel_size +
                  ( (out_height - in_height) / 2 ) * fb_line_len +
-                 x_offset * fb_pixel_size + y_offset * fb_line_len +
-                 fb_page * fb_yres * fb_line_len;
-
-        mp_msg(MSGT_VO, MSGL_DBG2, "buffer @ %p\n", buffer);
+                 x_offset * fb_pixel_size + y_offset * fb_line_len;
+        mp_msg(MSGT_VO, MSGL_DBG2, "buffer @ %p\n", frame_buffer);
         mp_msg(MSGT_VO, MSGL_DBG2, "center @ %p\n", center);
-        mp_msg(MSGT_VO, MSGL_V, "pixel per line: %d\n", fb_line_len / fb_pixel_size);
-
-        if (fs || vm) {
-            int clear_size = fb_line_len * fb_yres;
-            if (vo_doublebuffering)
-                clear_size <<= 1;
-            memset(frame_buffer, 0, clear_size);
-        }
     }
+	frame_buffer = NULL;
+	center = NULL;
 
     return 0;
+}
+
+static int fb_preinit (int reset)
+{
+	static int fb_preinit_done = 0;
+
+	if (reset) {
+		fb_preinit_done = 0;
+		return 0;
+	}
+
+	vo_dbpp = 16; //??
+	fb_preinit_done = 1;
+	return 1;
 }
 
 static int query_format(uint32_t format)
@@ -250,6 +222,17 @@ static uint32_t get_image(mp_image_t *mpi)
     return VO_TRUE;
 }
 
+static uint32_t set_buffer(uint8_t* buff)
+{
+	frame_buffer = buff;
+	center = frame_buffer +
+		( (out_width  - in_width)  / 2 ) * fb_pixel_size +
+		( (out_height - in_height) / 2 ) * fb_line_len +
+		fb_pixel_size + fb_line_len;
+
+	return VO_TRUE;
+}
+
 static int control(uint32_t request, void *data, ...)
 {
     switch (request) {
@@ -257,6 +240,8 @@ static int control(uint32_t request, void *data, ...)
         return get_image(data);
     case VOCTRL_QUERY_FORMAT:
         return query_format(*(uint32_t*)data);
+	case VOCTRL_UPDATE_SCREENINFO:
+		return set_buffer((uint8_t*)data);
     }
     return VO_NOTIMPL;
 }

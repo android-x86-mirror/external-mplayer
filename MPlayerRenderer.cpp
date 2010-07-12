@@ -19,19 +19,24 @@ namespace android {
 			size_t displayWidth, size_t displayHeight)
 		: mISurface(surface),
 	   	mDisplayWidth(displayWidth),
-	   	mDisplayHeight(displayHeight),
-	   	mFrameSize(displayWidth * displayHeight * 2), //RGB565
-	   	mIndex(0)
+		mDisplayHeight(displayHeight),
+		mFrameSize(displayWidth * displayHeight * 2), //RGB565
+		mMemoryHeap (new MemoryHeapBase(2 * mFrameSize)),
+		mIndex(0)
 	{
+		CHECK(mISurface.get() != NULL);
+		CHECK(mDisplayWidth > 0);
+		CHECK(mDisplayHeight >0);
+		CHECK(mMemoryHeap->heapID() >= 0);
+
+		LOGE("creator");
+
 		ISurface::BufferHeap bufferHeap (
 				mDisplayWidth, mDisplayHeight,
 				mDisplayWidth, mDisplayHeight,
 				PIXEL_FORMAT_RGB_565,
 				mMemoryHeap);
-		CHECK(mISurface.get() != NULL);
-		CHECK(mDisplayWidth > 0);
-		CHECK(mDisplayHeight >0);
-		CHECK(mMemoryHeap->heapID() >= 0);
+	
 
 		status_t err = mISurface->registerBuffers(bufferHeap);
 		CHECK_EQ(err, OK);
@@ -50,6 +55,8 @@ namespace android {
 	bool MPlayerRenderer::getBuffer(char**pbuffer, size_t*size){
 		size_t offset = mIndex * mFrameSize;
 		*pbuffer = (char*)mMemoryHeap->getBase() + offset;
+		*size = mFrameSize;
+		LOGE("get buffer result pos%x, size%d", *pbuffer, size);
 		return true;
 	}
 }

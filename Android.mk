@@ -549,6 +549,7 @@ SRCS_MPLAYER-$(DIRECT3D)     += libvo/vo_direct3d.c libvo/w32_common.c
 SRCS_MPLAYER-$(DIRECTFB)     += libvo/vo_directfb2.c
 SRCS_MPLAYER-$(DXR3)         += libvo/vo_dxr3.c
 SRCS_MPLAYER-$(FBDEV)        += libvo/vo_fbdev.c libvo/vo_fbdev2.c
+SRCS_MPLAYER-yes			+=	libvo/vo_mem.c
 SRCS_MPLAYER-$(GGI)          += libvo/vo_ggi.c
 SRCS_MPLAYER-$(GIF)          += libvo/vo_gif89a.c
 SRCS_MPLAYER-$(GL)           += libvo/gl_common.c libvo/vo_gl.c \
@@ -725,7 +726,7 @@ LOCAL_MODULE = libandroidmplayer
 LOCAL_CFLAGS = 
 LOCAL_SRC_FILES = MPlayer.cpp MPlayerMetadataRetriever.cpp MPlayerRenderer.cpp
 LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
-	libmedia libui libandroid_runtime liblog
+	libbinder libmedia libui libandroid_runtime liblog
 LOCAL_STATIC_LIBRARIES := libmplayer $(FFMPEGPARTS) libft2
 include $(BUILD_SHARED_LIBRARY)
 

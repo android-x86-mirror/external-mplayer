@@ -53,6 +53,8 @@ namespace android {
 			static int	renderThread(void*);
 			status_t	setdatasource(const char *path, int fd, int64_t offset,
 					int64_t length);
+			void		populateISurface();
+			void		depopulateISurface();
 			int			render();
 			Mutex 		mMutex;
 			Condition	mCondition;
@@ -71,7 +73,8 @@ namespace android {
 			status_t	mState;
 			pid_t		mRenderTid;
 			int 		mfd;
-			sp<MPlayerRenderer> mVideoRenderer;
+			MPlayerRenderer *mVideoRenderer;
+			sp<ISurface> mISurface;
 	};
 };	// namespace android
 
