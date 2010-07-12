@@ -2125,6 +2125,7 @@ static int fill_audio_out_buffers(char *buffer, int buffer_size, int *output_siz
 		// this is where mplayer sleeps during audio-only playback
 		// to avoid 100% CPU use
 		sleep_time = (ao_data.outburst - bytes_to_write) * 1000 / ao_data.bps;
+		mp_msg(MSGT_IDENTIFY,MSGL_INFO, "sleep_time %d", sleep_time);
 		if (sleep_time < 10) sleep_time = 10; // limit to 100 wakeups per second
 		usec_sleep(sleep_time * 1000);
 	}
@@ -2647,7 +2648,7 @@ int mplayer_get_video_size(struct mplayer_context * con,
  * file for some tools to link against. */
 /* DISABLE_MAIN */
 
-int mplayer_init (struct mplayer_context * con, int argc, char*argv[])
+int mplayer_init (struct mplayer_context * con, int argc, const char*argv[])
 {
 
 	char * mem_ptr;
@@ -2980,6 +2981,14 @@ int mplayer_init (struct mplayer_context * con, int argc, char*argv[])
 		signal(SIGTRAP,exit_sighandler);
 #endif
 #endif
+
+	return 0;
+}
+
+int mplayer_prepare_play(struct mplayer_context * con) 
+{
+	int i;
+	int opt_exit = 0;
 
 	// ******************* Now, let's see the per-file stuff ********************
 

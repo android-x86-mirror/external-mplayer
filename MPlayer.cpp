@@ -16,6 +16,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+#include <ui/GraphicBuffer.h>
 #include "mplayer_lib.h"
 #include "MPlayer.h"
 #include "MPlayerRenderer.h"
@@ -118,7 +119,7 @@ namespace android {
 		}
 
 		int argca;
-		char * argva[30] = {"mplayer", "fd", "-vo", "mem",
+		const char * argva[30] = {"mplayer", "fd", "-vo", "mem",
 			"-ao", "pcm_mem", "-noconsolecontrols", "-nojoystick",
 			"-nolirc", "-nomouseinput", "-slave", "-zoom", "-fs",
 			0};
@@ -183,10 +184,6 @@ namespace android {
 
 		mISurface = isurface;
 
-		if (mISurface.get() != NULL) {
-			populateISurface();
-		}
-
 		return NO_ERROR;
 	}
 
@@ -203,14 +200,17 @@ namespace android {
 	status_t MPlayer::prepareAsync()
 	{
 		LOGE("prepareAsync\n");
+		
+		mplayer_prepare_play(&mMPContext);
+		if (mISurface.get() != NULL) {
+			populateISurface();
+		}
+
 		if (mState != STATE_OPEN) {
 			sendEvent (MEDIA_ERROR);
 			return NO_ERROR;
 		}
-		struct stat sb;
-		int ret;
-		ret = fstat(mfd, &sb);
-		LOGE("stat result %d", ret);
+
 
 		sendEvent (MEDIA_PREPARED);	/* todo : should be moved to main loop */
 		return NO_ERROR;
@@ -441,6 +441,7 @@ namespace android {
 			if (mVideoRenderer) {
 				mVideoRenderer->getBuffer (&video_buffer, &video_buffer_size);
 			}
+
 			//this function will decode video and sleep for video output timing
 			mpresult |= mplayer_decode_video(&mMPContext, video_buffer, 
 					&decoded_frames);
@@ -510,6 +511,4 @@ threadExit:
 		mCondition.signal();
 		return result;
 	}
-
-
 } //end namespace android

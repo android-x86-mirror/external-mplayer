@@ -43,20 +43,43 @@ static const ao_info_t info =
 {
     "RAW PCM/WAVE memory writer audio output",
     "pcm_mem",
-    "merong",
-    ""
+    "okkwon <pinebud@gmail.com>",
+    "based on pcm and null ao"
 };
 
 LIBAO_EXTERN(pcm_mem)
 
-extern int vo_pts;
+struct timeval last_tv;
+int buffer;
 
+extern int vo_pts;
 static char *ao_outputbuffer = NULL;
 static int ao_outputpos = -1;
 static int ao_pcm_buffersize = -1;
 
 /* init with default values */
 static uint64_t data_length;
+
+static void drain (void) {
+	struct timeval now_tv;
+	int temp, temp2;
+
+	gettimeofday(&now_tv, 0);
+	temp = now_tv.tv_sec - last_tv.tv_sec;
+	temp *= ao_data.bps;
+
+	temp2 = now_tv.tv_usec - last_tv.tv_usec;
+	temp2 /= 1000;
+	temp2 *= ao_data.bps;
+	temp2 /= 1000;
+	temp += temp2;
+
+	buffer-=temp;
+	if (buffer<0) buffer=0;
+
+	if(temp>0) last_tv = now_tv;//mplayer is fast
+
+}
 
 static void fput16le(uint16_t val, char * buffer, int pos) {
 	uint8_t bytes[2] = {val, val >> 8};
@@ -91,15 +114,11 @@ static int control(int cmd,void *arg){
 	switch (cmd) {
 		case AOCONTROL_SET_DEVICE:
 			ao_outputbuffer = (char*)arg;
-			ao_data.outburst = ao_pcm_buffersize;
-			ao_data.buffersize = 0;
 			ao_outputpos = 0;
 			break;
 		case AOCONTROL_SET_VOLUME:
 			/* set the buffer size -_-; */
  			ao_pcm_buffersize = (int)arg;
-			ao_data.outburst = ao_pcm_buffersize;
-			ao_data.buffersize = 0;
 			ao_outputpos = 0;
 			break;
 		case AOCONTROL_GET_DEVICE:
@@ -115,20 +134,25 @@ static int control(int cmd,void *arg){
 // return: 1=success 0=fail
 static int init(int rate,int channels,int format,int flags){
     format = AF_FORMAT_S16_LE;
+	int samplesize = af_fmt2bits(format) / 8;
 
-    ao_data.outburst = 0;
-    ao_data.buffersize= 0;
-    ao_data.channels=channels;
-    ao_data.samplerate=rate;
-    ao_data.format=format;
-    ao_data.bps=channels*rate*(af_fmt2bits(format)/8);
+	ao_data.outburst = 64 * channels * samplesize;
+	// A "buffer" for about 0.2 seconds of audio
+	ao_data.buffersize = (int)(rate * 0.2 / 256 + 1) * ao_data.outburst;
+	ao_data.channels=channels;
+	ao_data.samplerate=rate;
+	ao_data.format=format;
+	ao_data.bps=channels*rate*samplesize;
+	buffer = 0;
+	gettimeofday(&last_tv, 0);
 
-	   mp_msg(MSGT_AO, MSGL_INFO, "%s rate%d %s %s\n",
-			              "RAW PCM", rate,
-						             (channels > 1) ? "Stereo" : "Mono", af_fmt2str_short(format));
+	mp_msg(MSGT_AO, MSGL_INFO, "%s rate%d %s %s\n",
+			"RAW PCM", rate,
+			(channels > 1) ? "Stereo" : "Mono", af_fmt2str_short(format));
+	mp_msg(MSGT_AO, MSGL_INFO, "outburst %d, buffersize %d", 
+			ao_data.outburst, ao_data.buffersize);
 
-
-    return 1;
+	return 1;
 }
 
 // close audio device
@@ -138,7 +162,7 @@ static void uninit(int immed){
 
 // stop playing and empty buffers (for seeking/pause)
 static void reset(void){
-
+	buffer = 0;
 }
 
 // stop playing, keep buffers (for pause)
@@ -155,35 +179,46 @@ static void audio_resume(void)
 
 // return: how many bytes can be played without blocking
 static int get_space(void){
-
-    return ao_pcm_buffersize - ao_outputpos;
+	int virt_space;
+	int real_space;
+	drain();
+	virt_space = ao_data.buffersize - buffer;
+	real_space = ao_pcm_buffersize - ao_outputpos;
+	if (virt_space > real_space) return real_space;
+	else return virt_space;
 }
 
 // plays 'len' bytes of 'data'
 // it should round it down to outburst*n
 // return: number of bytes played
 static int play(void* data,int len,int flags){
+	int maxbursts = (ao_data.buffersize - buffer) / ao_data.outburst;
+	int playbursts = len / ao_data.outburst;
+	int bursts = playbursts > maxbursts ? maxbursts : playbursts;
+	buffer += bursts * ao_data.outburst;
 
-    if (ao_data.channels == 5 || ao_data.channels == 6 || ao_data.channels == 8) {
-        int frame_size = af_fmt2bits(ao_data.format) / 8;
-        len -= len % (frame_size * ao_data.channels);
-        reorder_channel_nch(data, AF_CHANNEL_LAYOUT_MPLAYER_DEFAULT,
-                            AF_CHANNEL_LAYOUT_WAVEEX_DEFAULT,
-                            ao_data.channels,
-                            len / frame_size, frame_size);
-    }
+	if (ao_data.channels == 5 || ao_data.channels == 6 || 
+			ao_data.channels == 8) {
+		int frame_size = af_fmt2bits(ao_data.format) / 8;
+		len -= len % (frame_size * ao_data.channels);
+		reorder_channel_nch(data, AF_CHANNEL_LAYOUT_MPLAYER_DEFAULT,
+				AF_CHANNEL_LAYOUT_WAVEEX_DEFAULT,
+				ao_data.channels,
+				len / frame_size, frame_size);
+	}
+
+	memcpy (ao_outputbuffer+ao_outputpos, data, bursts * ao_data.outburst);
+	ao_outputpos += bursts * ao_data.outburst;
 
 	if (ao_outputpos > ao_pcm_buffersize) {
 		mp_msg (MSGT_AO, MSGL_INFO, "pcm output is bigger than memory buffer");
 	}
-	memcpy (ao_outputbuffer+ao_outputpos, data, len);
-	ao_outputpos += len;
 
-    return len;
+	return bursts * ao_data.outburst;
 }
 
 // return: delay in seconds between first and last sample in buffer
 static float get_delay(void){
-
-    return 0.0;
+	drain();
+	return (float) buffer / (float) ao_data.bps;
 }
