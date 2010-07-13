@@ -37,12 +37,31 @@ namespace android {
 				PIXEL_FORMAT_RGB_565,
 				mMemoryHeap);
 
+		char * buffer = (char*) mMemoryHeap->getBase();
+		memset (buffer, 0, mFrameSize * 2);
+
 		status_t err = mISurface->registerBuffers(bufferHeap);
 		CHECK_EQ(err, OK);
 	}
 
 	MPlayerRenderer::~MPlayerRenderer() {
 		mISurface->unregisterBuffers();
+	}
+
+	void MPlayerRenderer::getVideoOutSize (int orig_w, int orig_h,
+			int *new_w, int *new_h)
+	{
+		float ratio;
+
+		ratio = (float)mDisplayWidth / (float)orig_w;
+		if (orig_h * ratio < mDisplayHeight) {
+			*new_w = mDisplayWidth;
+			*new_h = (int)((float)orig_h * ratio);
+		} else {
+			ratio = (float)mDisplayHeight / (float)orig_h;
+			*new_w = (int)((float)orig_w * ratio);
+			*new_h = mDisplayHeight;
+		}
 	}
 
 	void MPlayerRenderer::renderBuffer() {

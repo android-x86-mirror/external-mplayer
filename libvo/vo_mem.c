@@ -73,11 +73,16 @@ static int last_row;
 static uint32_t pixel_format;
 static int fs;
 
+extern int vo_screenwidth;
+extern int vo_screenheight;
+
 static int config(uint32_t width, uint32_t height, uint32_t d_width,
                   uint32_t d_height, uint32_t flags, char *title,
                   uint32_t format)
 {
     int zoom = flags & VOFLAG_SWSCALE;
+	int fb_xres, fb_yres;
+
     fs = flags & VOFLAG_FULLSCREEN;
 
 	mp_msg(MSGT_VO, MSGL_INFO, "width%u, height%u, d_width%u, d_height%u, \
@@ -102,12 +107,19 @@ static int config(uint32_t width, uint32_t height, uint32_t d_width,
 	fb_bpp		= 16;
 	fb_pixel_size = 2;
 
+	if (fs) {
+		out_width = vo_screenwidth;
+		out_height = vo_screenheight;
+	}
+
     first_row = (out_height - in_height) / 2;
     last_row  = (out_height + in_height) / 2;
+	
     fb_line_len = out_width * 2; //RGB565 -_-;;
     {
         int x_offset = 0, y_offset = 0;
-        geometry(&x_offset, &y_offset, &out_width, &out_height, out_width, out_height);
+        geometry(&x_offset, &y_offset, &out_width, &out_height, 
+				vo_screenwidth, vo_screenheight);
         center = frame_buffer +
                  ( (out_width  - in_width)  / 2 ) * fb_pixel_size +
                  ( (out_height - in_height) / 2 ) * fb_line_len +
@@ -228,7 +240,7 @@ static uint32_t set_buffer(uint8_t* buff)
 	int y_offset = 0;
 	
 	mp_dbg(MSGT_VO, MSGL_ERR, "set_buffer");
-	geometry(&x_offset, &y_offset, &out_width, &out_height, out_width, out_height);
+	geometry(&x_offset, &y_offset, &out_width, &out_height, vo_screenwidth, vo_screenheight);
 	frame_buffer = buff;
 	center = frame_buffer +
 		( (out_width  - in_width)  / 2 ) * fb_pixel_size +

@@ -23,6 +23,8 @@ namespace android {
 			~MPlayerRenderer();
 			void renderBuffer();
 			bool getBuffer(char **pbuffer, size_t *size);
+			void getVideoOutSize (int orig_w, int orig_h,
+					int *new_w, int *new_h);
 
 		private:
 			sp<ISurface> mISurface;

@@ -56,25 +56,26 @@ namespace android {
 			void		populateISurface();
 			void		depopulateISurface();
 			int			render();
+
+			int			mDisplayWidth;
+			int 		mDisplayHeight;
+			int 		mVideoOutWidth;
+			int 		mVideoOutHeight;
 			Mutex 		mMutex;
 			Condition	mCondition;
 			bool		mMPInitialized;
-			int64_t 	mOffset;
-			int64_t		mLength;
 			char * 		mAudioBuffer;
-			int			mPlayTime;
-			int			mDuration;
 			bool		mLoop;
 			bool 		mAndroidLoop;
-			int			mStreamType;
 			volatile bool		mExit;
 			bool		mPaused;
 			volatile bool mRender;
 			status_t	mState;
 			pid_t		mRenderTid;
-			int 		mfd;
 			MPlayerRenderer *mVideoRenderer;
 			sp<ISurface> mISurface;
+
+			/* we don't support more than one thread at a time */
 			static 	bool	libInUse;
 	};
 };	// namespace android

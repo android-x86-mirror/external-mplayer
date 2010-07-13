@@ -125,7 +125,7 @@
 /* configurable options */
 #define MSG_CHARSET "UTF-8"
 #undef CONFIG_CRASH_DEBUG
-#define MP_DEBUG 1
+#undef MP_DEBUG
 #undef CONFIG_DYNAMIC_PLUGINS
 #define CONFIG_FASTMEMCPY 1
 #undef CONFIG_MENU

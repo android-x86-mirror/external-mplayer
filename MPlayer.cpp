@@ -43,8 +43,8 @@ namespace android {
 	bool MPlayer::libInUse = false;
 
 	MPlayer::MPlayer() :
-		mAudioBuffer(NULL), mPlayTime(-1), mDuration(-1), mState(STATE_ERROR),
-		mStreamType(AudioSystem::MUSIC), mLoop(false), mAndroidLoop(false),
+		mAudioBuffer(NULL), mState(STATE_ERROR),
+		mLoop(false), mAndroidLoop(false),
 		mExit(false), mPaused(false), mRender(false), mRenderTid(-1),
 		mMPInitialized(false), mVideoRenderer(NULL)
 	{
@@ -62,6 +62,10 @@ namespace android {
 			LOGV("render thread(%d) started", mRenderTid);
 			mState = STATE_INIT;
 		}
+
+		/* todo : need to decide this -_-? */
+		mDisplayWidth = 1024;
+		mDisplayHeight = 590;
 	}
 
 	status_t MPlayer ::initCheck()
@@ -112,24 +116,32 @@ namespace android {
 			return ERROR_OPEN_FAILED;
 		}
 		/* todo : need to handle offset and length */
-		if (sb.st_size > (length+offset)) {
-			mLength = length;
-		} else {
-			mLength = sb.st_size - offset;
-		}
 
 		int argca;
-		const char * argva[30] = {"mplayer", "fd", "-vo", "mem",
+		const char * argva[30] = {"mplayer", "fd", 
+			"-screenw", "1024", "-screenh", "550",
+			"-vf", "dsize=x:y:0,scale",
+			"-vo", "mem", "-framedrop",
 			"-ao", "pcm_mem", "-noconsolecontrols", "-nojoystick",
 			"-nolirc", "-nomouseinput", "-slave", "-zoom", "-fs",
 			0};
 		char url_buffer[100];
+		char screenh_buffer[30];
+		char screenw_buffer[30];
+		char scale_buffer[30];
 
-
-		mfd = dup(fd);
+		int mfd = dup(fd);
 
 		sprintf (url_buffer, "fd://%d", mfd);
 		argva[1] = url_buffer;
+		sprintf (screenw_buffer, "%d", mDisplayWidth);
+		argva[3] = screenw_buffer;
+		sprintf (screenh_buffer, "%d", mDisplayHeight);
+		argva[5] = screenh_buffer;
+		sprintf (scale_buffer, "dsize=%d:%d:0,scale",
+			   	mDisplayWidth, mDisplayHeight);
+		argva[7] = scale_buffer;
+
 		for (argca=0; argca<30; argca++) {
 			if (argva[argca] == 0)
 				break;
@@ -145,8 +157,8 @@ namespace android {
 			mState = STATE_OPEN;
 			return NO_ERROR;
 		} else {
-			libInUse = false;
 			mplayer_close (&mMPContext);
+			libInUse = false;
 			return ERROR_OPEN_FAILED;
 		}
 	}
@@ -163,13 +175,20 @@ namespace android {
 			return;
 		}
 
-		int width, height;
-		int ret;
-		ret = mplayer_get_video_size(&mMPContext, &width, &height);
-		LOGE("video size w%d h%d", width, height);
-		if (!ret) 
-			mVideoRenderer = new MPlayerRenderer (mISurface, width, height);
-		else mVideoRenderer = NULL;
+		mVideoRenderer = new MPlayerRenderer (mISurface, mDisplayWidth,
+				mDisplayHeight);
+		/*
+		if (mVideoRenderer) {
+			int ret;
+			int width, height;
+			ret = mplayer_get_video_size(&mMPContext, &width, &height);
+			if (ret) {
+				mVideoRenderer->getVideoOutSize (width, height,
+						&mVideoOutWidth, &mVideoOutHeight);
+				LOGE("video size w%d h%d", mVideoOutWidth, mVideoOutHeight);
+			}
+		}
+		*/
 	}
 
 	status_t MPlayer::setVideoSurface(const sp<ISurface> &isurface) {
@@ -320,6 +339,7 @@ namespace android {
 	{
 		LOGE("reset\n");
 		Mutex::Autolock l(mMutex);
+
 		return reset_nosync();
 	}
 
@@ -332,8 +352,6 @@ namespace android {
 		mState = STATE_ERROR;
 		libInUse = false;
 
-		mPlayTime = -1;
-		mDuration = -1;
 		mLoop = false;
 		mAndroidLoop = false;
 		mPaused = false;
@@ -368,7 +386,7 @@ namespace android {
 		return ((MPlayer*)p)->render();
 	}
 
-#define AUDIOBUFFER_SIZE (4096*6)
+#define AUDIOBUFFER_SIZE (4096*10)
 
 	int MPlayer::render() {
 		int result = -1;
