@@ -3917,7 +3917,7 @@ int mplayer_after_decode (struct mplayer_context * con)
 
 goto_next_file:  // don't jump here after ao/vo/getch initialization!
 	return 0;
-} /* end of mplayer_decode */
+} /* end of mplayer_after_decode */
 
 int mplayer_close (struct mplayer_context * con)
 {
@@ -4017,7 +4017,6 @@ int mplayer_close (struct mplayer_context * con)
 		goto play_next_file;
 	}
 #endif
-
 
 	exit_player_with_rc(EXIT_EOF, 0);
 

@@ -39,6 +39,8 @@
 #include <windows.h>
 #endif
 
+#define BUFFER_ROUND_SIZE 128	/* -_-? */
+
 static const ao_info_t info =
 {
     "RAW PCM/WAVE memory writer audio output",
@@ -79,6 +81,7 @@ static void drain (void) {
 
 	if(temp>0) last_tv = now_tv;//mplayer is fast
 
+	/* test : round the buffer size */
 }
 
 static void fput16le(uint16_t val, char * buffer, int pos) {
@@ -136,9 +139,9 @@ static int init(int rate,int channels,int format,int flags){
     format = AF_FORMAT_S16_LE;
 	int samplesize = af_fmt2bits(format) / 8;
 
-	ao_data.outburst = 128 * channels * samplesize;
+	ao_data.outburst = 512 * channels * samplesize;
 	// A "buffer" for about 0.2 seconds of audio
-	ao_data.buffersize = (int)(rate * 0.2 / 256 + 1) * ao_data.outburst;
+	ao_data.buffersize = (int)(rate * 0.1 / 256 + 1) * ao_data.outburst;
 	ao_data.channels=channels;
 	ao_data.samplerate=rate;
 	ao_data.format=format;
@@ -181,9 +184,14 @@ static void audio_resume(void)
 static int get_space(void){
 	int virt_space;
 	int real_space;
+	int rounded_buffer;
 	drain();
-	virt_space = ao_data.buffersize - buffer;
+	rounded_buffer = (buffer - BUFFER_ROUND_SIZE/2) / BUFFER_ROUND_SIZE
+	   	* BUFFER_ROUND_SIZE;
+	virt_space = ao_data.buffersize - rounded_buffer;
 	real_space = ao_pcm_buffersize - ao_outputpos;
+	mp_msg (MSGT_AO, MSGL_INFO, "vir space %d, real space %d",
+			virt_space, real_space);
 	if (virt_space > real_space) return real_space;
 	else return virt_space;
 }
