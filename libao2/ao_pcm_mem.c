@@ -139,9 +139,9 @@ static int init(int rate,int channels,int format,int flags){
     format = AF_FORMAT_S16_LE;
 	int samplesize = af_fmt2bits(format) / 8;
 
-	ao_data.outburst = 512 * channels * samplesize;
+	ao_data.outburst = 1024 * channels * samplesize;
 	// A "buffer" for about 0.3 seconds of audio
-	ao_data.buffersize = (int)(rate * 0.3 / 256 + 1) * ao_data.outburst;
+	ao_data.buffersize = (int)(rate * 0.1 / 256 + 1) * ao_data.outburst;
 	ao_data.channels=channels;
 	ao_data.samplerate=rate;
 	ao_data.format=format;
