@@ -39,7 +39,7 @@
 #include <windows.h>
 #endif
 
-#define BUFFER_ROUND_SIZE 128	/* -_-? */
+#define BUFFER_ROUND_SIZE 64	/* -_-? */
 
 static const ao_info_t info =
 {
@@ -140,8 +140,8 @@ static int init(int rate,int channels,int format,int flags){
 	int samplesize = af_fmt2bits(format) / 8;
 
 	ao_data.outburst = 512 * channels * samplesize;
-	// A "buffer" for about 0.2 seconds of audio
-	ao_data.buffersize = (int)(rate * 0.1 / 256 + 1) * ao_data.outburst;
+	// A "buffer" for about 0.3 seconds of audio
+	ao_data.buffersize = (int)(rate * 0.3 / 256 + 1) * ao_data.outburst;
 	ao_data.channels=channels;
 	ao_data.samplerate=rate;
 	ao_data.format=format;

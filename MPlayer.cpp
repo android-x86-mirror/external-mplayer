@@ -332,6 +332,7 @@ namespace android {
 			mCondition.signal();
 			mCondition.wait(mMutex);
 		}
+		libInUse = false;
 		return NO_ERROR;
 	}
 
