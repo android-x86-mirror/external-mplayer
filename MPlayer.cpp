@@ -79,9 +79,10 @@ namespace android {
 		release();
 	}
 
-	status_t MPlayer::setDataSource(const char* path)
+	status_t MPlayer::setDataSource(
+			const char *uri, const KeyedVector<String8, String8> * headers)
 	{
-		return setdatasource(path, -1, 0, 0x78ffffLL);
+		return setdatasource(uri, -1, 0, 0x78ffffLL);
 	}
 
 	status_t MPlayer::setDataSource(int fd, int64_t offset, int64_t length)
@@ -229,7 +230,6 @@ namespace android {
 			sendEvent (MEDIA_ERROR);
 			return NO_ERROR;
 		}
-
 
 		sendEvent (MEDIA_PREPARED);	/* todo : should be moved to main loop */
 		return NO_ERROR;

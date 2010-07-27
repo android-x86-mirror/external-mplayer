@@ -9,7 +9,7 @@
 #include <utils/Log.h>
 
 #include <binder/MemoryHeapBase.h>
-#include <ui/ISurface.h>
+#include <surfaceflinger/ISurface.h>
 #include "MPDebug.h"
 #include "MPlayerRenderer.h"
 

@@ -726,7 +726,7 @@ LOCAL_MODULE = libandroidmplayer
 LOCAL_CFLAGS = 
 LOCAL_SRC_FILES = MPlayer.cpp MPlayerRenderer.cpp
 LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
-	libbinder libmedia libui libandroid_runtime liblog
+	libbinder libmedia libui libandroid_runtime liblog libsurfaceflinger_client
 LOCAL_STATIC_LIBRARIES := libmplayer $(FFMPEGPARTS) libft2
 include $(BUILD_SHARED_LIBRARY)
 
