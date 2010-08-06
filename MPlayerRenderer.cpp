@@ -8,7 +8,7 @@
 #define LOG_TAG "MPlayerRenderer"
 #include <utils/Log.h>
 
-#include <binder/MemoryHeapBase.h>
+#include <utils/MemoryHeapBase.h>
 #include <ui/ISurface.h>
 #include "MPDebug.h"
 #include "MPlayerRenderer.h"

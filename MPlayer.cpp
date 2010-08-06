@@ -16,7 +16,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#include <ui/GraphicBuffer.h>
+//#include <ui/GraphicBuffer.h>
 #include "mplayer_lib.h"
 #include "MPlayer.h"
 #include "MPlayerRenderer.h"

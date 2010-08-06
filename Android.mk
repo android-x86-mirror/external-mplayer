@@ -724,17 +724,18 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE = libandroidmplayer
 LOCAL_CFLAGS = 
+LOCAL_C_INCLUDES := frameworks/base/include
 LOCAL_SRC_FILES = MPlayer.cpp MPlayerRenderer.cpp
 LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
-	libbinder libmedia libui libandroid_runtime liblog
+	libmedia libui libandroid_runtime liblog
 LOCAL_STATIC_LIBRARIES := libmplayer $(FFMPEGPARTS) libft2
 include $(BUILD_SHARED_LIBRARY)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE = mplayer_test
-LOCAL_CFLAGS = 
-LOCAL_SRC_FILES = mp.c
-LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
-	libmedia libui libandroid_runtime liblog libandroidmplayer
-include $(BUILD_EXECUTABLE)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE = mplayer_test
+#LOCAL_CFLAGS = 
+#LOCAL_SRC_FILES = mp.c
+#LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
+#	libmedia libui libandroid_runtime liblog libandroidmplayer
+#include $(BUILD_EXECUTABLE)
 
