@@ -25,13 +25,19 @@ int main (int argc, char*argv[])
 		if (argva[argca] == 0)
 			break;
 	}
-	mresult = mplayer_init(&con, argca, argva);
+	mresult = mplayer_init(&con, argc, argv);
+	mresult = mplayer_prepare_play (&con);
 
 	while (1) {
 		int audio_pos;
 		unsigned int decoded_frames;
 		mresult = mplayer_decode_audio (&con, audio_buffer, 4096, &audio_pos);
-		printf ("mresult decode_audio %d\n", mresult);
+		printf ("mresult decode_audio %d %x %x %x %x %x\n", mresult,
+				audio_buffer[0],
+				audio_buffer[1],
+				audio_buffer[2],
+				audio_buffer[3],
+				audio_buffer[4]);
 		if (mresult) break;
 
 		mresult = mplayer_decode_video(&con, NULL, &decoded_frames);

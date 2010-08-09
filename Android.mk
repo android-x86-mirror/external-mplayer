@@ -690,12 +690,15 @@ FFMPEGPARTS = libavformat \
 			  libavcodec \
 			  libavutil
 
-FFCFLAGS += -include $(LOCAL_PATH)/config.h -DANDROID
-FFCXXFLAGS += -include $(LOCAL_PATH)/config.h -DANDROID
+#MP_COMMON_FLAGS := -O2 -mhard-float -march=i586 -mmmx -msse -msse2 -msse3 -mfpmath=sse
+#MP_COMMON_FLAGS := -march=native -mtune=native
+MP_COMON_FLAGS :=
+FFCFLAGS += -include $(LOCAL_PATH)/config.h -DANDROID $(MP_COMMON_FLAGS)
+FFCXXFLAGS += -include $(LOCAL_PATH)/config.h -DANDROID $(MP_COMMON_FLAGS)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE = libfaad2
-LOCAL_CFLAGS =  -D_GNU_SOURCE -DHAVE_CONFIG_H
+LOCAL_CFLAGS =  -D_GNU_SOURCE -DHAVE_CONFIG_H $(FFCFLAGS)
 LOCAL_SRC_FILES = $(SRCS_FAAD-yes)
 LOCAL_C_INCLUDES = $(LOCAL_PATH)/libfaad2
 include $(BUILD_STATIC_LIBRARY)
@@ -723,7 +726,8 @@ include $(BUILD_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE = libandroidmplayer
-LOCAL_CFLAGS = 
+LOCAL_CFLAGS = $(MP_COMMON_FLAGS)
+LOCAL_CPPFLAGS = $(MP_COMMON_FLAGS)
 LOCAL_C_INCLUDES := frameworks/base/include
 LOCAL_SRC_FILES = MPlayer.cpp MPlayerRenderer.cpp
 LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
@@ -731,11 +735,12 @@ LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
 LOCAL_STATIC_LIBRARIES := libmplayer $(FFMPEGPARTS) libft2
 include $(BUILD_SHARED_LIBRARY)
 
-#include $(CLEAR_VARS)
-#LOCAL_MODULE = mplayer_test
-#LOCAL_CFLAGS = 
-#LOCAL_SRC_FILES = mp.c
-#LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
-#	libmedia libui libandroid_runtime liblog libandroidmplayer
-#include $(BUILD_EXECUTABLE)
+include $(CLEAR_VARS)
+LOCAL_MODULE = mplayer_test
+LOCAL_CFLAGS = $(MP_COMMON_FLAGS)
+LOCAL_CPPFLAGS = $(MP_COMMON_FLAGS)
+LOCAL_SRC_FILES = mp.c
+LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
+	libmedia libui libandroid_runtime liblog libandroidmplayer
+include $(BUILD_EXECUTABLE)
 
