@@ -24,12 +24,12 @@ namespace android {
 		mMemoryHeap (new MemoryHeapBase(2 * mFrameSize)),
 		mIndex(0)
 	{
+		LOGI("creator");
+
 		CHECK(mISurface.get() != NULL);
 		CHECK(mDisplayWidth > 0);
 		CHECK(mDisplayHeight >0);
 		CHECK(mMemoryHeap->heapID() >= 0);
-
-		LOGI("creator");
 
 		ISurface::BufferHeap bufferHeap (
 				mDisplayWidth, mDisplayHeight,
