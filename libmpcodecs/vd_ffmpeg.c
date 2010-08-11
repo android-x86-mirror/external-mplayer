@@ -628,7 +628,7 @@ static int get_buffer(AVCodecContext *avctx, AVFrame *pic){
         }else{
             type= MP_IMGTYPE_IP;
         }
-        mp_msg(MSGT_DECVIDEO, MSGL_DBG2, type== MP_IMGTYPE_IPB ? "using IPB\n" : "using IP\n");
+/*        mp_msg(MSGT_DECVIDEO, MSGL_DBG2, type== MP_IMGTYPE_IPB ? "using IPB\n" : "using IP\n"); */
     }
 
     if (ctx->best_csp == IMGFMT_RGB8 || ctx->best_csp == IMGFMT_BGR8)
@@ -816,8 +816,9 @@ static mp_image_t *decode(sh_video_t *sh, void *data, int len, int flags){
 
     avctx->hurry_up=(flags&3)?((flags&2)?2:1):0;
 
-    mp_msg(MSGT_DECVIDEO, MSGL_DBG2, "vd_ffmpeg data: %04x, %04x, %04x, %04x\n",
+/*    mp_msg(MSGT_DECVIDEO, MSGL_DBG2, "vd_ffmpeg data: %04x, %04x, %04x, %04x\n",
            ((int *)data)[0], ((int *)data)[1], ((int *)data)[2], ((int *)data)[3]);
+		   */
     av_init_packet(&pkt);
     pkt.data = data;
     pkt.size = len;
