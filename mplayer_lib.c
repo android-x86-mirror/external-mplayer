@@ -2191,7 +2191,9 @@ static int sleep_until_update(float *time_frame, float *aq_sleep_time)
 
 	// flag 256 means: libvo driver does its timing (dvb card)
 	if (*time_frame > 0.001 && !(vo_flags&256)) {
+		/*
 		mp_msg(MSGT_CPLAYER,MSGL_INFO,"timing_sleep %f", *time_frame);
+		*/
 		*time_frame = timing_sleep(*time_frame);
 	}
 	return frame_time_remaining;
@@ -3719,7 +3721,7 @@ int mplayer_after_decode (struct mplayer_context * con)
 	int frame_time_remaining = con->frame_time_remaining;
 
 	vout_time_usage += (GetTimer() - con->t2) * 0.000001;
-	mp_msg(MSGT_CPLAYER,MSGL_INFO,"vout time %u\n", vout_time_usage);
+/*	mp_msg(MSGT_CPLAYER,MSGL_INFO,"vout time %u\n", vout_time_usage); */
 
 
 	if (mpctx->sh_video) {
@@ -3842,7 +3844,7 @@ int mplayer_after_decode (struct mplayer_context * con)
 		edl_decision = 0;
 	}
 
-	mp_msg(MSGT_GLOBAL,MSGL_V,"EOF code: %d  \n",mpctx->eof);
+/*	mp_msg(MSGT_GLOBAL,MSGL_V,"EOF code: %d  \n",mpctx->eof); */
 
 goto_next_file:  // don't jump here after ao/vo/getch initialization!
 	return 0;

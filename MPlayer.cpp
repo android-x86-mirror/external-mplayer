@@ -390,7 +390,7 @@ namespace android {
 		return ((MPlayer*)p)->render();
 	}
 
-#define AUDIOBUFFER_SIZE (4096*2)
+#define AUDIOBUFFER_SIZE (1024*32)
 
 	int MPlayer::render() {
 		int result = -1;
