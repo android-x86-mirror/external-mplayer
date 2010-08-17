@@ -71,7 +71,7 @@ namespace android {
 			bool		mPaused;
 			volatile bool mRender;
 			status_t	mState;
-			pid_t		mRenderTid;
+			volatile pid_t		mRenderTid;
 			MPlayerRenderer *mVideoRenderer;
 			sp<ISurface> mISurface;
 

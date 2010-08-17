@@ -15,6 +15,7 @@ struct mplayer_context {
 	unsigned int t2;
 };
 
+extern int mplayer_get_display_size(int * width, int * height);
 extern int mplayer_get_video_size(struct mplayer_context * con,
 		int *width, int *height);
 extern int mplayer_seek (struct mplayer_context * con, int position);

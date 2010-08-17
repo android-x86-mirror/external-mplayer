@@ -33,6 +33,7 @@
 #include <sys/stat.h>
 #include <sys/time.h>
 #include <sys/types.h>
+#include <linux/fb.h>
 
 #include "mplayer_lib.h"
 
@@ -61,6 +62,12 @@
 #include <SDL.h>
 #endif
 #endif
+
+#include <fcntl.h>
+#include <errno.h>
+#include <sys/ioctl.h>
+#include <string.h>
+#include <stdlib.h>
 
 #include "gui/interface.h"
 #include "input/input.h"
@@ -2563,6 +2570,40 @@ static int seek(MPContext *mpctx, double amount, int style)
 
     current_module = NULL;
     return 0;
+}
+
+
+int mplayer_get_display_size (int * width, int * height)
+{
+	char const * const device_template[] = {
+		"/dev/graphics/fb%u",
+		"/dev/fb%u",
+		0};
+	int fd = -1;
+	int i = 0;
+	char name [64];
+
+	while ((fd == -1) && device_template[i]) {
+		snprintf (name, 64, device_template[i], 0);
+		fd = open(name, O_RDWR, 0);
+		i++;
+	}
+	if (fd < 0)
+		return -errno;
+
+	struct fb_var_screeninfo info;
+	if (ioctl(fd, FBIOGET_VSCREENINFO, &info) == -1)
+		return -errno;
+
+	close (fd);
+
+	*width = info.xres;
+	*height = info.yres;
+
+	if (*width <= 0) *width = 640;
+	if (*height <= 0) *height = 480;
+
+	return 0;
 }
 
 int mplayer_get_video_size(struct mplayer_context * con, 

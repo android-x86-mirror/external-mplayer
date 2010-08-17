@@ -690,12 +690,15 @@ FFMPEGPARTS = libavformat \
 			  libavcodec \
 			  libavutil
 
-FFCFLAGS += -include $(LOCAL_PATH)/config.h -DANDROID
-FFCXXFLAGS += -include $(LOCAL_PATH)/config.h -DANDROID
+#MP_COMMON_FLAGS := -O2 -mhard-float -march=i586 -mmmx -msse -msse2 -msse3 -mfpmath=sse
+#MP_COMMON_FLAGS := -march=native -mtune=native
+MP_COMON_FLAGS :=
+FFCFLAGS += -include $(LOCAL_PATH)/config.h -DANDROID $(MP_COMMON_FLAGS)
+FFCXXFLAGS += -include $(LOCAL_PATH)/config.h -DANDROID $(MP_COMMON_FLAGS)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE = libfaad2
-LOCAL_CFLAGS =  -D_GNU_SOURCE -DHAVE_CONFIG_H
+LOCAL_CFLAGS =  -D_GNU_SOURCE -DHAVE_CONFIG_H $(FFCFLAGS)
 LOCAL_SRC_FILES = $(SRCS_FAAD-yes)
 LOCAL_C_INCLUDES = $(LOCAL_PATH)/libfaad2
 include $(BUILD_STATIC_LIBRARY)
