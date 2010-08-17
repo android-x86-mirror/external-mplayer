@@ -445,7 +445,6 @@ namespace android {
 				break;
 			}
 
-			LOGI ("3");
 			//create audio output track
 			if (!mAudioSink->ready()) {
 				LOGE("create output track");
