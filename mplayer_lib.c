@@ -36,21 +36,8 @@
 
 #include "mplayer_lib.h"
 
-#if defined(__MINGW32__) || defined(__CYGWIN__)
-#define _UWIN 1  /*disable Non-underscored versions of non-ANSI functions as otherwise int eof would conflict with eof()*/
-#include <windows.h>
-#endif
-
-#ifndef __MINGW32__
 #include <sys/ioctl.h>
 #include <sys/wait.h>
-#else
-#define	SIGHUP	1	/* hangup */
-#define	SIGQUIT	3	/* quit */
-#define	SIGKILL	9	/* kill (cannot be caught or ignored) */
-#define	SIGBUS	10	/* bus error */
-#define	SIGPIPE	13	/* broken pipe */
-#endif
 
 #ifdef HAVE_RTC
 #ifdef __linux__
@@ -294,19 +281,6 @@ int   subcc_enabled=0;
 int suboverlap_enabled = 1;
 
 char* current_module=NULL; // for debugging
-
-
-#ifdef CONFIG_MENU
-extern vf_info_t vf_info_menu;
-static vf_info_t* libmenu_vfs[] = {
-  &vf_info_menu,
-  NULL
-};
-static vf_instance_t* vf_menu = NULL;
-int use_menu = 0;
-static char* menu_cfg = NULL;
-static char* menu_root = "main";
-#endif
 
 
 #ifdef HAVE_RTC
@@ -617,9 +591,6 @@ void uninit_player(unsigned int mask){
     current_module="uninit_vcodec";
     if(mpctx->sh_video) uninit_video(mpctx->sh_video);
     mpctx->sh_video=NULL;
-#ifdef CONFIG_MENU
-    vf_menu=NULL;
-#endif
   }
 
   if(mask&INITIALIZED_DEMUXER){
@@ -687,10 +658,6 @@ void uninit_player(unsigned int mask){
 	  mp_input_uninit();
 
 
-#ifdef CONFIG_MENU
-	  if (use_menu)
-		  menu_uninit();
-#endif
   }
 
 current_module=NULL;
@@ -701,10 +668,6 @@ void exit_player_with_rc(enum exit_reason how, int rc)
 
 	if (mpctx->user_muted && !mpctx->edl_muted) mixer_mute(&mpctx->mixer);
 	uninit_player(INITIALIZED_ALL);
-#if defined(__MINGW32__) || defined(__CYGWIN__)
-	timeEndPeriod(1);
-	vo_uninit();
-#endif
 
 #ifdef CONFIG_FREETYPE
   current_module="uninit_font";
@@ -766,12 +729,10 @@ void exit_player(enum exit_reason how)
   exit_player_with_rc(how, 1);
 }
 
-#ifndef __MINGW32__
 static void child_sighandler(int x){
   pid_t pid;
   while((pid=waitpid(-1,NULL,WNOHANG)) > 0);
 }
-#endif
 
 #ifdef CONFIG_CRASH_DEBUG
 static char *prog_path;
@@ -797,9 +758,7 @@ static void exit_sighandler(int x){
   if(sig_count==6) exit(1);
   if(sig_count>6){
     // can't stop :(
-#ifndef __MINGW32__
     kill(getpid(),SIGKILL);
-#endif
   }
   mp_msg(MSGT_CPLAYER,MSGL_FATAL,"\n" MSGTR_IntBySignal,x,
       current_module?current_module:"unknown"
@@ -860,11 +819,7 @@ if (!disable_system_conf &&
 if ((conffile = get_path("")) == NULL) {
   mp_msg(MSGT_CPLAYER,MSGL_WARN,MSGTR_NoHomeDir);
 } else {
-#ifdef __MINGW32__
-  mkdir(conffile);
-#else
   mkdir(conffile, 0777);
-#endif
   free(conffile);
   if ((conffile = get_path("config")) == NULL) {
     mp_msg(MSGT_CPLAYER,MSGL_ERR,MSGTR_GetpathProblem);
@@ -1251,11 +1206,6 @@ static void print_status(float a_pos, float a_v, float corr)
     width = screen_width;
   else
   width = 80;
-#if defined(__MINGW32__) || defined(__CYGWIN__) || defined(__OS2__)
-  /* Windows command line is broken (MinGW's rxvt works, but we
-   * should not depend on that). */
-  width--;
-#endif
   line = malloc(width + 1); // one additional char for the terminating null
 
   // Audio time
@@ -2264,18 +2214,6 @@ int reinit_video_chain(void) {
     char* vf_arg[] = { "_oldargs_", (char*)mpctx->video_out , NULL };
     sh_video->vfilter=(void*)vf_open_filter(NULL,"vo",vf_arg);
   }
-#ifdef CONFIG_MENU
-  if(use_menu) {
-    char* vf_arg[] = { "_oldargs_", menu_root, NULL };
-    vf_menu = vf_open_plugin(libmenu_vfs,sh_video->vfilter,"menu",vf_arg);
-    if(!vf_menu) {
-      mp_msg(MSGT_CPLAYER,MSGL_ERR,MSGTR_CantOpenLibmenuFilterWithThisRootMenu,menu_root);
-      use_menu = 0;
-    }
-  }
-  if(vf_menu)
-    sh_video->vfilter=(void*)vf_menu;
-#endif
 
 #ifdef CONFIG_ASS
   if(ass_enabled) {
@@ -2468,10 +2406,6 @@ static void pause_loop(void)
         }
         if (mpctx->sh_video && mpctx->video_out && vo_config_count)
             mpctx->video_out->check_events();
-#ifdef CONFIG_MENU
-        if (vf_menu)
-            vf_menu_pause_update(vf_menu);
-#endif
         usec_sleep(20000);
     }
     if (cmd && cmd->id == MP_CMD_PAUSE) {
@@ -2678,10 +2612,6 @@ int mplayer_init (struct mplayer_context * con, int argc, const char*argv[])
 	// Preparse the command line
 	m_config_preparse_command_line(mconfig,argc,argv);
 
-#if (defined(__MINGW32__) || defined(__CYGWIN__)) && defined(CONFIG_WIN32DLL)
-	set_path_env();
-#endif
-
 #ifdef CONFIG_TV
 	stream_tv_defaults.immediate = 1;
 #endif
@@ -2721,20 +2651,6 @@ int mplayer_init (struct mplayer_context * con, int argc, const char*argv[])
 	}
 
 	print_version("MPlayer");
-
-#if defined(__MINGW32__) || defined(__CYGWIN__)
-	{
-		HMODULE kernel32 = GetModuleHandle("Kernel32.dll");
-		BOOL WINAPI (*setDEP)(DWORD) = NULL;
-		if (kernel32)
-			setDEP = GetProcAddress(kernel32, "SetProcessDEPPolicy");
-		if (setDEP) setDEP(3);
-	}
-	// stop Windows from showing all kinds of annoying error dialogs
-	SetErrorMode(0x8003);
-	// request 1ms timer resolution
-	timeBeginPeriod(1);
-#endif
 
 #ifdef CONFIG_PRIORITY
 	set_priority();
@@ -2929,33 +2845,11 @@ int mplayer_init (struct mplayer_context * con, int argc, const char*argv[])
 	// Set the libstream interrupt callback
 	stream_set_interrupt_callback(mp_input_check_interrupt);
 
-#ifdef CONFIG_MENU
-	if(use_menu) {
-		if(menu_cfg && menu_init(mpctx, menu_cfg))
-			mp_msg(MSGT_CPLAYER, MSGL_V, MSGTR_MenuInitialized, menu_cfg);
-		else {
-			menu_cfg = get_path("menu.conf");
-			if(menu_init(mpctx, menu_cfg))
-				mp_msg(MSGT_CPLAYER, MSGL_V, MSGTR_MenuInitialized, menu_cfg);
-			else {
-				if(menu_init(mpctx, MPLAYER_CONFDIR "/menu.conf"))
-					mp_msg(MSGT_CPLAYER, MSGL_V, MSGTR_MenuInitialized, MPLAYER_CONFDIR"/menu.conf");
-				else {
-					mp_msg(MSGT_CPLAYER, MSGL_ERR, MSGTR_MenuInitFailed);
-					use_menu = 0;
-				}
-			}
-		}
-	}
-#endif
-
 	initialized_flags|=INITIALIZED_INPUT;
 	current_module = NULL;
 
 	/// Catch signals
-#ifndef __MINGW32__
 	signal(SIGCHLD,child_sighandler);
-#endif
 
 #ifdef CONFIG_CRASH_DEBUG
 	prog_path = argv[0];
@@ -3113,9 +3007,6 @@ play_next_file:
 		char *buf = strdup(filename), *psub;
 		char *pdot = strrchr(buf, '.');
 		char *pslash = strrchr(buf, '/');
-#if defined(__MINGW32__) || defined(__CYGWIN__)
-		if (!pslash) pslash = strrchr(buf, '\\');
-#endif
 		if (pdot && (!pslash || pdot > pslash))
 			*pdot = '\0';
 		vo_vobsub=vobsub_open(buf,spudec_ifo,0,&vo_spudec);
@@ -3124,9 +3015,6 @@ play_next_file:
 			char *bname;
 			int l;
 			bname = strrchr(buf,'/');
-#if defined(__MINGW32__) || defined(__CYGWIN__)
-			if(!bname) bname = strrchr(buf,'\\');
-#endif
 			if(bname) bname++;
 			else bname = buf;
 			l = strlen(psub) + strlen(bname) + 1;
