@@ -77,7 +77,7 @@ static void drain (void) {
 	temp2 /= 1000;
 	temp += temp2;
 
-	temp *= 1.032;
+	temp *= 1.03;
 	mp_msg(MSGT_AO, MSGL_INFO, "temp %d", temp);
 
 	buffer-=temp;
@@ -176,6 +176,9 @@ static void uninit(int immed){
 // stop playing and empty buffers (for seeking/pause)
 static void reset(void){
 	buffer = 0;
+
+	last_tv.tv_sec = 0;
+	last_tv.tv_usec = 0;
 }
 
 // stop playing, keep buffers (for pause)

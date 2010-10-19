@@ -270,6 +270,7 @@ namespace android {
 		if (mState != STATE_OPEN) {
 			return ERROR_NOT_OPEN;
 		}
+		mAudioSink->flush();
 		mplayer_seek (&mMPContext, position);
 		sendEvent(MEDIA_SEEK_COMPLETE);
 		return NO_ERROR;
