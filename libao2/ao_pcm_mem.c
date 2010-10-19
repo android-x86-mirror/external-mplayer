@@ -77,7 +77,7 @@ static void drain (void) {
 	temp2 /= 1000;
 	temp += temp2;
 
-	/* temp *= 1.03; */
+	temp *= 1.032;
 	mp_msg(MSGT_AO, MSGL_INFO, "temp %d", temp);
 
 	buffer-=temp;
