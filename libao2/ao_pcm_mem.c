@@ -64,6 +64,9 @@ static void drain (void) {
 	struct timeval now_tv;
 	int temp, temp2;
 
+	if (last_tv.tv_sec == 0 && last_tv.tv_usec == 0) 
+		gettimeofday(&last_tv, 0);
+
 	gettimeofday(&now_tv, 0);
 	temp = now_tv.tv_sec - last_tv.tv_sec;
 	temp *= ao_data.bps;
@@ -74,8 +77,14 @@ static void drain (void) {
 	temp2 /= 1000;
 	temp += temp2;
 
+	/* temp *= 1.03; */
+	mp_msg(MSGT_AO, MSGL_INFO, "temp %d", temp);
+
 	buffer-=temp;
-	if (buffer<0) buffer=0;
+	if (buffer<0){
+		mp_msg(MSGT_AO, MSGL_INFO, "calculated buffer smaller than 0");
+	   	buffer=0;
+	}
 
 	if(temp>0) last_tv = now_tv;//mplayer is fast
 
@@ -145,13 +154,16 @@ static int init(int rate,int channels,int format,int flags){
 	ao_data.format=format;
 	ao_data.bps=channels*rate*samplesize;
 	buffer = 0;
-	gettimeofday(&last_tv, 0);
+
+	last_tv.tv_sec = 0;
+	last_tv.tv_usec = 0;
 
 	mp_msg(MSGT_AO, MSGL_INFO, "%s rate%d %s %s\n",
 			"RAW PCM", rate,
 			(channels > 1) ? "Stereo" : "Mono", af_fmt2str_short(format));
 	mp_msg(MSGT_AO, MSGL_INFO, "outburst %d, buffersize %d", 
 			ao_data.outburst, ao_data.buffersize);
+	mp_msg(MSGT_AO, MSGL_INFO, "bps %d", ao_data.bps);
 
 	return 1;
 }
@@ -182,10 +194,8 @@ static void audio_resume(void)
 static int get_space(void){
 	int virt_space;
 	int real_space;
-	int rounded_buffer;
 	drain();
-	rounded_buffer = buffer / ao_data.bps * ao_data.bps;
-	virt_space = ao_data.buffersize - rounded_buffer;
+	virt_space = ao_data.buffersize - buffer;
 	real_space = ao_pcm_buffersize - ao_outputpos;
 	if (virt_space > real_space) return real_space;
 	else return virt_space;
@@ -222,9 +232,6 @@ static int play(void* data,int len,int flags){
 
 // return: delay in seconds between first and last sample in buffer
 static float get_delay(void){
-	int rounded_buffer;
 	drain();
-	rounded_buffer = buffer / ao_data.bps * ao_data.bps;
-
-	return (float) rounded_buffer / (float) ao_data.bps;
+	return (float) buffer / (float) ao_data.bps;
 }

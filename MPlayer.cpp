@@ -125,7 +125,6 @@ namespace android {
 			"-vo", "mem", "-framedrop",
 			"-ao", "pcm_mem", "-noconsolecontrols", "-nojoystick",
 			"-nolirc", "-nomouseinput", "-slave", "-zoom", "-fs",
-			"-quiet",
 			0};
 		char url_buffer[100];
 		char screenh_buffer[30];
@@ -438,6 +437,10 @@ namespace android {
 				sendEvent(MEDIA_ERROR);
 				break;
 			}
+
+			/*
+			LOGE("audio_pos %d", audio_pos);
+			*/
 
 			//create audio output track
 			if (!mAudioSink->ready()) {

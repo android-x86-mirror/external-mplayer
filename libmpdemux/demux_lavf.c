@@ -89,8 +89,10 @@ static int mp_read(void *opaque, uint8_t *buf, int size) {
 
     ret=stream_read(stream, buf, size);
 
+	/*
     mp_msg(MSGT_HEADER,MSGL_DBG2,"%d=mp_read(%p, %p, %d), pos: %"PRId64", eof:%d\n",
            ret, stream, buf, size, stream_tell(stream), stream->eof);
+		   */
     return ret;
 }
 
@@ -584,7 +586,7 @@ static int demux_lavf_fill_buffer(demuxer_t *demux, demux_stream_t *dsds){
     demux_packet_t *dp;
     demux_stream_t *ds;
     int id;
-    mp_msg(MSGT_DEMUX,MSGL_DBG2,"demux_lavf_fill_buffer()\n");
+//    mp_msg(MSGT_DEMUX,MSGL_DBG2,"demux_lavf_fill_buffer()\n");
 
     demux->filepos=stream_tell(demux->stream);
 

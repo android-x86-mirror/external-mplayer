@@ -3912,7 +3912,9 @@ int mplayer_after_decode (struct mplayer_context * con)
 		edl_decision = 0;
 	}
 
+	/*
 	mp_msg(MSGT_GLOBAL,MSGL_V,"EOF code: %d  \n",mpctx->eof);
+	*/
 
 goto_next_file:  // don't jump here after ao/vo/getch initialization!
 	return 0;
