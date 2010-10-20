@@ -1,4 +1,4 @@
-/)*
+/*
  * This file is part of MPlayer.
  *
  * MPlayer is free software; you can redistribute it and/or modify
@@ -3802,7 +3802,6 @@ if(!mpctx->sh_video) {
 
   if(!quiet)
     print_status(a_pos, 0, 0);
-  con->a_pos = a_pos;
 
   if(end_at.type == END_AT_TIME && end_at.pos < a_pos)
     mpctx->eof = PT_NEXT_ENTRY;
