@@ -64,8 +64,10 @@ static void drain (void) {
 	struct timeval now_tv;
 	int temp, temp2;
 
+	/*
 	if (last_tv.tv_sec == 0 && last_tv.tv_usec == 0) 
 		gettimeofday(&last_tv, 0);
+		*/
 
 	gettimeofday(&now_tv, 0);
 	temp = now_tv.tv_sec - last_tv.tv_sec;
@@ -77,7 +79,7 @@ static void drain (void) {
 	temp2 /= 1000;
 	temp += temp2;
 
-	temp *= 1.03;
+//	temp *= 1.03;
 
 	/*
 	mp_msg(MSGT_AO, MSGL_INFO, "temp %d", temp);
@@ -85,7 +87,7 @@ static void drain (void) {
 
 	buffer-=temp;
 	if (buffer<0){
-		mp_msg(MSGT_AO, MSGL_INFO, "calculated buffer smaller than 0");
+		mp_msg(MSGT_AO, MSGL_ERR, "calculated buffer smaller than 0");
 	   	buffer=0;
 	}
 
@@ -149,17 +151,22 @@ static int init(int rate,int channels,int format,int flags){
     format = AF_FORMAT_S16_LE;
 	int samplesize = af_fmt2bits(format) / 8;
 
+	/*
 	ao_data.outburst = 256 * channels * samplesize;
 	// A "buffer" for about 0.3 seconds of audio
 	ao_data.buffersize = (int)(rate * 0.2 / 256 + 1) * ao_data.outburst;
+	*/
+	/* trial : fixed outburst and buffer size */
+	ao_data.outburst =  4 * channels * samplesize;
+	ao_data.buffersize = 4096 * 10;
+
 	ao_data.channels=channels;
 	ao_data.samplerate=rate;
 	ao_data.format=format;
 	ao_data.bps=channels*rate*samplesize;
 	buffer = 0;
 
-	last_tv.tv_sec = 0;
-	last_tv.tv_usec = 0;
+	gettimeofday(&last_tv, 0);
 
 	mp_msg(MSGT_AO, MSGL_INFO, "%s rate%d %s %s\n",
 			"RAW PCM", rate,
@@ -178,10 +185,9 @@ static void uninit(int immed){
 
 // stop playing and empty buffers (for seeking/pause)
 static void reset(void){
+	/*
 	buffer = 0;
-
-	last_tv.tv_sec = 0;
-	last_tv.tv_usec = 0;
+	*/
 }
 
 // stop playing, keep buffers (for pause)
@@ -199,12 +205,16 @@ static void audio_resume(void)
 // return: how many bytes can be played without blocking
 static int get_space(void){
 	int virt_space;
-	int real_space;
 	drain();
 	virt_space = ao_data.buffersize - buffer;
-	real_space = ao_pcm_buffersize - ao_outputpos;
-	if (virt_space > real_space) return real_space;
-	else return virt_space;
+	virt_space *= 1.03;	/* dirty fix parameter */
+	if (virt_space >= ao_data.buffersize)
+		virt_space = ao_data.buffersize;
+
+	/*
+		mp_msg (MSGT_AO, MSGL_INFO, "space %d", ao_data.buffersize - buffer);
+		*/
+	return virt_space;
 }
 
 // plays 'len' bytes of 'data'
@@ -214,7 +224,7 @@ static int play(void* data,int len,int flags){
 	int maxbursts = (ao_data.buffersize - buffer) / ao_data.outburst;
 	int playbursts = len / ao_data.outburst;
 	int bursts = playbursts > maxbursts ? maxbursts : playbursts;
-	buffer += bursts * ao_data.outburst;
+	int act_len;
 
 	if (ao_data.channels == 5 || ao_data.channels == 6 || 
 			ao_data.channels == 8) {
@@ -226,14 +236,27 @@ static int play(void* data,int len,int flags){
 				len / frame_size, frame_size);
 	}
 
-	memcpy (ao_outputbuffer+ao_outputpos, data, bursts * ao_data.outburst);
-	ao_outputpos += bursts * ao_data.outburst;
+	int frame_size = af_fmt2bits(ao_data.format) / 8;
+	len -= len % ao_data.outburst;
+
+	act_len = len;
+	/*
+	act_len = bursts * ao_data.outburst;
+	*/
+
+	memcpy (ao_outputbuffer+ao_outputpos, data, act_len);
+	ao_outputpos += act_len;
+
+	/*
+		mp_msg (MSGT_AO, MSGL_INFO, "playsize %d %d", bursts*ao_data.outburst, len);
+		*/
 
 	if (ao_outputpos > ao_pcm_buffersize) {
 		mp_msg (MSGT_AO, MSGL_INFO, "pcm output is bigger than memory buffer");
 	}
 
-	return bursts * ao_data.outburst;
+	buffer += bursts * ao_data.outburst;
+	return act_len;
 }
 
 // return: delay in seconds between first and last sample in buffer

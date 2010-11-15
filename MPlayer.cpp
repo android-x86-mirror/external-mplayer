@@ -125,7 +125,7 @@ namespace android {
 			"-vo", "mem", "-framedrop",
 			"-ao", "pcm_mem", "-noconsolecontrols", "-nojoystick",
 			"-nolirc", "-nomouseinput", "-slave", "-zoom", "-fs",
-			"-quiet",
+			"-quiet", 
 			0};
 		char url_buffer[100];
 		char screenh_buffer[30];
@@ -460,6 +460,9 @@ namespace android {
 			//start audio output if necessary
 			if (!audioStarted && !mPaused && !mExit) {
 				mAudioSink->start();
+				LOGI("audiosink framesize %d", mAudioSink->frameSize());
+				LOGI("audiosink latency %d", mAudioSink->latency());
+				LOGI("audiosink channelcount %d", mAudioSink->channelCount());
 				audioStarted = true;
 			}
 
