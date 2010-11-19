@@ -1,3 +1,4 @@
+ifeq ($(BUILD_WITH_MPLAYER),true)
 
 LOCAL_PATH := $(call my-dir)
 SAVED_LOCAL_PATH := $(LOCAL_PATH)
@@ -738,3 +739,4 @@ LOCAL_SHARED_LIBRARIES := libz libasound libc libdl libutils libcutils \
 	libmedia libui libandroid_runtime liblog libandroidmplayer
 include $(BUILD_EXECUTABLE)
 
+endif
